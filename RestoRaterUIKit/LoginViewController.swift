@@ -15,6 +15,7 @@ class LoginVIewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: ButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ButtonCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
     }
     
     // Number of sections in the table view
@@ -24,7 +25,7 @@ class LoginVIewController: UITableViewController {
     
     // Number of rows in each section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     // Configure each cell
@@ -47,6 +48,13 @@ class LoginVIewController: UITableViewController {
                 self.login()
             }
             return cell
+        case 3:
+            // Configuring for the login action
+            let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
+            cell.configure(withTitle: "Create account") {
+                self.navigateToRegister()
+            }
+            return cell
         default:
             fatalError("Unknown row in section")
         }
@@ -54,6 +62,12 @@ class LoginVIewController: UITableViewController {
     
     
     private func login() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterVIewController")
+        navigationController?.setViewControllers([registerVC], animated: false)
+    }
+    
+    private func navigateToRegister() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterVIewController")
         navigationController?.setViewControllers([registerVC], animated: false)

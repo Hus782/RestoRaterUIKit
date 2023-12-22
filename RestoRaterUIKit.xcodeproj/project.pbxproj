@@ -22,6 +22,8 @@
 		3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83B62B35B86D002D7FF1 /* ButtonCell.swift */; };
 		3D2F83B92B35B86D002D7FF1 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83B72B35B86D002D7FF1 /* ButtonCell.xib */; };
 		3D2F83BC2B35C53E002D7FF1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83BB2B35C53E002D7FF1 /* UIView.swift */; };
+		3D2F83BF2B35C6C1002D7FF1 /* SecondaryButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83BD2B35C6C1002D7FF1 /* SecondaryButtonCell.swift */; };
+		3D2F83C02B35C6C1002D7FF1 /* SecondaryButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		3D2F83B62B35B86D002D7FF1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		3D2F83B72B35B86D002D7FF1 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		3D2F83BB2B35C53E002D7FF1 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3D2F83BD2B35C6C1002D7FF1 /* SecondaryButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonCell.swift; sourceTree = "<group>"; };
+		3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondaryButtonCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				3D2F83B32B35AF8C002D7FF1 /* TextFieldCell.xib */,
 				3D2F83B62B35B86D002D7FF1 /* ButtonCell.swift */,
 				3D2F83B72B35B86D002D7FF1 /* ButtonCell.xib */,
+				3D2F83BD2B35C6C1002D7FF1 /* SecondaryButtonCell.swift */,
+				3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */,
 			);
 			path = RestoRaterUIKit;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 				3D06AC092B357BFB0057139A /* Assets.xcassets in Resources */,
 				3D2F83B92B35B86D002D7FF1 /* ButtonCell.xib in Resources */,
 				3D06AC042B357BF90057139A /* Main.storyboard in Resources */,
+				3D2F83C02B35C6C1002D7FF1 /* SecondaryButtonCell.xib in Resources */,
 				3D2F83B52B35AF8C002D7FF1 /* TextFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +184,7 @@
 			files = (
 				3D2F83BC2B35C53E002D7FF1 /* UIView.swift in Sources */,
 				3D06AC182B358EBB0057139A /* LoginViewController.swift in Sources */,
+				3D2F83BF2B35C6C1002D7FF1 /* SecondaryButtonCell.swift in Sources */,
 				3D06AC012B357BF90057139A /* ViewController.swift in Sources */,
 				3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */,
 				3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */,
