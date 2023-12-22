@@ -24,6 +24,8 @@
 		3D2F83BC2B35C53E002D7FF1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83BB2B35C53E002D7FF1 /* UIView.swift */; };
 		3D2F83BF2B35C6C1002D7FF1 /* SecondaryButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83BD2B35C6C1002D7FF1 /* SecondaryButtonCell.swift */; };
 		3D2F83C02B35C6C1002D7FF1 /* SecondaryButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */; };
+		3D2F83C32B35C9BD002D7FF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83C52B35C9BD002D7FF1 /* Localizable.strings */; };
+		3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		3D2F83BB2B35C53E002D7FF1 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3D2F83BD2B35C6C1002D7FF1 /* SecondaryButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonCell.swift; sourceTree = "<group>"; };
 		3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondaryButtonCell.xib; sourceTree = "<group>"; };
+		3D2F83C42B35C9BD002D7FF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lingo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		3D06ABFB2B357BF90057139A /* RestoRaterUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3D2F83C82B35CA05002D7FF1 /* Lingo */,
 				3D2F83BA2B35C4BE002D7FF1 /* Extensions */,
 				3D06ABFC2B357BF90057139A /* AppDelegate.swift */,
 				3D06ABFE2B357BF90057139A /* SceneDelegate.swift */,
@@ -106,6 +111,15 @@
 				3D2F83BB2B35C53E002D7FF1 /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3D2F83C82B35CA05002D7FF1 /* Lingo */ = {
+			isa = PBXGroup;
+			children = (
+				3D2F83C52B35C9BD002D7FF1 /* Localizable.strings */,
+				3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */,
+			);
+			path = Lingo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +183,7 @@
 				3D06AC0C2B357BFB0057139A /* LaunchScreen.storyboard in Resources */,
 				3D06AC092B357BFB0057139A /* Assets.xcassets in Resources */,
 				3D2F83B92B35B86D002D7FF1 /* ButtonCell.xib in Resources */,
+				3D2F83C32B35C9BD002D7FF1 /* Localizable.strings in Resources */,
 				3D06AC042B357BF90057139A /* Main.storyboard in Resources */,
 				3D2F83C02B35C6C1002D7FF1 /* SecondaryButtonCell.xib in Resources */,
 				3D2F83B52B35AF8C002D7FF1 /* TextFieldCell.xib in Resources */,
@@ -193,6 +208,7 @@
 				3D06AC142B3589D80057139A /* TabBarViewController.swift in Sources */,
 				3D06ABFF2B357BF90057139A /* SceneDelegate.swift in Sources */,
 				3D2F83B42B35AF8C002D7FF1 /* TextFieldCell.swift in Sources */,
+				3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +229,14 @@
 				3D06AC0B2B357BFB0057139A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3D2F83C52B35C9BD002D7FF1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D2F83C42B35C9BD002D7FF1 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

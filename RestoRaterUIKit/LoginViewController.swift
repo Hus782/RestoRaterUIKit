@@ -34,24 +34,24 @@ class LoginVIewController: UITableViewController {
         case 0:
             // Configuring for email input
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: "Name")
+            cell.configure(title: Lingo.loginViewEmailPlaceholder)
             return cell
         case 1:
             // Configuring for password input
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: "Password")
+            cell.configure(title: Lingo.loginViewPasswordPlaceholder)
             return cell
         case 2:
             // Configuring for the login action
             let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.defaultReuseIdentifier, for: indexPath) as! ButtonCell
-            cell.configure(withTitle: "Login") {
+            cell.configure(withTitle: Lingo.loginViewLoginButton) {
                 self.login()
             }
             return cell
         case 3:
             // Configuring for the login action
             let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
-            cell.configure(withTitle: "Create account") {
+            cell.configure(withTitle: Lingo.loginViewRegisterButton) {
                 self.navigateToRegister()
             }
             return cell

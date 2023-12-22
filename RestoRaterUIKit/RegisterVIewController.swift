@@ -34,29 +34,29 @@ class RegisterViewController: UITableViewController {
         case 0:
             // Configuring for name input
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: "Name")
+            cell.configure(title: Lingo.registerViewNamePlaceholder)
             return cell
         case 1:
             // Configuring for email input
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: "Email")
+            cell.configure(title: Lingo.registerViewEmailPlaceholder)
             return cell
         case 2:
             // Configuring for password input
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: "Password")
+            cell.configure(title: Lingo.registerViewPasswordPlaceholder)
             return cell
         case 3:
             // Configuring for the register action
             let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.defaultReuseIdentifier, for: indexPath) as! ButtonCell
-            cell.configure(withTitle: "Register") {
+            cell.configure(withTitle: Lingo.registerViewRegisterButton) {
                 self.register()
             }
             return cell
         case 4:
             // Configuring for the register action
             let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
-            cell.configure(withTitle: "Go to login") {
+            cell.configure(withTitle: Lingo.registerViewLoginButton) {
                 self.navigateToLogin()
             }
             return cell

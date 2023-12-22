@@ -1,0 +1,100 @@
+/* 
+  Localizable.strings
+  RestoRaterUIKit
+
+  Created by user249550 on 12/22/23.
+  
+*/
+// Common labels
+"common_ok" = "OK";
+"common_cancel" = "Cancel";
+"common_delete" = "Delete";
+"common_edit" = "Edit";
+"common_save" = "Save";
+"common_error" = "Error";
+"common_confirm_delete" = "Confirm Delete";
+"common_confirm_delete_message" = "Are you sure you want to delete this item?";
+"common_eror_message" = "Something went wrong";
+
+// Prifle tab labels
+"profile_view_title" = "Profile";
+"profile_view_no_user_logged_in" = "No user is currently logged in.";
+"profile_view_logout_button" = "Logout";
+"profile_view_name_title" = "Name";
+"profile_view_email_title" = "Email";
+"profile_view_role_title" = "Role";
+"profile_view_admin_role" = "Admin";
+"profile_view_regular_user_role" = "Regular User";
+
+// User tab labels
+"users_list_title" = "Users";
+"add_edit_user_name" = "Name";
+"add_edit_user_email" = "Email";
+"add_edit_user_password" = "Password";
+"add_edit_user_admin_access" = "Admin Access";
+"add_edit_user_create_title" = "Add user";
+"add_edit_uesr_edit_title" = "Edit user";
+
+// User details
+"user_details_name_label" = "Name:";
+"user_details_email_label" = "Email:";
+"user_details_role_label" = "Role:";
+"user_details_role_admin" = "Admin";
+"user_details_role_regular_user" = "Regular User";
+"user_details_delete_button" = "Delete User";
+"user_details_title" = "User Details";
+"user_details_delete_confirmation" = "Are you sure you want to delete this user?";
+
+// Restaurant tab
+"restaurants_list_title" = "Restaurants";
+"add_edit_restaurant_name" = "Name";
+"add_edit_restaurant_address" = "Address";
+"add_edit_restaurant_image" = "Image";
+"add_edit_restaurant_select_image" = "Select image";
+"add_edit_restaurant_create_title" = "Add restaurant";
+"add_edit_restaurant_edit_title" = "Edit restaurant";
+
+// Restaurant details
+"restaurant_detail_title" = "Details";
+"restaurant_detail_average_rating" = "Average Rating: ";
+"restaurant_detail_show_all_reviews" = "Show all reviews";
+"restaurant_detail_add_review" = "Add Review";
+"restaurant_detail_confirm_delete_message" = "Are you sure you want to delete this restaurant?";
+"review_section_latest_review" = "Latest Review";
+"review_section_highest_rated_review" = "Highest Rated Review";
+"review_section_lowest_rated_review" = "Lowest Rated Review";
+
+// Reviews list
+"reviews_list_view_confirm_delete_message" = "Are you sure you want to delete this review?";
+
+// Add review
+"add_edit_review_rating" = "Rating";
+"add_edit_review_comment" = "Comment";
+"add_edit_review_date_of_visit" = "Date of Visit";
+"add_edit_review_submit_button" = "Submit Review";
+"add_edit_review_navigation_title_add" = "Add Review";
+"add_edit_review_navigation_title_edit" = "Edit Review";
+"add_edit_review_create_title" = "Create review";
+"add_edit_review_edit_title" = "Edit review";
+
+// Login screen
+"login_view_email_placeholder" = "Email";
+"login_view_password_placeholder" = "Password";
+"login_view_login_button" = "Login";
+"login_view_register_button" = "Register";
+"login_view_login_alert_title" = "Login";
+
+// register screen
+"register_view_email_placeholder" = "Email";
+"register_view_password_placeholder" = "Password";
+"register_view_name_placeholder" = "Name";
+"register_view_is_admin_label" = "Is Admin";
+"register_view_register_button" = "Register";
+"register_view_login_button" = "Login";
+
+// Login screen
+"invalidCredentialsKey" = "Invalid credentials";
+"loginFailedKey" = "Login Failed";
+
+//Register screen
+"registrationFailedKey" = "Registration Failed";
