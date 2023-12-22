@@ -62,14 +62,12 @@ class LoginVIewController: UITableViewController {
     
     
     private func login() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterVIewController")
-        navigationController?.setViewControllers([registerVC], animated: false)
+
     }
     
     private func navigateToRegister() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterVIewController")
+        let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterViewController")
         navigationController?.setViewControllers([registerVC], animated: false)
     }
 }
