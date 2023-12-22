@@ -17,6 +17,10 @@
 		3D06AC142B3589D80057139A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC132B3589D80057139A /* TabBarViewController.swift */; };
 		3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC152B358E8A0057139A /* RegisterVIewController.swift */; };
 		3D06AC182B358EBB0057139A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC172B358EBB0057139A /* LoginViewController.swift */; };
+		3D2F83B42B35AF8C002D7FF1 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83B22B35AF8C002D7FF1 /* TextFieldCell.swift */; };
+		3D2F83B52B35AF8C002D7FF1 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83B32B35AF8C002D7FF1 /* TextFieldCell.xib */; };
+		3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83B62B35B86D002D7FF1 /* ButtonCell.swift */; };
+		3D2F83B92B35B86D002D7FF1 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83B72B35B86D002D7FF1 /* ButtonCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		3D06AC132B3589D80057139A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3D06AC152B358E8A0057139A /* RegisterVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVIewController.swift; sourceTree = "<group>"; };
 		3D06AC172B358EBB0057139A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3D2F83B22B35AF8C002D7FF1 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		3D2F83B32B35AF8C002D7FF1 /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		3D2F83B62B35B86D002D7FF1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		3D2F83B72B35B86D002D7FF1 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,10 @@
 				3D06AC132B3589D80057139A /* TabBarViewController.swift */,
 				3D06AC152B358E8A0057139A /* RegisterVIewController.swift */,
 				3D06AC172B358EBB0057139A /* LoginViewController.swift */,
+				3D2F83B22B35AF8C002D7FF1 /* TextFieldCell.swift */,
+				3D2F83B32B35AF8C002D7FF1 /* TextFieldCell.xib */,
+				3D2F83B62B35B86D002D7FF1 /* ButtonCell.swift */,
+				3D2F83B72B35B86D002D7FF1 /* ButtonCell.xib */,
 			);
 			path = RestoRaterUIKit;
 			sourceTree = "<group>";
@@ -139,7 +151,9 @@
 			files = (
 				3D06AC0C2B357BFB0057139A /* LaunchScreen.storyboard in Resources */,
 				3D06AC092B357BFB0057139A /* Assets.xcassets in Resources */,
+				3D2F83B92B35B86D002D7FF1 /* ButtonCell.xib in Resources */,
 				3D06AC042B357BF90057139A /* Main.storyboard in Resources */,
+				3D2F83B52B35AF8C002D7FF1 /* TextFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,11 +166,13 @@
 			files = (
 				3D06AC182B358EBB0057139A /* LoginViewController.swift in Sources */,
 				3D06AC012B357BF90057139A /* ViewController.swift in Sources */,
+				3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */,
 				3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */,
 				3D06AC072B357BF90057139A /* RestoRaterUIKit.xcdatamodeld in Sources */,
 				3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */,
 				3D06AC142B3589D80057139A /* TabBarViewController.swift in Sources */,
 				3D06ABFF2B357BF90057139A /* SceneDelegate.swift in Sources */,
+				3D2F83B42B35AF8C002D7FF1 /* TextFieldCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

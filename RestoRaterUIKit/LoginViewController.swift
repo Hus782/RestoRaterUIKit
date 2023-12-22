@@ -7,15 +7,54 @@
 
 import UIKit
 
-class LoginVIewController: UIViewController {
-
+class LoginVIewController: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        //        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "TextFieldCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UINib(nibName: "TextFieldCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
+        tableView.register(UINib(nibName: "ButtonCell", bundle: nil), forCellReuseIdentifier: "ButtonCell")
+        
     }
-
-
-    @IBAction func registerAction(_ sender: Any) {
+    
+    // Number of sections in the table view
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // Number of rows in each section
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    // Configure each cell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            // Configuring for email input
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
+            cell.configure(title: "Name")
+            return cell
+        case 1:
+            // Configuring for password input
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
+            cell.configure(title: "Password")
+            return cell
+        case 2:
+            // Configuring for the login action
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
+            cell.configure(withTitle: "Login") {
+                self.login()
+            }
+            return cell
+        default:
+            fatalError("Unknown row in section")
+        }
+    }
+    
+    
+    private func login() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterVIewController")
         navigationController?.setViewControllers([registerVC], animated: false)
