@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextFieldCell: UITableViewCell {
+class TextFieldCell: UITableViewCell, ReusableView {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!

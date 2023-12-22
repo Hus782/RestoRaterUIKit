@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ButtonCell: UITableViewCell {
+class ButtonCell: UITableViewCell, ReusableView {
 
     @IBOutlet weak var buttonView: UIButton!
     var buttonAction: (() -> Void)?

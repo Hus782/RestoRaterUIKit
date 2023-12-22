@@ -11,11 +11,10 @@ class LoginVIewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "TextFieldCell")
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UINib(nibName: "TextFieldCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
-        tableView.register(UINib(nibName: "ButtonCell", bundle: nil), forCellReuseIdentifier: "ButtonCell")
         
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: ButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ButtonCell.defaultReuseIdentifier)
     }
     
     // Number of sections in the table view
@@ -33,17 +32,17 @@ class LoginVIewController: UITableViewController {
         switch indexPath.row {
         case 0:
             // Configuring for email input
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
             cell.configure(title: "Name")
             return cell
         case 1:
             // Configuring for password input
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
             cell.configure(title: "Password")
             return cell
         case 2:
             // Configuring for the login action
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.defaultReuseIdentifier, for: indexPath) as! ButtonCell
             cell.configure(withTitle: "Login") {
                 self.login()
             }
