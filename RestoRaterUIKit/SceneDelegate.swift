@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func setRootViewController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let test = false
+        let test = true
         
         if test {
             let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")

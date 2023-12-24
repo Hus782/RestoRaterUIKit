@@ -70,6 +70,35 @@
             </objects>
             <point key="canvasLocation" x="-776" y="196"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="28T-Z1-NU5">
+            <objects>
+                <tableViewController storyboardIdentifier="RestaurantListVIewController" id="ydg-0e-d2g" customClass="RestaurantListVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ULi-oh-RFj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XIC-ct-x4h">
+                                <rect key="frame" x="0.0" y="50" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XIC-ct-x4h" id="d0d-NA-yiL">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ydg-0e-d2g" id="UW3-HP-CNd"/>
+                            <outlet property="delegate" destination="ydg-0e-d2g" id="1wV-tQ-QxP"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="IaT-H7-Ts1"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGT-Tf-hTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1898" y="-70"/>
+        </scene>
         <!--Register View Controller-->
         <scene sceneID="Lx8-Av-KIS">
             <objects>
@@ -96,23 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWv-hW-Ocb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="227"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="oDL-iw-Jva">
-            <objects>
-                <viewController id="j5j-WT-qgT" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0cD-ip-RB1">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="q9G-Np-Yxt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="twp-nR-f58"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z0z-g0-Z88" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1602" y="-445"/>
+            <point key="canvasLocation" x="552" y="208"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="RzI-9A-0wW">
@@ -124,8 +137,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="j5j-WT-qgT" kind="relationship" relationship="viewControllers" id="OYl-g4-vzG"/>
                         <segue destination="AfA-Nh-DBr" kind="relationship" relationship="viewControllers" id="cNX-UZ-rPe"/>
+                        <segue destination="ydg-0e-d2g" kind="relationship" relationship="viewControllers" id="Jlb-Kz-zxR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jpf-qp-LGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
