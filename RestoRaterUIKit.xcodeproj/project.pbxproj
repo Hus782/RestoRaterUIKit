@@ -36,6 +36,7 @@
 		3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80822B3830FD006C8684 /* UserManager.swift */; };
 		3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */; };
 		3DCF86232B3871510032525E /* Restaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */; };
+		3DCF86252B3872780032525E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86242B3872780032525E /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		3D6F80822B3830FD006C8684 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3DCF86242B3872780032525E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				3D2F83B72B35B86D002D7FF1 /* ButtonCell.xib */,
 				3D2F83BD2B35C6C1002D7FF1 /* SecondaryButtonCell.swift */,
 				3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */,
+				3DCF86242B3872780032525E /* Observable.swift */,
 			);
 			path = RestoRaterUIKit;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */,
 				3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */,
 				3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */,
+				3DCF86252B3872780032525E /* Observable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

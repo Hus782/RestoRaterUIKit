@@ -8,13 +8,13 @@
 import UIKit
 
 class TextFieldCell: UITableViewCell, ReusableView {
+    var textChanged: ((String) -> Void)?
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.text = "Random test text"
         // Initialization code
     }
 
@@ -23,8 +23,12 @@ class TextFieldCell: UITableViewCell, ReusableView {
 
     }
     
+    @IBAction func textChanged(_ sender: UITextField) {
+        textChanged?(sender.text ?? "")
+    }
+    
     func configure(title: String) {
         titleLabel.text = title
     }
-    
+
 }

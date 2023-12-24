@@ -14,8 +14,8 @@
             filePath = "RestoRaterUIKit/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "RestoRaterUIKit/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -49,6 +49,257 @@
             startingLineNumber = "40"
             endingLineNumber = "40"
             landmarkName = "setRootViewController()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7BE92E9-D83C-4138-B854-B14EFCECCFC5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "loginUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C46AAB35-6AE9-4F5F-96CD-9CD5E89C90A8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "loginUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C46AAB35-6AE9-4F5F-96CD-9CD5E89C90A8 - 977646d03553a124"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "532">
+               </Location>
+               <Location
+                  uuid = "C46AAB35-6AE9-4F5F-96CD-9CD5E89C90A8 - 987527294f818737"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "C46AAB35-6AE9-4F5F-96CD-9CD5E89C90A8 - 7f21efd1feeee6f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "C46AAB35-6AE9-4F5F-96CD-9CD5E89C90A8 - 7f21efd1feeee926"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "C46AAB35-6AE9-4F5F-96CD-9CD5E89C90A8 - c0a222b1bb45ef22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63C091B6-ED97-46B6-B722-9EF1835FDAAD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "loginUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "63C091B6-ED97-46B6-B722-9EF1835FDAAD - 977646d03553aefb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "63C091B6-ED97-46B6-B722-9EF1835FDAAD - 977646d03553aefb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "63C091B6-ED97-46B6-B722-9EF1835FDAAD - 987527294f8188e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "63C091B6-ED97-46B6-B722-9EF1835FDAAD - 7f21efd1feeee6f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for RestoRaterUIKit.LoginViewModel.loginUser() async -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D27B2847-F96E-4E37-AEF8-41489EE15676"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "loginUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F69FB23-4F0E-4A26-87D3-F61DAAA49541"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "loginUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C1C4204-D7DF-44EF-82CB-248985D148B8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "loginUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98469BF0-116E-4853-930B-E657543B0778"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoRaterUIKit/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
