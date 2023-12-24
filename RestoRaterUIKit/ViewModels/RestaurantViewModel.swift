@@ -18,9 +18,6 @@ final class RestaurantViewModel {
     
     init(dataManager: CoreDataManager<Restaurant> = CoreDataManager<Restaurant>()) {
         self.dataManager = dataManager
-        Task {
-            await fetchRestaurants()
-        }
     }
     
     func fetchRestaurants() async {

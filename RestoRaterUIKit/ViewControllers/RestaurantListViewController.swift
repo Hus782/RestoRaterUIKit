@@ -17,8 +17,15 @@ class RestaurantListVIewController: UITableViewController {
         tableView.register(UINib(nibName: RestaurantTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantTableViewCell.defaultReuseIdentifier)
         
         //        bindViewModel()
-        
+        loadRestaurants()
     }
+    
+    private func loadRestaurants() {
+          Task {
+              await viewModel.fetchRestaurants()
+              tableView.reloadData()
+          }
+      }
 }
 
 extension RestaurantListVIewController {
@@ -33,7 +40,7 @@ extension RestaurantListVIewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
         let restaurant = viewModel.restaurants.value[indexPath.row]
-        cell.configure(image: UIImage(named: "defaultImage") ?? UIImage(), // Replace with actual image logic
+        cell.configure(image: UIImage(data: restaurant.image) ?? UIImage(),
                        name: restaurant.name,
                        address: restaurant.address)
         return cell
