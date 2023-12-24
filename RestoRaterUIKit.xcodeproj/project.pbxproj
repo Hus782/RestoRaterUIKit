@@ -37,6 +37,7 @@
 		3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */; };
 		3DCF86232B3871510032525E /* Restaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */; };
 		3DCF86252B3872780032525E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86242B3872780032525E /* Observable.swift */; };
+		3DCF86272B3878660032525E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86262B3878660032525E /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3DCF86242B3872780032525E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		3DCF86262B3878660032525E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				3D6F80622B382E8F006C8684 /* LoginViewModel.swift */,
+				3DCF86262B3878660032525E /* RegisterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				3D6F80812B38306D006C8684 /* User+CoreDataProperties.swift in Sources */,
 				3D2F83B42B35AF8C002D7FF1 /* TextFieldCell.swift in Sources */,
 				3D6F80662B382EC9006C8684 /* CoreDataManager.swift in Sources */,
+				3DCF86272B3878660032525E /* RegisterViewModel.swift in Sources */,
 				3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */,
 				3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */,
 				3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */,

@@ -10,7 +10,7 @@ import Combine
 
 class LoginVIewController: UITableViewController {
     private var viewModel = LoginViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,24 +20,25 @@ class LoginVIewController: UITableViewController {
         tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
         
         bindViewModel()
-
+        
     }
     
     private func bindViewModel() {
         viewModel.showingAlert.bind { [weak self] showing in
-                if showing {
-                    self?.presentAlert(message: self?.viewModel.alertMessage.value ?? "")
-                }
+            if showing {
+                self?.presentAlert(message: self?.viewModel.alertMessage.value ?? "")
             }
         }
+    }
     
     private func presentAlert(message: String) {
         let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default, handler: nil))
-           DispatchQueue.main.async {
-               self.present(alert, animated: true)
-           }
-       }
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+    }
+    
     // Number of sections in the table view
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -56,8 +57,8 @@ class LoginVIewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
             cell.configure(title: Lingo.loginViewEmailPlaceholder)
             cell.textChanged = { [weak self] text in
-                         self?.viewModel.email.value = text
-                     }
+                self?.viewModel.email.value = text
+            }
             cell.textField.text = viewModel.email.value
             return cell
         case 1:
@@ -65,8 +66,8 @@ class LoginVIewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
             cell.configure(title: Lingo.loginViewPasswordPlaceholder)
             cell.textChanged = { [weak self] text in
-                      self?.viewModel.password.value = text
-                  }
+                self?.viewModel.password.value = text
+            }
             cell.textField.text = viewModel.password.value
             return cell
         case 2:

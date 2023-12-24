@@ -8,6 +8,7 @@
 import UIKit
 
 class RegisterViewController: UITableViewController {
+    private var viewModel = RegisterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,24 @@ class RegisterViewController: UITableViewController {
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: ButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ButtonCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
+        
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        viewModel.showingAlert.bind { [weak self] showing in
+            if showing {
+                self?.presentAlert(message: self?.viewModel.alertMessage.value ?? "")
+            }
+        }
+    }
+    
+    private func presentAlert(message: String) {
+        let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default, handler: nil))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
     }
     
     // Number of sections in the table view
@@ -35,16 +54,28 @@ class RegisterViewController: UITableViewController {
             // Configuring for name input
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
             cell.configure(title: Lingo.registerViewNamePlaceholder)
+            cell.textChanged = { [weak self] text in
+                self?.viewModel.name.value = text
+            }
+            cell.textField.text = viewModel.name.value
             return cell
         case 1:
             // Configuring for email input
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
             cell.configure(title: Lingo.registerViewEmailPlaceholder)
+            cell.textChanged = { [weak self] text in
+                self?.viewModel.email.value = text
+            }
+            cell.textField.text = viewModel.email.value
             return cell
         case 2:
             // Configuring for password input
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
             cell.configure(title: Lingo.registerViewPasswordPlaceholder)
+            cell.textChanged = { [weak self] text in
+                self?.viewModel.password.value = text
+            }
+            cell.textField.text = viewModel.password.value
             return cell
         case 3:
             // Configuring for the register action
@@ -66,7 +97,9 @@ class RegisterViewController: UITableViewController {
     }
     
     private func register() {
-        
+        Task {
+            await viewModel.registerUser()
+        }
     }
     private func navigateToLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
