@@ -26,6 +26,16 @@
 		3D2F83C02B35C6C1002D7FF1 /* SecondaryButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */; };
 		3D2F83C32B35C9BD002D7FF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83C52B35C9BD002D7FF1 /* Localizable.strings */; };
 		3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */; };
+		3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80622B382E8F006C8684 /* LoginViewModel.swift */; };
+		3D6F80662B382EC9006C8684 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80652B382EC9006C8684 /* CoreDataManager.swift */; };
+		3D6F80682B382EE9006C8684 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80672B382EE9006C8684 /* PersistenceController.swift */; };
+		3D6F807C2B38306D006C8684 /* Review+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80762B38306D006C8684 /* Review+CoreDataClass.swift */; };
+		3D6F807D2B38306D006C8684 /* Review+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80772B38306D006C8684 /* Review+CoreDataProperties.swift */; };
+		3D6F80802B38306D006C8684 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F807A2B38306D006C8684 /* User+CoreDataClass.swift */; };
+		3D6F80812B38306D006C8684 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F807B2B38306D006C8684 /* User+CoreDataProperties.swift */; };
+		3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80822B3830FD006C8684 /* UserManager.swift */; };
+		3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */; };
+		3DCF86232B3871510032525E /* Restaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +60,16 @@
 		3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondaryButtonCell.xib; sourceTree = "<group>"; };
 		3D2F83C42B35C9BD002D7FF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lingo.swift; sourceTree = "<group>"; };
+		3D6F80622B382E8F006C8684 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3D6F80652B382EC9006C8684 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		3D6F80672B382EE9006C8684 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		3D6F80762B38306D006C8684 /* Review+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D6F80772B38306D006C8684 /* Review+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3D6F807A2B38306D006C8684 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D6F807B2B38306D006C8684 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3D6F80822B3830FD006C8684 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +102,8 @@
 		3D06ABFB2B357BF90057139A /* RestoRaterUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3D6F80642B382EAF006C8684 /* Persistance */,
+				3D6F80612B382E81006C8684 /* ViewModels */,
 				3D2F83C82B35CA05002D7FF1 /* Lingo */,
 				3D2F83BA2B35C4BE002D7FF1 /* Extensions */,
 				3D06ABFC2B357BF90057139A /* AppDelegate.swift */,
@@ -120,6 +142,38 @@
 				3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */,
 			);
 			path = Lingo;
+			sourceTree = "<group>";
+		};
+		3D6F80612B382E81006C8684 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F80622B382E8F006C8684 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3D6F80642B382EAF006C8684 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F80692B382F3B006C8684 /* Entities */,
+				3D6F80652B382EC9006C8684 /* CoreDataManager.swift */,
+				3D6F80672B382EE9006C8684 /* PersistenceController.swift */,
+				3D6F80822B3830FD006C8684 /* UserManager.swift */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		3D6F80692B382F3B006C8684 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F80762B38306D006C8684 /* Review+CoreDataClass.swift */,
+				3D6F80772B38306D006C8684 /* Review+CoreDataProperties.swift */,
+				3D6F807A2B38306D006C8684 /* User+CoreDataClass.swift */,
+				3D6F807B2B38306D006C8684 /* User+CoreDataProperties.swift */,
+				3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */,
+				3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,16 +253,26 @@
 			files = (
 				3D2F83BC2B35C53E002D7FF1 /* UIView.swift in Sources */,
 				3D06AC182B358EBB0057139A /* LoginViewController.swift in Sources */,
+				3D6F807D2B38306D006C8684 /* Review+CoreDataProperties.swift in Sources */,
 				3D2F83BF2B35C6C1002D7FF1 /* SecondaryButtonCell.swift in Sources */,
 				3D06AC012B357BF90057139A /* ViewController.swift in Sources */,
 				3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */,
 				3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */,
 				3D06AC072B357BF90057139A /* RestoRaterUIKit.xcdatamodeld in Sources */,
 				3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */,
+				3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */,
+				3D6F80682B382EE9006C8684 /* PersistenceController.swift in Sources */,
 				3D06AC142B3589D80057139A /* TabBarViewController.swift in Sources */,
+				3D6F80802B38306D006C8684 /* User+CoreDataClass.swift in Sources */,
+				3D6F807C2B38306D006C8684 /* Review+CoreDataClass.swift in Sources */,
+				3DCF86232B3871510032525E /* Restaurant+CoreDataProperties.swift in Sources */,
 				3D06ABFF2B357BF90057139A /* SceneDelegate.swift in Sources */,
+				3D6F80812B38306D006C8684 /* User+CoreDataProperties.swift in Sources */,
 				3D2F83B42B35AF8C002D7FF1 /* TextFieldCell.swift in Sources */,
+				3D6F80662B382EC9006C8684 /* CoreDataManager.swift in Sources */,
+				3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */,
 				3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */,
+				3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
