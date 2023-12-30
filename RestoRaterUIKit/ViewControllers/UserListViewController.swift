@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserListVIewController: UITableViewController {
+final class UserListVIewController: UITableViewController {
     private var viewModel = UsersViewModel()
     
     override func viewDidLoad() {
@@ -17,14 +17,22 @@ class UserListVIewController: UITableViewController {
         tableView.register(UINib(nibName: UserTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: UserTableViewCell.defaultReuseIdentifier)
         
         loadUsers()
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addUserAction))
+        self.navigationItem.rightBarButtonItem = addButton
+        
     }
     
     private func loadUsers() {
-          Task {
-              await viewModel.fetchUsers()
-              tableView.reloadData()
-          }
-      }
+        Task {
+            await viewModel.fetchUsers()
+            tableView.reloadData()
+        }
+    }
+    
+    @objc private func addUserAction() {
+        
+    }
 }
 
 extension UserListVIewController {
