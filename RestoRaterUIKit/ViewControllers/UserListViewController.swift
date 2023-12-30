@@ -16,6 +16,8 @@ final class UserListVIewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: UserTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: UserTableViewCell.defaultReuseIdentifier)
         
+        title = Lingo.usersListTitle
+        
         loadUsers()
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addUserAction))
@@ -33,6 +35,18 @@ final class UserListVIewController: UITableViewController {
     @objc private func addUserAction() {
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserDetailsSegue" {
+            if let userDetailsVC = segue.destination as? UserDetailsViewController,
+               let indexPath = tableView.indexPathForSelectedRow {
+                let selectedUser = viewModel.users[indexPath.row]
+                userDetailsVC.user = selectedUser
+                userDetailsVC.hidesBottomBarWhenPushed = true
+            }
+        }
+    }
+    
 }
 
 extension UserListVIewController {
@@ -50,4 +64,9 @@ extension UserListVIewController {
         cell.configure(name: user.name, email: user.email, isAdmin: user.isAdmin)
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "UserDetailsSegue", sender: indexPath)
+    }
+
 }

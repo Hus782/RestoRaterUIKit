@@ -30,6 +30,7 @@
 		3D4E8FCB2B4049AA00EA9C28 /* Restaurants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCA2B4049AA00EA9C28 /* Restaurants.storyboard */; };
 		3D4E8FCD2B4049DC00EA9C28 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCC2B4049DC00EA9C28 /* Users.storyboard */; };
 		3D4E8FCF2B404A6E00EA9C28 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCE2B404A6E00EA9C28 /* Profile.storyboard */; };
+		3D4E8FD12B404B0900EA9C28 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E8FD02B404B0900EA9C28 /* UserDetailsViewController.swift */; };
 		3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80622B382E8F006C8684 /* LoginViewModel.swift */; };
 		3D6F80662B382EC9006C8684 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80652B382EC9006C8684 /* CoreDataManager.swift */; };
 		3D6F80682B382EE9006C8684 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80672B382EE9006C8684 /* PersistenceController.swift */; };
@@ -81,6 +82,7 @@
 		3D4E8FCA2B4049AA00EA9C28 /* Restaurants.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Restaurants.storyboard; sourceTree = "<group>"; };
 		3D4E8FCC2B4049DC00EA9C28 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
 		3D4E8FCE2B404A6E00EA9C28 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		3D4E8FD02B404B0900EA9C28 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		3D6F80622B382E8F006C8684 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3D6F80652B382EC9006C8684 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3D6F80672B382EE9006C8684 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				3D8AB7512B40089600640749 /* UserListViewController.swift */,
 				3D8AB7592B400F8100640749 /* ProfileViewController.swift */,
 				3D3A207D2B40422600B606E2 /* TabBarController.swift */,
+				3D4E8FD02B404B0900EA9C28 /* UserDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */,
 				3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */,
 				3D06AC072B357BF90057139A /* RestoRaterUIKit.xcdatamodeld in Sources */,
+				3D4E8FD12B404B0900EA9C28 /* UserDetailsViewController.swift in Sources */,
 				3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */,
 				3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */,
 				3D8AB75A2B400F8100640749 /* ProfileViewController.swift in Sources */,
