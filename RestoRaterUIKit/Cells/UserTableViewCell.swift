@@ -26,6 +26,6 @@ class UserTableViewCell: UITableViewCell, ReusableView {
         self.nameLabel.text = name
         self.emailLabel.text = email
         self.roleLabel.isHidden = !isAdmin
-        
+    
     }
 }
