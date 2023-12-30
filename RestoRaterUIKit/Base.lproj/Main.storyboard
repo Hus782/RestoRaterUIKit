@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,22 +53,6 @@
             </objects>
             <point key="canvasLocation" x="651" y="-515"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="f7P-wG-DHo">
-            <objects>
-                <viewController id="AfA-Nh-DBr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="T93-Pb-XCD">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="beP-Wj-mBj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="HQB-ue-zD4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gCX-ir-2vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-776" y="196"/>
-        </scene>
         <!--Item-->
         <scene sceneID="28T-Z1-NU5">
             <objects>
@@ -98,6 +81,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGT-Tf-hTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1898" y="-70"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="YB8-qI-WrL">
+            <objects>
+                <tableViewController id="FPW-6W-j8w" customClass="UserListVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Sd9-hc-zBA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="S5K-8C-EgV">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S5K-8C-EgV" id="EAd-44-Sd1">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FPW-6W-j8w" id="ubM-f8-iha"/>
+                            <outlet property="delegate" destination="FPW-6W-j8w" id="sYe-vP-Nsf"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="q5e-Us-UwJ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmT-Zt-SfV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1100" y="230"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Lx8-Av-KIS">
@@ -138,7 +150,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ydg-0e-d2g" kind="relationship" relationship="viewControllers" id="YeX-cI-6Bn"/>
-                        <segue destination="AfA-Nh-DBr" kind="relationship" relationship="viewControllers" id="Ic7-mx-alC"/>
+                        <segue destination="FPW-6W-j8w" kind="relationship" relationship="viewControllers" id="VUt-96-aWg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jpf-qp-LGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
