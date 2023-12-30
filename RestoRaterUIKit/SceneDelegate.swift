@@ -30,16 +30,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func setRootViewController() -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let user = UserManager.shared.currentUser else {
-            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-            let navigationController = UINavigationController(rootViewController: loginViewController)
-                return navigationController
+            let loginViewController = createLoginViewController()
+                return loginViewController
         }
-        let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        
+        let tabBarController = TabBarController(isAdmin: user.isAdmin)
         return tabBarController
     }
 
+    private func createLoginViewController() -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let navigationController = UINavigationController(rootViewController: loginViewController)
+            return navigationController
+    }
+    
     func switchRootViewController(to viewController: UIViewController, animated: Bool = true) {
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                   let delegate = windowScene.delegate as? SceneDelegate else {

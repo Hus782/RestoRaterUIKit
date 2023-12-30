@@ -26,6 +26,7 @@
 		3D2F83C02B35C6C1002D7FF1 /* SecondaryButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */; };
 		3D2F83C32B35C9BD002D7FF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83C52B35C9BD002D7FF1 /* Localizable.strings */; };
 		3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */; };
+		3D3A207E2B40422600B606E2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A207D2B40422600B606E2 /* TabBarController.swift */; };
 		3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80622B382E8F006C8684 /* LoginViewModel.swift */; };
 		3D6F80662B382EC9006C8684 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80652B382EC9006C8684 /* CoreDataManager.swift */; };
 		3D6F80682B382EE9006C8684 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80672B382EE9006C8684 /* PersistenceController.swift */; };
@@ -73,6 +74,7 @@
 		3D2F83BE2B35C6C1002D7FF1 /* SecondaryButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondaryButtonCell.xib; sourceTree = "<group>"; };
 		3D2F83C42B35C9BD002D7FF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lingo.swift; sourceTree = "<group>"; };
+		3D3A207D2B40422600B606E2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3D6F80622B382E8F006C8684 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3D6F80652B382EC9006C8684 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3D6F80672B382EE9006C8684 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				3D06AC0D2B357BFB0057139A /* Info.plist */,
 				3D06AC052B357BF90057139A /* RestoRaterUIKit.xcdatamodeld */,
 				3DCF86242B3872780032525E /* Observable.swift */,
+				3D3A207D2B40422600B606E2 /* TabBarController.swift */,
 			);
 			path = RestoRaterUIKit;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				3D6F80662B382EC9006C8684 /* CoreDataManager.swift in Sources */,
 				3DCF86272B3878660032525E /* RegisterViewModel.swift in Sources */,
 				3D8AB7522B40089600640749 /* UserListViewController.swift in Sources */,
+				3D3A207E2B40422600B606E2 /* TabBarController.swift in Sources */,
 				3D8AB7542B4008DE00640749 /* UsersViewModel.swift in Sources */,
 				3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */,
 				3D8AB75D2B40160C00640749 /* DetailInfoTableViewCell.swift in Sources */,

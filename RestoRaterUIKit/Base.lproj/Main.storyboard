@@ -85,7 +85,7 @@
         <!--Item-->
         <scene sceneID="10K-MM-cWa">
             <objects>
-                <tableViewController id="asi-8K-fb5" customClass="ProfileVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileVIewController" id="asi-8K-fb5" customClass="ProfileVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="w4a-Aw-FBx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +114,7 @@
         <!--Item-->
         <scene sceneID="YB8-qI-WrL">
             <objects>
-                <tableViewController id="FPW-6W-j8w" customClass="UserListVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UserListVIewController" id="FPW-6W-j8w" customClass="UserListVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Sd9-hc-zBA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,25 +167,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWv-hW-Ocb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552" y="208"/>
-        </scene>
-        <!--Tab Bar View Controller-->
-        <scene sceneID="RzI-9A-0wW">
-            <objects>
-                <tabBarController storyboardIdentifier="TabBarViewController" id="2IB-vk-Rjg" customClass="TabBarViewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nOS-3m-FJK">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="ydg-0e-d2g" kind="relationship" relationship="viewControllers" id="YeX-cI-6Bn"/>
-                        <segue destination="FPW-6W-j8w" kind="relationship" relationship="viewControllers" id="VUt-96-aWg"/>
-                        <segue destination="asi-8K-fb5" kind="relationship" relationship="viewControllers" id="Dg3-th-uf4"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jpf-qp-LGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-840" y="-565"/>
         </scene>
     </scenes>
     <resources>

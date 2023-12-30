@@ -99,8 +99,10 @@ class LoginVIewController: UITableViewController {
     }
     
     private func navigateToTabBar() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        guard let user = UserManager.shared.currentUser else {
+            return
+        }
+        let tabBarController = TabBarController(isAdmin: user.isAdmin)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.switchRootViewController(to: tabBarController)
     }
     
