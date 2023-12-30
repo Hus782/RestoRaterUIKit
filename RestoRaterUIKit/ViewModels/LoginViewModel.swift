@@ -21,7 +21,7 @@ final class LoginViewModel: ObservableObject {
         self.userManager = userManager
     }
     
-    func loginUser() async {
+    func loginUser(successCompletion: (() -> Void)?) async {
         let predicate = NSPredicate(format: "email == %@", email.value)
         
         do {
@@ -30,6 +30,7 @@ final class LoginViewModel: ObservableObject {
                 await MainActor.run { [weak self] in
                     self?.loginSuccessful.value = true
                     self?.userManager.loginUser(user: user)
+                    successCompletion?()
                 }
                 
             } else {

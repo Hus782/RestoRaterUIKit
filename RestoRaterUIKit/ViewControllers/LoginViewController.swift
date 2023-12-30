@@ -92,8 +92,16 @@ class LoginVIewController: UITableViewController {
     
     private func login() {
         Task {
-            await viewModel.loginUser()
+            await viewModel.loginUser() { [weak self] in
+                self?.navigateToTabBar()
+            }
         }
+    }
+    
+    private func navigateToTabBar() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.switchRootViewController(to: tabBarController)
     }
     
     private func navigateToRegister() {

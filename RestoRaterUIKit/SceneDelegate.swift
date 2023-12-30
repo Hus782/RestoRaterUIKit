@@ -31,19 +31,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func setRootViewController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let test = true
-        
-        if test {
-            let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
-            return tabBarController
-        } else {
-            // Assuming 'LoginNavigationController' is the storyboard ID for the UINavigationController
+        guard let user = UserManager.shared.currentUser else {
             let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             let navigationController = UINavigationController(rootViewController: loginViewController)
                 return navigationController
         }
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        return tabBarController
     }
 
+    func switchRootViewController(to viewController: UIViewController, animated: Bool = true) {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let delegate = windowScene.delegate as? SceneDelegate else {
+                return
+            }
+            
+            delegate.window?.rootViewController = viewController
+            if animated {
+                UIView.transition(with: delegate.window!, duration: 0.3, options: .transitionCrossDissolve, animations: {})
+            }
+        }
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
