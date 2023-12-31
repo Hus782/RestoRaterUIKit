@@ -11,16 +11,11 @@ final class UsersViewModel {
     var users: [User] = []
     var showingAlert = false
     var alertMessage = ""
-    var userToDelete: User?
-    var showingDeleteConfirmation = false
     var isLoading = false
     private let dataManager: CoreDataManager<User>
     
     init(dataManager: CoreDataManager<User> = CoreDataManager<User>()) {
         self.dataManager = dataManager
-//        Task {
-//            await fetchUsers()
-//        }
     }
     
     func fetchUsers() async {
@@ -44,30 +39,18 @@ final class UsersViewModel {
         }
     }
     
-    func promptDelete(user: User) {
-        userToDelete = user
-        showingDeleteConfirmation = true
+    func deleteUser(_ userToDelete: User?) async -> Result<Void, Error> {
+        guard let userToDelete = userToDelete else {
+//            Create specific errors here
+            let error = NSError(domain: "UserDeletionError", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not found"])
+            return .failure(error)
+        }
+        do {
+            try await dataManager.deleteEntity(entity: userToDelete)
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
     }
     
-    func deleteUser(completion: @escaping () -> Void) async {
-        guard let user = userToDelete else {
-            await MainActor.run { [weak self] in
-                self?.showingAlert = true
-                self?.alertMessage = "Something went wrong"
-            }
-            return
-        }
-        
-        do {
-            try await dataManager.deleteEntity(entity: user)
-            await MainActor.run {
-                completion()
-            }
-        } catch {
-            await MainActor.run { [weak self] in
-                self?.showingAlert = true
-                self?.alertMessage = error.localizedDescription
-            }
-        }
-    }
 }

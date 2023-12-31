@@ -22,6 +22,7 @@ final class AddEditUserViewController: UIViewController {
     weak var delegate: UserUpdateDelegate?
     var user: User?
     var scenario: UserViewScenario?
+    var completion: (() -> Void)?
     private var viewModel: AddEditUserViewModel = AddEditUserViewModel(dataManager: CoreDataManager<User>())
     
     override func viewDidLoad() {
@@ -33,13 +34,13 @@ final class AddEditUserViewController: UIViewController {
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: SwitchTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SwitchTableViewCell.defaultReuseIdentifier)
         
-        
-        
         if let scenario = scenario, let user = user {
             viewModel.initializeWithUser(scenario: scenario, user: user)
         }
+
         viewModel.onAddCompletion = { [weak self] in
             self?.dismiss(animated: true)
+            self?.completion?()
         }
         
         setNavigationBar()

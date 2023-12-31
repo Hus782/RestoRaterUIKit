@@ -13,7 +13,12 @@ protocol UserUpdateDelegate: AnyObject {
 }
 
 final class UserDetailsViewController: UITableViewController {
-    private var cells: [DetailInfoCellData] = []
+    private enum CellType {
+        case info(DetailInfoCellData)
+        case delete
+    }
+    private var viewModel = UsersViewModel()
+    private var cells: [CellType] = []
     var user: User?
     var deleteCompletion: (() -> Void)?
     
@@ -22,6 +27,7 @@ final class UserDetailsViewController: UITableViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: DetailInfoTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
         
         title = Lingo.userDetailsTitle
         loadUserData()
@@ -39,10 +45,16 @@ final class UserDetailsViewController: UITableViewController {
         guard let user = user else {
             return // Add logic later
         }
-        cells.append(DetailInfoCellData(title: Lingo.userDetailsNameLabel, content: user.name))
-        cells.append(DetailInfoCellData(title: Lingo.userDetailsEmailLabel, content: user.email))
-        let roleContent = user.isAdmin ? Lingo.userDetailsRoleAdmin  : Lingo.userDetailsRoleRegularUser
-        cells.append(DetailInfoCellData(title: Lingo.userDetailsRoleLabel, content: roleContent))
+        cells = [
+            .info(DetailInfoCellData(title: Lingo.userDetailsNameLabel, content: user.name)),
+            .info(DetailInfoCellData(title: Lingo.userDetailsEmailLabel, content: user.email)),
+            .info(DetailInfoCellData(title: Lingo.userDetailsRoleLabel, content: user.isAdmin ? Lingo.userDetailsRoleAdmin : Lingo.userDetailsRoleRegularUser))
+        ]
+        
+        if !UserManager.shared.isCurrentUser(user: user) {
+            cells.append(.delete)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,6 +68,37 @@ final class UserDetailsViewController: UITableViewController {
         }
     }
     
+    private func confirmAndDeleteUser() {
+        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
+        
+        confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { [weak self] _ in
+            Task {
+                let result = await self?.viewModel.deleteUser(self?.user)
+                switch result {
+                case .success:
+                    self?.deleteCompletion?()
+                    self?.navigationController?.popViewController(animated: true)
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.presentErrorAlert(message: error.localizedDescription)
+                    }
+                case .none:
+                    break
+                }
+            }
+        }))
+        
+        confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel))
+        
+        present(confirmAlert, animated: true)
+    }
+    
+    private func presentErrorAlert(message: String) {
+        let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
+        self.present(alert, animated: true)
+    }
+    
 }
 
 extension UserDetailsViewController {
@@ -65,10 +108,19 @@ extension UserDetailsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DetailInfoTableViewCell.defaultReuseIdentifier, for: indexPath) as! DetailInfoTableViewCell
-        let cellData = cells[indexPath.row]
-        cell.configure(title: cellData.title, content: cellData.content)
-        return cell
+        switch cells[indexPath.row] {
+        case .info(let cellData):
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailInfoTableViewCell.defaultReuseIdentifier, for: indexPath) as! DetailInfoTableViewCell
+            cell.configure(title: cellData.title, content: cellData.content)
+            return cell
+        case .delete:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
+            cell.configure(withTitle: Lingo.commonDelete) { [weak self] in
+                self?.confirmAndDeleteUser()
+            }
+            cell.button.setTitleColor(.red, for: .normal)
+            return cell
+        }
     }
 }
 

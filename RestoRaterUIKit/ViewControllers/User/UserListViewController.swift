@@ -43,21 +43,30 @@ final class UserListVIewController: UITableViewController {
                 let selectedUser = viewModel.users[indexPath.row]
                 userDetailsVC.user = selectedUser
                 userDetailsVC.hidesBottomBarWhenPushed = true
+                userDetailsVC.deleteCompletion = { [weak self] in
+                    self?.reloadData()
+                }
             }
         } else if segue.identifier == "AddUserSegue" {
             if let vc = segue.destination as? AddEditUserViewController
             {
                 vc.scenario = .add
+                vc.completion = { [weak self] in
+                    self?.navigationController?.popToRootViewController(animated: true)
+                    self?.reloadData()
+                }
             }
         }
+    }
+    
+    private func reloadData() {
+        self.loadUsers()
+        self.tableView.reloadData()
     }
     
 }
 
 extension UserListVIewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.users.count
