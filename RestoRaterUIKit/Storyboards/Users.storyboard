@@ -33,10 +33,13 @@
                             <outlet property="delegate" destination="dAJ-CC-qvD" id="vWP-YV-Dkr"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="4SY-h3-tMJ" kind="presentation" identifier="AddUserSegue" id="9Sq-Yg-jzp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpZ-gI-mmS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-247" y="18"/>
+            <point key="canvasLocation" x="-248" y="18"/>
         </scene>
         <!--User Details View Controller-->
         <scene sceneID="RK7-Nl-R0M">
@@ -63,7 +66,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="yuW-J3-FWs"/>
                     <connections>
-                        <segue destination="jnV-e0-Bj1" kind="presentation" identifier="EditUserSegue" id="g5e-HK-WE0"/>
+                        <segue destination="4SY-h3-tMJ" kind="presentation" identifier="EditUserSegue" id="Ux9-Sl-BNs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jz0-EP-g7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -97,27 +100,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dp-gb-BWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2373.2824427480914" y="14.788732394366198"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="mPs-Lb-b56">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jnV-e0-Bj1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rwc-qC-cSZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="4SY-h3-tMJ" kind="relationship" relationship="rootViewController" id="fxY-gL-XvO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6oT-pE-6G3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1446.5648854961833" y="14.788732394366198"/>
+            <point key="canvasLocation" x="2098" y="18"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ux9-Sl-BNs"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

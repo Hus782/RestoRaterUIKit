@@ -33,15 +33,54 @@ final class AddEditUserViewController: UITableViewController {
         if let scenario = scenario, let user = user {
             viewModel.initializeWithUser(scenario: scenario, user: user)
         }
+        viewModel.onAddCompletion = { [weak self] in
+            self?.dismiss(animated: true)
+            self?.tableView.reloadData()
+        }
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(editButtonTapped))
+        setNavigationBar()
     }
     
-    @objc private func editButtonTapped() {
+    private func setNavigationBar() {
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
+        view.addSubview(navBar)
+
+        let navItem = UINavigationItem(title: Lingo.addEditUserCreateTitle)
+        
+        // Save item
+        let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+        navItem.rightBarButtonItem = saveItem
+
+        // Cancel item
+        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
+        navItem.leftBarButtonItem = cancelItem
+
+        navBar.setItems([navItem], animated: false)
+    }
+    
+    @objc private func saveButtonTapped() {
         Task {
-            await viewModel.addUser()
+            await handleSave()
         }
     }
+    
+    @objc private func cancelButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    private func handleSave() async {
+          viewModel.isLoading = true
+          switch scenario {
+          case .add:
+              await viewModel.addUser()
+          case .edit:
+              await viewModel.editUser()
+          default:
+              break
+          }
+          viewModel.isLoading = false
+      }
+    
 }
 
 extension AddEditUserViewController {

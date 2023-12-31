@@ -33,7 +33,7 @@ final class UserListVIewController: UITableViewController {
     }
     
     @objc private func addUserAction() {
-        
+        performSegue(withIdentifier: "AddUserSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,6 +43,11 @@ final class UserListVIewController: UITableViewController {
                 let selectedUser = viewModel.users[indexPath.row]
                 userDetailsVC.user = selectedUser
                 userDetailsVC.hidesBottomBarWhenPushed = true
+            }
+        } else if segue.identifier == "AddUserSegue" {
+            if let vc = segue.destination as? AddEditUserViewController
+            {
+                vc.scenario = .add
             }
         }
     }
