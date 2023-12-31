@@ -19,6 +19,14 @@ final class UserDetailsViewController: UITableViewController {
         
         title = Lingo.userDetailsTitle
         loadUserData()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
+        
+    }
+    
+    @objc private func editButtonTapped() {
+        performSegue(withIdentifier: "EditUserSegue", sender: self)
+        
     }
     
     private func loadUserData() {
@@ -30,6 +38,17 @@ final class UserDetailsViewController: UITableViewController {
         let roleContent = user.isAdmin ? Lingo.userDetailsRoleAdmin  : Lingo.userDetailsRoleRegularUser
         cells.append(DetailInfoCellData(title: Lingo.userDetailsRoleLabel, content: roleContent))
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditUserSegue" {
+            if let vc = segue.destination as? AddEditUserViewController
+            {
+                vc.scenario = .edit
+                vc.user = user
+            }
+        }
+    }
+    
 }
 
 extension UserDetailsViewController {
