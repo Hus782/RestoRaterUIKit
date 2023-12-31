@@ -14,7 +14,9 @@ enum UserField {
     case isAdmin
 }
 
-final class AddEditUserViewController: UITableViewController {
+final class AddEditUserViewController: UIViewController {
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var tableView: UITableView!
     private var cells: [DetailInfoCellData] = []
     private let fields: [UserField] = [.name, .email, .password, .isAdmin]
     weak var delegate: UserUpdateDelegate?
@@ -25,10 +27,13 @@ final class AddEditUserViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: SwitchTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SwitchTableViewCell.defaultReuseIdentifier)
-        title = Lingo.userDetailsTitle
+        
+        
         
         if let scenario = scenario, let user = user {
             viewModel.initializeWithUser(scenario: scenario, user: user)
@@ -41,10 +46,7 @@ final class AddEditUserViewController: UITableViewController {
     }
     
     private func setNavigationBar() {
-        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
-        view.addSubview(navBar)
-        
-        let navItem = UINavigationItem(title: Lingo.addEditUserCreateTitle)
+        let navItem = UINavigationItem(title: viewModel.title)
         
         // Save item
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
@@ -84,13 +86,13 @@ final class AddEditUserViewController: UITableViewController {
     
 }
 
-extension AddEditUserViewController {
+extension AddEditUserViewController: UITableViewDelegate, UITableViewDataSource {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fields.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let fieldType = fields[indexPath.row]
         switch fieldType {
         case .isAdmin:

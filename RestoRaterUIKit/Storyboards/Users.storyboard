@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +35,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="4SY-h3-tMJ" kind="presentation" identifier="AddUserSegue" id="9Sq-Yg-jzp"/>
+                        <segue destination="i6q-xS-xxv" kind="presentation" identifier="AddUserSegue" id="LT1-zu-M8S"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpZ-gI-mmS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,7 +67,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="yuW-J3-FWs"/>
                     <connections>
-                        <segue destination="4SY-h3-tMJ" kind="presentation" identifier="EditUserSegue" id="Ux9-Sl-BNs"/>
+                        <segue destination="i6q-xS-xxv" kind="presentation" identifier="EditUserSegue" id="aVA-u4-7pY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jz0-EP-g7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -74,37 +75,48 @@
             <point key="canvasLocation" x="550" y="18"/>
         </scene>
         <!--Add Edit User View Controller-->
-        <scene sceneID="awA-iF-Eeu">
+        <scene sceneID="uZe-0Y-4fP">
             <objects>
-                <tableViewController storyboardIdentifier="AddEditUserViewController" id="4SY-h3-tMJ" customClass="AddEditUserViewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="RCS-Lv-gfL">
+                <viewController storyboardIdentifier="AddEditUserViewController" id="i6q-xS-xxv" customClass="AddEditUserViewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hJe-Ab-Dua">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oru-8N-Jls">
+                                <rect key="frame" x="20" y="115" width="353" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dw0-6s-guE">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <items>
+                                    <navigationItem title="Title" id="2nT-rQ-dfT"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NzC-le-FbZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="m9r-I8-uvz">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m9r-I8-uvz" id="FiC-Yz-Bo6">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4SY-h3-tMJ" id="tqV-fS-TlZ"/>
-                            <outlet property="delegate" destination="4SY-h3-tMJ" id="afm-TH-P3g"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="tjR-hs-3gN"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1dp-gb-BWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="dw0-6s-guE" firstAttribute="leading" secondItem="NzC-le-FbZ" secondAttribute="leading" id="3pn-e9-AjY"/>
+                            <constraint firstItem="NzC-le-FbZ" firstAttribute="trailing" secondItem="dw0-6s-guE" secondAttribute="trailing" id="7b8-j9-3vY"/>
+                            <constraint firstItem="dw0-6s-guE" firstAttribute="top" secondItem="NzC-le-FbZ" secondAttribute="top" id="GWZ-C3-AHs"/>
+                            <constraint firstItem="oru-8N-Jls" firstAttribute="leading" secondItem="NzC-le-FbZ" secondAttribute="leading" constant="20" id="N7G-KG-OFq"/>
+                            <constraint firstItem="NzC-le-FbZ" firstAttribute="trailing" secondItem="oru-8N-Jls" secondAttribute="trailing" constant="20" id="W05-9v-hw4"/>
+                            <constraint firstItem="oru-8N-Jls" firstAttribute="top" secondItem="dw0-6s-guE" secondAttribute="bottom" id="YjH-ZL-w2j"/>
+                            <constraint firstItem="NzC-le-FbZ" firstAttribute="bottom" secondItem="oru-8N-Jls" secondAttribute="bottom" constant="100" id="hfJ-rx-BBG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navBar" destination="dw0-6s-guE" id="EMb-B2-ibb"/>
+                        <outlet property="tableView" destination="oru-8N-Jls" id="Tgb-vp-gEY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nas-as-Tz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2098" y="18"/>
+            <point key="canvasLocation" x="1393" y="751"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ux9-Sl-BNs"/>
+        <segue reference="aVA-u4-7pY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
