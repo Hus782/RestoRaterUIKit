@@ -73,8 +73,8 @@ final class AddEditUserViewModel {
         }
     }
     
-    func editUser() async {
-        guard let user = user else { return }
+    func editUser() async -> User? {
+        guard let user = user else { return nil}
         user.name = name
         user.email = email
         user.password = password
@@ -85,11 +85,13 @@ final class AddEditUserViewModel {
             await MainActor.run { [weak self] in
                 self?.onAddCompletion?()
             }
+            return user
         } catch {
             await MainActor.run { [weak self] in
                 self?.showingAlert = true
                 self?.alertMessage = error.localizedDescription
             }
+            return nil
         }
     }
 }

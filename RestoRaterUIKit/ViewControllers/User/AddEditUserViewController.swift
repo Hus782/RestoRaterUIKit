@@ -17,11 +17,11 @@ enum UserField {
 final class AddEditUserViewController: UITableViewController {
     private var cells: [DetailInfoCellData] = []
     private let fields: [UserField] = [.name, .email, .password, .isAdmin]
-
+    weak var delegate: UserUpdateDelegate?
     var user: User?
     var scenario: UserViewScenario?
     private var viewModel: AddEditUserViewModel = AddEditUserViewModel(dataManager: CoreDataManager<User>())
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +35,6 @@ final class AddEditUserViewController: UITableViewController {
         }
         viewModel.onAddCompletion = { [weak self] in
             self?.dismiss(animated: true)
-            self?.tableView.reloadData()
         }
         
         setNavigationBar()
@@ -44,17 +43,17 @@ final class AddEditUserViewController: UITableViewController {
     private func setNavigationBar() {
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
         view.addSubview(navBar)
-
+        
         let navItem = UINavigationItem(title: Lingo.addEditUserCreateTitle)
         
         // Save item
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
         navItem.rightBarButtonItem = saveItem
-
+        
         // Cancel item
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navItem.leftBarButtonItem = cancelItem
-
+        
         navBar.setItems([navItem], animated: false)
     }
     
@@ -69,17 +68,19 @@ final class AddEditUserViewController: UITableViewController {
     }
     
     private func handleSave() async {
-          viewModel.isLoading = true
-          switch scenario {
-          case .add:
-              await viewModel.addUser()
-          case .edit:
-              await viewModel.editUser()
-          default:
-              break
-          }
-          viewModel.isLoading = false
-      }
+        viewModel.isLoading = true
+        switch scenario {
+        case .add:
+            await viewModel.addUser()
+        case .edit:
+            if let updatedUser = await viewModel.editUser() {
+                delegate?.userDidUpdate(updatedUser)
+            }
+        default:
+            break
+        }
+        viewModel.isLoading = false
+    }
     
 }
 
@@ -94,7 +95,7 @@ extension AddEditUserViewController {
         switch fieldType {
         case .isAdmin:
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.defaultReuseIdentifier, for: indexPath) as! SwitchTableViewCell
-            cell.configure(title: "Role", description: "isAdmin", isOn: user?.isAdmin ?? false)
+            cell.configure(title: Lingo.addEditUserAdminAccess, description: Lingo.addEditUserAdminAccess, isOn: user?.isAdmin ?? false)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
@@ -102,7 +103,7 @@ extension AddEditUserViewController {
             return cell
         }
     }
-
+    
     
     private func configureCell(_ cell: TextFieldCell, for fieldType: UserField) {
         switch fieldType {
@@ -128,6 +129,6 @@ extension AddEditUserViewController {
             break
         }
     }
-
+    
     
 }

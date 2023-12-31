@@ -7,9 +7,15 @@
 
 import UIKit
 
+// Used to update the current user after editing
+protocol UserUpdateDelegate: AnyObject {
+    func userDidUpdate(_ updatedUser: User)
+}
+
 final class UserDetailsViewController: UITableViewController {
     private var cells: [DetailInfoCellData] = []
     var user: User?
+    var deleteCompletion: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +49,7 @@ final class UserDetailsViewController: UITableViewController {
         if segue.identifier == "EditUserSegue" {
             if let vc = segue.destination as? AddEditUserViewController
             {
+                vc.delegate = self
                 vc.scenario = .edit
                 vc.user = user
             }
@@ -62,5 +69,14 @@ extension UserDetailsViewController {
         let cellData = cells[indexPath.row]
         cell.configure(title: cellData.title, content: cellData.content)
         return cell
+    }
+}
+
+extension UserDetailsViewController: UserUpdateDelegate {
+    func userDidUpdate(_ updatedUser: User) {
+        self.user = updatedUser
+        cells = []
+        loadUserData()
+        tableView.reloadData()
     }
 }
