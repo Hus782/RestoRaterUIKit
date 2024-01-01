@@ -32,6 +32,8 @@
 		3D4B86422B42DF5800F63D21 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B86402B42DF5800F63D21 /* ReviewCell.swift */; };
 		3D4B86432B42DF5800F63D21 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B86412B42DF5800F63D21 /* ReviewCell.xib */; };
 		3D4B86452B42E1E000F63D21 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B86442B42E1E000F63D21 /* Date.swift */; };
+		3D4B86482B42F26000F63D21 /* AddEditReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B86472B42F26000F63D21 /* AddEditReviewViewController.swift */; };
+		3D4B864A2B42F34A00F63D21 /* AddEditReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B86492B42F34A00F63D21 /* AddEditReviewViewModel.swift */; };
 		3D4E8FCB2B4049AA00EA9C28 /* Restaurants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCA2B4049AA00EA9C28 /* Restaurants.storyboard */; };
 		3D4E8FCD2B4049DC00EA9C28 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCC2B4049DC00EA9C28 /* Users.storyboard */; };
 		3D4E8FCF2B404A6E00EA9C28 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCE2B404A6E00EA9C28 /* Profile.storyboard */; };
@@ -100,6 +102,8 @@
 		3D4B86402B42DF5800F63D21 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		3D4B86412B42DF5800F63D21 /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		3D4B86442B42E1E000F63D21 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		3D4B86472B42F26000F63D21 /* AddEditReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditReviewViewController.swift; sourceTree = "<group>"; };
+		3D4B86492B42F34A00F63D21 /* AddEditReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditReviewViewModel.swift; sourceTree = "<group>"; };
 		3D4E8FCA2B4049AA00EA9C28 /* Restaurants.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Restaurants.storyboard; sourceTree = "<group>"; };
 		3D4E8FCC2B4049DC00EA9C28 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
 		3D4E8FCE2B404A6E00EA9C28 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -218,6 +222,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		3D4B86462B42F25100F63D21 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				3D4B86472B42F26000F63D21 /* AddEditReviewViewController.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		3D6F80612B382E81006C8684 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +239,7 @@
 				3D8AB7532B4008DE00640749 /* UsersViewModel.swift */,
 				3DAA82382B40716B0051AC8D /* AddEditUserViewModel.swift */,
 				3D8185F52B42A639002DF965 /* AddEditRestaurantViewModel.swift */,
+				3D4B86492B42F34A00F63D21 /* AddEditReviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -278,6 +291,7 @@
 		3DCF86282B387FC50032525E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3D4B86462B42F25100F63D21 /* Review */,
 				3D8185F22B42A5B5002DF965 /* Restaurant */,
 				3DAA82352B40710D0051AC8D /* User */,
 				3D06AC152B358E8A0057139A /* RegisterVIewController.swift */,
@@ -422,6 +436,7 @@
 				3D4E8FD12B404B0900EA9C28 /* UserDetailsViewController.swift in Sources */,
 				3D4B86452B42E1E000F63D21 /* Date.swift in Sources */,
 				3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */,
+				3D4B86482B42F26000F63D21 /* AddEditReviewViewController.swift in Sources */,
 				3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */,
 				3D8AB75A2B400F8100640749 /* ProfileViewController.swift in Sources */,
 				3D6F80682B382EE9006C8684 /* PersistenceController.swift in Sources */,
@@ -432,6 +447,7 @@
 				3DCF86232B3871510032525E /* Restaurant+CoreDataProperties.swift in Sources */,
 				3D06ABFF2B357BF90057139A /* SceneDelegate.swift in Sources */,
 				3D6F80812B38306D006C8684 /* User+CoreDataProperties.swift in Sources */,
+				3D4B864A2B42F34A00F63D21 /* AddEditReviewViewModel.swift in Sources */,
 				3D8185FF2B42BB6F002DF965 /* RestaurantHeaderCell.swift in Sources */,
 				3D2F83B42B35AF8C002D7FF1 /* TextFieldCell.swift in Sources */,
 				3D6F80662B382EC9006C8684 /* CoreDataManager.swift in Sources */,

@@ -154,7 +154,7 @@ final class RestaurantDetailsViewController: UITableViewController {
     }
     
     private func addReview() {
-        
+        performSegue(withIdentifier: "AddReviewSegue", sender: nil)
     }
 }
 
