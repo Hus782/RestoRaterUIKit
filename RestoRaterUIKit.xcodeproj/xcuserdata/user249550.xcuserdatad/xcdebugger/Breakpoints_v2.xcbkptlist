@@ -227,7 +227,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D27B2847-F96E-4E37-AEF8-41489EE15676"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
@@ -764,6 +764,54 @@
             endingLineNumber = "109"
             landmarkName = "navigateToRegister()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A66BA07-1EF9-4228-BC14-5D544E537FC3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoRaterUIKit/ViewControllers/Restaurant/RestaurantListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5A66BA07-1EF9-4228-BC14-5D544E537FC3 - 4686ae7807b123ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoRaterUIKit.RestaurantListVIewController.prepare(for: __C.UIStoryboardSegue, sender: Swift.Optional&lt;Any&gt;) -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewControllers/Restaurant/RestaurantListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "1304">
+               </Location>
+               <Location
+                  uuid = "5A66BA07-1EF9-4228-BC14-5D544E537FC3 - b3566f6745371067"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in RestoRaterUIKit.RestaurantListVIewController.prepare(for: __C.UIStoryboardSegue, sender: Swift.Optional&lt;Any&gt;) -&gt; ()"
+                  moduleName = "RestoRaterUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user249550/Desktop/projects/RestoRaterUIKit/RestoRaterUIKit/ViewControllers/Restaurant/RestaurantListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,16 +12,16 @@
         <scene sceneID="UhC-FZ-An6">
             <objects>
                 <tableViewController storyboardIdentifier="RestaurantListVIewController" id="Yi3-Nv-is9" customClass="RestaurantListVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bCL-MQ-ZDP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bCL-MQ-ZDP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uQw-tb-jca">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uQw-tb-jca" id="CmF-8x-Ecw">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -30,10 +31,53 @@
                             <outlet property="delegate" destination="Yi3-Nv-is9" id="T6m-T1-1rw"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="mTU-c9-9L5" kind="presentation" identifier="AddRestaurantSegue" id="lAd-zZ-pfp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jL4-Xb-j2z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-173" y="-10"/>
+        </scene>
+        <!--Add Edit Restaurant View Controller-->
+        <scene sceneID="76h-Vw-Ecd">
+            <objects>
+                <viewController storyboardIdentifier="AddEditRestaurantViewController" id="mTU-c9-9L5" customClass="AddEditRestaurantViewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LUv-uu-j9z">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-gE-F19">
+                                <rect key="frame" x="20" y="115" width="353" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oh-Sp-miL">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <items>
+                                    <navigationItem title="Title" id="lcm-J3-Z7d"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IOr-8q-CCZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6oh-Sp-miL" firstAttribute="leading" secondItem="IOr-8q-CCZ" secondAttribute="leading" id="F2x-F3-Yc6"/>
+                            <constraint firstItem="ApP-gE-F19" firstAttribute="leading" secondItem="IOr-8q-CCZ" secondAttribute="leading" constant="20" id="P2O-yK-bvi"/>
+                            <constraint firstItem="IOr-8q-CCZ" firstAttribute="bottom" secondItem="ApP-gE-F19" secondAttribute="bottom" constant="100" id="caH-pd-3at"/>
+                            <constraint firstItem="6oh-Sp-miL" firstAttribute="top" secondItem="IOr-8q-CCZ" secondAttribute="top" id="cip-3X-iU8"/>
+                            <constraint firstItem="ApP-gE-F19" firstAttribute="top" secondItem="6oh-Sp-miL" secondAttribute="bottom" id="eV7-QS-CIJ"/>
+                            <constraint firstItem="IOr-8q-CCZ" firstAttribute="trailing" secondItem="6oh-Sp-miL" secondAttribute="trailing" id="lG2-oY-VjS"/>
+                            <constraint firstItem="IOr-8q-CCZ" firstAttribute="trailing" secondItem="ApP-gE-F19" secondAttribute="trailing" constant="20" id="reL-il-Olt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navBar" destination="6oh-Sp-miL" id="Zmy-2S-XZy"/>
+                        <outlet property="tableView" destination="ApP-gE-F19" id="vmf-CV-A2e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPe-Dk-AVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="-11"/>
         </scene>
     </scenes>
     <resources>

@@ -18,7 +18,7 @@ extension Restaurant {
 
     @NSManaged public var address: String
     @NSManaged public var name: String
-    @NSManaged public var image: Data
+    @NSManaged public var image: Data?
     @NSManaged public var reviews: NSSet?
 
 }

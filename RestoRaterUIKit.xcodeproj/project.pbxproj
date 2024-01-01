@@ -41,6 +41,8 @@
 		3D6F80802B38306D006C8684 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F807A2B38306D006C8684 /* User+CoreDataClass.swift */; };
 		3D6F80812B38306D006C8684 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F807B2B38306D006C8684 /* User+CoreDataProperties.swift */; };
 		3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F80822B3830FD006C8684 /* UserManager.swift */; };
+		3D8185F42B42A5C9002DF965 /* AddEditRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8185F32B42A5C9002DF965 /* AddEditRestaurantViewController.swift */; };
+		3D8185F62B42A639002DF965 /* AddEditRestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8185F52B42A639002DF965 /* AddEditRestaurantViewModel.swift */; };
 		3D8AB7522B40089600640749 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AB7512B40089600640749 /* UserListViewController.swift */; };
 		3D8AB7542B4008DE00640749 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AB7532B4008DE00640749 /* UsersViewModel.swift */; };
 		3D8AB7572B4009BD00640749 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AB7552B4009BD00640749 /* UserTableViewCell.swift */; };
@@ -97,6 +99,8 @@
 		3D6F807A2B38306D006C8684 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3D6F807B2B38306D006C8684 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3D6F80822B3830FD006C8684 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3D8185F32B42A5C9002DF965 /* AddEditRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRestaurantViewController.swift; sourceTree = "<group>"; };
+		3D8185F52B42A639002DF965 /* AddEditRestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRestaurantViewModel.swift; sourceTree = "<group>"; };
 		3D8AB7512B40089600640749 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		3D8AB7532B4008DE00640749 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		3D8AB7552B4009BD00640749 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				3DCF86302B3883E20032525E /* RestaurantViewModel.swift */,
 				3D8AB7532B4008DE00640749 /* UsersViewModel.swift */,
 				3DAA82382B40716B0051AC8D /* AddEditUserViewModel.swift */,
+				3D8185F52B42A639002DF965 /* AddEditRestaurantViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -229,6 +234,15 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		3D8185F22B42A5B5002DF965 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				3DCF86292B38800A0032525E /* RestaurantListViewController.swift */,
+				3D8185F32B42A5C9002DF965 /* AddEditRestaurantViewController.swift */,
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
 		3DAA82352B40710D0051AC8D /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,11 +256,11 @@
 		3DCF86282B387FC50032525E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3D8185F22B42A5B5002DF965 /* Restaurant */,
 				3DAA82352B40710D0051AC8D /* User */,
 				3D06AC152B358E8A0057139A /* RegisterVIewController.swift */,
 				3D06AC172B358EBB0057139A /* LoginViewController.swift */,
 				3D06AC132B3589D80057139A /* TabBarViewController.swift */,
-				3DCF86292B38800A0032525E /* RestaurantListViewController.swift */,
 				3D8AB7592B400F8100640749 /* ProfileViewController.swift */,
 				3D3A207D2B40422600B606E2 /* TabBarController.swift */,
 			);
@@ -367,6 +381,7 @@
 				3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */,
 				3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */,
 				3D06AC072B357BF90057139A /* RestoRaterUIKit.xcdatamodeld in Sources */,
+				3D8185F42B42A5C9002DF965 /* AddEditRestaurantViewController.swift in Sources */,
 				3D5297322B414E980052880A /* SwitchTableViewCell.swift in Sources */,
 				3D4E8FD12B404B0900EA9C28 /* UserDetailsViewController.swift in Sources */,
 				3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */,
@@ -386,6 +401,7 @@
 				3D3A207E2B40422600B606E2 /* TabBarController.swift in Sources */,
 				3D8AB7542B4008DE00640749 /* UsersViewModel.swift in Sources */,
 				3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */,
+				3D8185F62B42A639002DF965 /* AddEditRestaurantViewModel.swift in Sources */,
 				3D8AB75D2B40160C00640749 /* DetailInfoTableViewCell.swift in Sources */,
 				3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */,
 				3DCF862A2B38800B0032525E /* RestaurantListViewController.swift in Sources */,
