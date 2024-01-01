@@ -38,7 +38,7 @@ final class AddEditReviewViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
-        tableView.register(UINib(nibName: SwitchTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SwitchTableViewCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: DatePickerCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: DatePickerCell.defaultReuseIdentifier)
     }
     
     private func setupActivityIndicator() {
@@ -141,6 +141,12 @@ extension AddEditReviewViewController: UITableViewDelegate, UITableViewDataSourc
             cell.configure(title: Lingo.addEditReviewComment, content: viewModel.comment) { [weak self] text in
                 self?.viewModel.comment = text
             }
+            return cell
+        case .date:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DatePickerCell.defaultReuseIdentifier, for: indexPath) as! DatePickerCell
+            cell.configure(withTitle: Lingo.addEditReviewDateOfVisit, date: viewModel.visitDate) { date in
+                self.viewModel.visitDate = date
+              }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell

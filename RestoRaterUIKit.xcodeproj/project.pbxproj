@@ -55,6 +55,8 @@
 		3D8185FC2B42B728002DF965 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8185FB2B42B728002DF965 /* RestaurantDetailsViewController.swift */; };
 		3D8185FF2B42BB6F002DF965 /* RestaurantHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8185FD2B42BB6F002DF965 /* RestaurantHeaderCell.swift */; };
 		3D8186002B42BB6F002DF965 /* RestaurantHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8185FE2B42BB6F002DF965 /* RestaurantHeaderCell.xib */; };
+		3D83C9982B431E54001BECEF /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D83C9962B431E54001BECEF /* DatePickerCell.swift */; };
+		3D83C9992B431E54001BECEF /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D83C9972B431E54001BECEF /* DatePickerCell.xib */; };
 		3D8AB7522B40089600640749 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AB7512B40089600640749 /* UserListViewController.swift */; };
 		3D8AB7542B4008DE00640749 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AB7532B4008DE00640749 /* UsersViewModel.swift */; };
 		3D8AB7572B4009BD00640749 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AB7552B4009BD00640749 /* UserTableViewCell.swift */; };
@@ -125,6 +127,8 @@
 		3D8185FB2B42B728002DF965 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		3D8185FD2B42BB6F002DF965 /* RestaurantHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantHeaderCell.swift; sourceTree = "<group>"; };
 		3D8185FE2B42BB6F002DF965 /* RestaurantHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantHeaderCell.xib; sourceTree = "<group>"; };
+		3D83C9962B431E54001BECEF /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		3D83C9972B431E54001BECEF /* DatePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		3D8AB7512B40089600640749 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		3D8AB7532B4008DE00640749 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		3D8AB7552B4009BD00640749 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -328,6 +332,8 @@
 				3D4B863D2B42DA6A00F63D21 /* StarRatingCell.xib */,
 				3D4B86402B42DF5800F63D21 /* ReviewCell.swift */,
 				3D4B86412B42DF5800F63D21 /* ReviewCell.xib */,
+				3D83C9962B431E54001BECEF /* DatePickerCell.swift */,
+				3D83C9972B431E54001BECEF /* DatePickerCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				3D2F83C32B35C9BD002D7FF1 /* Localizable.strings in Resources */,
 				3D4E8FCF2B404A6E00EA9C28 /* Profile.storyboard in Resources */,
 				3D8185FA2B42AB69002DF965 /* ImagePickerCell.xib in Resources */,
+				3D83C9992B431E54001BECEF /* DatePickerCell.xib in Resources */,
 				3D06AC042B357BF90057139A /* Main.storyboard in Resources */,
 				3D8AB75E2B40160C00640749 /* DetailInfoTableViewCell.xib in Resources */,
 				3D4B86432B42DF5800F63D21 /* ReviewCell.xib in Resources */,
@@ -429,6 +436,7 @@
 				3D06AC012B357BF90057139A /* ViewController.swift in Sources */,
 				3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */,
 				3D8185F92B42AB69002DF965 /* ImagePickerCell.swift in Sources */,
+				3D83C9982B431E54001BECEF /* DatePickerCell.swift in Sources */,
 				3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */,
 				3D06AC072B357BF90057139A /* RestoRaterUIKit.xcdatamodeld in Sources */,
 				3D8185F42B42A5C9002DF965 /* AddEditRestaurantViewController.swift in Sources */,
