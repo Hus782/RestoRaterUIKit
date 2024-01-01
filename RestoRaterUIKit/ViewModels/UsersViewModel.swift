@@ -11,7 +11,7 @@ final class UsersViewModel {
     var users: [User] = []
     var showingAlert = false
     var alertMessage = ""
-    var isLoading = false
+    var isLoading = Observable<Bool>(false)
     private let dataManager: CoreDataManager<User>
     
     init(dataManager: CoreDataManager<User> = CoreDataManager<User>()) {
@@ -21,18 +21,18 @@ final class UsersViewModel {
     func fetchUsers() async {
         do {
             await MainActor.run { [weak self] in
-                self?.isLoading = true
+                self?.isLoading.value = true
             }
             
             let fetchedUsers = try await dataManager.fetchEntities()
             await MainActor.run { [weak self] in
                 self?.users = fetchedUsers
-                self?.isLoading = false
+                self?.isLoading.value = false
             }
             
         } catch {
             await MainActor.run { [weak self] in
-                self?.isLoading = false
+                self?.isLoading.value = false
                 self?.showingAlert = true
                 self?.alertMessage = error.localizedDescription
             }

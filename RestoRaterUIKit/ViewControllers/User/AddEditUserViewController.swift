@@ -23,27 +23,52 @@ final class AddEditUserViewController: UIViewController {
     var user: User?
     var scenario: UserViewScenario?
     var completion: (() -> Void)?
-    private var viewModel: AddEditUserViewModel = AddEditUserViewModel(dataManager: CoreDataManager<User>())
+    private var activityIndicator: UIActivityIndicatorView?
+    private let viewModel: AddEditUserViewModel = AddEditUserViewModel(dataManager: CoreDataManager<User>())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        initializeViewModel()
+        setNavigationBar()
+        setupActivityIndicator()
+    }
+    
+    private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: SwitchTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SwitchTableViewCell.defaultReuseIdentifier)
-        
+    }
+    
+    private func setupActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator?.hidesWhenStopped = true
+    }
+    
+    private func initializeViewModel() {
         if let scenario = scenario, let user = user {
             viewModel.initializeWithUser(scenario: scenario, user: user)
         }
-
+        
         viewModel.onAddCompletion = { [weak self] in
             self?.dismiss(animated: true)
             self?.completion?()
         }
         
-        setNavigationBar()
+        viewModel.isLoading.bind { [weak self] isLoading in
+            DispatchQueue.main.async {
+                self?.showLoading(isLoading)
+            }
+        }
+        
+        viewModel.errorMessage.bind { [weak self] message in
+            if let message = message {
+                self?.presentErrorAlert(message: message)
+            }
+        }
     }
     
     private func setNavigationBar() {
@@ -66,12 +91,30 @@ final class AddEditUserViewController: UIViewController {
         }
     }
     
+    private func presentErrorAlert(message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
+            self.present(alert, animated: true)
+        }
+    }
+    
+    private func showLoading(_ loading: Bool) {
+        if loading {
+            activityIndicator?.startAnimating()
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator ?? UIView())
+        } else {
+            activityIndicator?.stopAnimating()
+            let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+            navigationItem.rightBarButtonItem = saveItem
+        }
+    }
+    
     @objc private func cancelButtonTapped() {
         dismiss(animated: true)
     }
     
     private func handleSave() async {
-        viewModel.isLoading = true
         switch scenario {
         case .add:
             await viewModel.addUser()
@@ -82,7 +125,6 @@ final class AddEditUserViewController: UIViewController {
         default:
             break
         }
-        viewModel.isLoading = false
     }
     
 }

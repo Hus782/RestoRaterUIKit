@@ -18,8 +18,8 @@ final class AddEditUserViewModel {
     var password: String = ""
     var isAdmin: Bool = false
     var showingAlert = false
-    var alertMessage = ""
-    var isLoading = false
+    var errorMessage = Observable<String?>(nil)
+    var isLoading = Observable<Bool>(false)
     var scenario: UserViewScenario = .add
     var user: User?
     var onAddCompletion: (() -> Void)?
@@ -58,6 +58,7 @@ final class AddEditUserViewModel {
     }
     
     func addUser() async {
+        isLoading.value = true
         do {
             try await dataManager.createEntity { [weak self] (user: User) in
                 self?.configure(user: user)
@@ -68,9 +69,10 @@ final class AddEditUserViewModel {
         } catch {
             await MainActor.run { [weak self] in
                 self?.showingAlert = true
-                self?.alertMessage = error.localizedDescription
+                self?.errorMessage.value = error.localizedDescription
             }
         }
+        isLoading.value = false
     }
     
     func editUser() async -> User? {
@@ -79,19 +81,22 @@ final class AddEditUserViewModel {
         user.email = email
         user.password = password
         user.isAdmin = isAdmin
-        
+        isLoading.value = true
+
         do {
             try await dataManager.saveEntity(entity: user)
             await MainActor.run { [weak self] in
                 self?.onAddCompletion?()
+                self?.isLoading.value = false
             }
             return user
         } catch {
             await MainActor.run { [weak self] in
                 self?.showingAlert = true
-                self?.alertMessage = error.localizedDescription
+                self?.errorMessage.value = error.localizedDescription
+                self?.isLoading.value = false
             }
             return nil
-        }
+        } 
     }
 }
