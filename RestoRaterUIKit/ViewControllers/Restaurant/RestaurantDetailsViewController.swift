@@ -31,6 +31,7 @@ final class RestaurantDetailsViewController: UITableViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: RestaurantHeaderCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantHeaderCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: StarRatingCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: StarRatingCell.defaultReuseIdentifier)
   
         
         title = Lingo.userDetailsTitle
@@ -115,10 +116,13 @@ extension RestaurantDetailsViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch cells[indexPath.row] {
             
-            
         case .header(let restaurantData):
             let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantHeaderCell.defaultReuseIdentifier, for: indexPath) as! RestaurantHeaderCell
             cell.configure(name: restaurantData.name, address: restaurantData.address, imageData: restaurantData.imageData)
+            return cell
+        case .rating(let rating):
+            let cell = tableView.dequeueReusableCell(withIdentifier: StarRatingCell.defaultReuseIdentifier, for: indexPath) as! StarRatingCell
+            cell.configure(withRating: rating)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantHeaderCell.defaultReuseIdentifier, for: indexPath) as! RestaurantHeaderCell

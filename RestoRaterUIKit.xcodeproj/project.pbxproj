@@ -27,6 +27,8 @@
 		3D2F83C32B35C9BD002D7FF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83C52B35C9BD002D7FF1 /* Localizable.strings */; };
 		3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */; };
 		3D3A207E2B40422600B606E2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A207D2B40422600B606E2 /* TabBarController.swift */; };
+		3D4B863E2B42DA6A00F63D21 /* StarRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B863C2B42DA6A00F63D21 /* StarRatingCell.swift */; };
+		3D4B863F2B42DA6A00F63D21 /* StarRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B863D2B42DA6A00F63D21 /* StarRatingCell.xib */; };
 		3D4E8FCB2B4049AA00EA9C28 /* Restaurants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCA2B4049AA00EA9C28 /* Restaurants.storyboard */; };
 		3D4E8FCD2B4049DC00EA9C28 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCC2B4049DC00EA9C28 /* Users.storyboard */; };
 		3D4E8FCF2B404A6E00EA9C28 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCE2B404A6E00EA9C28 /* Profile.storyboard */; };
@@ -90,6 +92,8 @@
 		3D2F83C42B35C9BD002D7FF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D2F83C62B35C9F2002D7FF1 /* Lingo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lingo.swift; sourceTree = "<group>"; };
 		3D3A207D2B40422600B606E2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3D4B863C2B42DA6A00F63D21 /* StarRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingCell.swift; sourceTree = "<group>"; };
+		3D4B863D2B42DA6A00F63D21 /* StarRatingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarRatingCell.xib; sourceTree = "<group>"; };
 		3D4E8FCA2B4049AA00EA9C28 /* Restaurants.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Restaurants.storyboard; sourceTree = "<group>"; };
 		3D4E8FCC2B4049DC00EA9C28 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
 		3D4E8FCE2B404A6E00EA9C28 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 				3D8185F82B42AB69002DF965 /* ImagePickerCell.xib */,
 				3D8185FD2B42BB6F002DF965 /* RestaurantHeaderCell.swift */,
 				3D8185FE2B42BB6F002DF965 /* RestaurantHeaderCell.xib */,
+				3D4B863C2B42DA6A00F63D21 /* StarRatingCell.swift */,
+				3D4B863D2B42DA6A00F63D21 /* StarRatingCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				3DCF862E2B3880BF0032525E /* RestaurantTableViewCell.xib in Resources */,
 				3D06AC0C2B357BFB0057139A /* LaunchScreen.storyboard in Resources */,
 				3D06AC092B357BFB0057139A /* Assets.xcassets in Resources */,
+				3D4B863F2B42DA6A00F63D21 /* StarRatingCell.xib in Resources */,
 				3D5297332B414E980052880A /* SwitchTableViewCell.xib in Resources */,
 				3D2F83B92B35B86D002D7FF1 /* ButtonCell.xib in Resources */,
 				3D2F83C32B35C9BD002D7FF1 /* Localizable.strings in Resources */,
@@ -387,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D4B863E2B42DA6A00F63D21 /* StarRatingCell.swift in Sources */,
 				3D2F83BC2B35C53E002D7FF1 /* UIView.swift in Sources */,
 				3D06AC182B358EBB0057139A /* LoginViewController.swift in Sources */,
 				3D6F807D2B38306D006C8684 /* Review+CoreDataProperties.swift in Sources */,
