@@ -13,14 +13,21 @@ struct RestaurantHeaderData {
     let imageData: Data
 }
 
+enum ReviewType {
+    case latest
+    case highestRated
+    case lowestRated
+    case normal
+}
+
 final class RestaurantDetailsViewController: UITableViewController {
     private enum CellType {
         case header(RestaurantHeaderData)
         case rating(Double)
-        case review(Review)
+        case review(ReviewType, Review)
         case showAllReviews
     }
-
+  
     private var viewModel = RestaurantViewModel()
     private var cells: [CellType] = []
     var restaurant: Restaurant?
@@ -32,7 +39,9 @@ final class RestaurantDetailsViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: RestaurantHeaderCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantHeaderCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: StarRatingCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: StarRatingCell.defaultReuseIdentifier)
-  
+        tableView.register(UINib(nibName: ReviewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ReviewCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
+        
         
         title = Lingo.userDetailsTitle
         loadRestaurant()
@@ -55,54 +64,64 @@ final class RestaurantDetailsViewController: UITableViewController {
             .header(RestaurantHeaderData(name: restaurant.name, address: restaurant.address, imageData: restaurant.image)),
             .rating(restaurant.averageRating)
         ]
-        if restaurant.hasReviews, let latest = restaurant.latestReview, let highest = restaurant.highestRatedReview, let lowest = restaurant.lowestRatedReview {
-            cells.append(.review(latest))
-            cells.append(.review(highest))
-            cells.append(.review(lowest))
+        if restaurant.hasReviews {
+            if let latest = restaurant.latestReview {
+                cells.append(.review(.latest, latest))
+            }
+            if let highest = restaurant.highestRatedReview {
+                cells.append(.review(.highestRated, highest))
+            }
+            if let lowest = restaurant.lowestRatedReview {
+                cells.append(.review(.lowestRated, lowest))
+            }
             cells.append(.showAllReviews)
         }
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "EditUserSegue" {
-//            if let vc = segue.destination as? AddEditUserViewController
-//            {
-//                vc.scenario = .edit
-//                vc.user = user
-//            }
-//        }
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "EditUserSegue" {
+    //            if let vc = segue.destination as? AddEditUserViewController
+    //            {
+    //                vc.scenario = .edit
+    //                vc.user = user
+    //            }
+    //        }
+    //    }
     
     private func confirmAndDeleteUser() {
-//        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
-//
-//        confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { [weak self] _ in
-//            Task {
-//                let result = await self?.viewModel.deleteUser(self?.user)
-//                switch result {
-//                case .success:
-//                    self?.deleteCompletion?()
-//                    self?.navigationController?.popViewController(animated: true)
-//                case .failure(let error):
-//                    DispatchQueue.main.async {
-//                        self?.presentErrorAlert(message: error.localizedDescription)
-//                    }
-//                case .none:
-//                    break
-//                }
-//            }
-//        }))
-//
-//        confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel))
-//
-//        present(confirmAlert, animated: true)
+        //        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
+        //
+        //        confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { [weak self] _ in
+        //            Task {
+        //                let result = await self?.viewModel.deleteUser(self?.user)
+        //                switch result {
+        //                case .success:
+        //                    self?.deleteCompletion?()
+        //                    self?.navigationController?.popViewController(animated: true)
+        //                case .failure(let error):
+        //                    DispatchQueue.main.async {
+        //                        self?.presentErrorAlert(message: error.localizedDescription)
+        //                    }
+        //                case .none:
+        //                    break
+        //                }
+        //            }
+        //        }))
+        //
+        //        confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel))
+        //
+        //        present(confirmAlert, animated: true)
     }
     
     private func presentErrorAlert(message: String) {
         let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
         self.present(alert, animated: true)
+    }
+    
+    private func showAllReviews() {
+        
     }
     
 }
@@ -124,16 +143,17 @@ extension RestaurantDetailsViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: StarRatingCell.defaultReuseIdentifier, for: indexPath) as! StarRatingCell
             cell.configure(withRating: rating)
             return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantHeaderCell.defaultReuseIdentifier, for: indexPath) as! RestaurantHeaderCell
+        case .review(let reviewType, let review):
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReviewCell.defaultReuseIdentifier, for: indexPath) as! ReviewCell
+            cell.configure(date: review.visitDate, commnent: review.comment, rating: Double(review.rating), reviewType: reviewType)
             return cell
-//        case .delete:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
-//            cell.configure(withTitle: Lingo.commonDelete) { [weak self] in
-//                self?.confirmAndDeleteUser()
-//            }
-//            cell.button.setTitleColor(.red, for: .normal)
-//            return cell
+        case .showAllReviews:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
+            cell.configure(withTitle: Lingo.restaurantDetailShowAllReviews) { [weak self] in
+                self?.showAllReviews()
+            }
+            return cell
+
         }
     }
 }

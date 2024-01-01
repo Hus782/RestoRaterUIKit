@@ -29,6 +29,9 @@
 		3D3A207E2B40422600B606E2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A207D2B40422600B606E2 /* TabBarController.swift */; };
 		3D4B863E2B42DA6A00F63D21 /* StarRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B863C2B42DA6A00F63D21 /* StarRatingCell.swift */; };
 		3D4B863F2B42DA6A00F63D21 /* StarRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B863D2B42DA6A00F63D21 /* StarRatingCell.xib */; };
+		3D4B86422B42DF5800F63D21 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B86402B42DF5800F63D21 /* ReviewCell.swift */; };
+		3D4B86432B42DF5800F63D21 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B86412B42DF5800F63D21 /* ReviewCell.xib */; };
+		3D4B86452B42E1E000F63D21 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B86442B42E1E000F63D21 /* Date.swift */; };
 		3D4E8FCB2B4049AA00EA9C28 /* Restaurants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCA2B4049AA00EA9C28 /* Restaurants.storyboard */; };
 		3D4E8FCD2B4049DC00EA9C28 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCC2B4049DC00EA9C28 /* Users.storyboard */; };
 		3D4E8FCF2B404A6E00EA9C28 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4E8FCE2B404A6E00EA9C28 /* Profile.storyboard */; };
@@ -94,6 +97,9 @@
 		3D3A207D2B40422600B606E2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3D4B863C2B42DA6A00F63D21 /* StarRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingCell.swift; sourceTree = "<group>"; };
 		3D4B863D2B42DA6A00F63D21 /* StarRatingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarRatingCell.xib; sourceTree = "<group>"; };
+		3D4B86402B42DF5800F63D21 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		3D4B86412B42DF5800F63D21 /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		3D4B86442B42E1E000F63D21 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3D4E8FCA2B4049AA00EA9C28 /* Restaurants.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Restaurants.storyboard; sourceTree = "<group>"; };
 		3D4E8FCC2B4049DC00EA9C28 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
 		3D4E8FCE2B404A6E00EA9C28 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				3D2F83BB2B35C53E002D7FF1 /* UIView.swift */,
+				3D4B86442B42E1E000F63D21 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +312,8 @@
 				3D8185FE2B42BB6F002DF965 /* RestaurantHeaderCell.xib */,
 				3D4B863C2B42DA6A00F63D21 /* StarRatingCell.swift */,
 				3D4B863D2B42DA6A00F63D21 /* StarRatingCell.xib */,
+				3D4B86402B42DF5800F63D21 /* ReviewCell.swift */,
+				3D4B86412B42DF5800F63D21 /* ReviewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -378,6 +387,7 @@
 				3D8185FA2B42AB69002DF965 /* ImagePickerCell.xib in Resources */,
 				3D06AC042B357BF90057139A /* Main.storyboard in Resources */,
 				3D8AB75E2B40160C00640749 /* DetailInfoTableViewCell.xib in Resources */,
+				3D4B86432B42DF5800F63D21 /* ReviewCell.xib in Resources */,
 				3D2F83C02B35C6C1002D7FF1 /* SecondaryButtonCell.xib in Resources */,
 				3D8186002B42BB6F002DF965 /* RestaurantHeaderCell.xib in Resources */,
 				3D8AB7582B4009BD00640749 /* UserTableViewCell.xib in Resources */,
@@ -410,11 +420,13 @@
 				3D8185F42B42A5C9002DF965 /* AddEditRestaurantViewController.swift in Sources */,
 				3D5297322B414E980052880A /* SwitchTableViewCell.swift in Sources */,
 				3D4E8FD12B404B0900EA9C28 /* UserDetailsViewController.swift in Sources */,
+				3D4B86452B42E1E000F63D21 /* Date.swift in Sources */,
 				3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */,
 				3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */,
 				3D8AB75A2B400F8100640749 /* ProfileViewController.swift in Sources */,
 				3D6F80682B382EE9006C8684 /* PersistenceController.swift in Sources */,
 				3D06AC142B3589D80057139A /* TabBarViewController.swift in Sources */,
+				3D4B86422B42DF5800F63D21 /* ReviewCell.swift in Sources */,
 				3D6F80802B38306D006C8684 /* User+CoreDataClass.swift in Sources */,
 				3D6F807C2B38306D006C8684 /* Review+CoreDataClass.swift in Sources */,
 				3DCF86232B3871510032525E /* Restaurant+CoreDataProperties.swift in Sources */,
