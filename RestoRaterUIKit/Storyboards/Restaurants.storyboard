@@ -12,7 +12,7 @@
         <scene sceneID="UhC-FZ-An6">
             <objects>
                 <tableViewController storyboardIdentifier="RestaurantListVIewController" id="Yi3-Nv-is9" customClass="RestaurantListVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bCL-MQ-ZDP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bCL-MQ-ZDP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -33,11 +33,41 @@
                     </tableView>
                     <connections>
                         <segue destination="mTU-c9-9L5" kind="presentation" identifier="AddRestaurantSegue" id="lAd-zZ-pfp"/>
+                        <segue destination="RS1-U2-T7d" kind="show" identifier="RestaurantDetailsSegue" id="qb1-oC-nB2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jL4-Xb-j2z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-173" y="-10"/>
+        </scene>
+        <!--Restaurant Details View Controller-->
+        <scene sceneID="PTq-yl-2CO">
+            <objects>
+                <tableViewController storyboardIdentifier="RestaurantDetailsViewController" id="RS1-U2-T7d" customClass="RestaurantDetailsViewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="pCh-PJ-DHp">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GTs-3p-bNi">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GTs-3p-bNi" id="Scf-rT-leI">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RS1-U2-T7d" id="dNr-Nn-Fo1"/>
+                            <outlet property="delegate" destination="RS1-U2-T7d" id="xzI-oy-bXM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="r0Z-px-mbn"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ry7-d8-Ezh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="354" y="-726"/>
         </scene>
         <!--Add Edit Restaurant View Controller-->
         <scene sceneID="76h-Vw-Ecd">

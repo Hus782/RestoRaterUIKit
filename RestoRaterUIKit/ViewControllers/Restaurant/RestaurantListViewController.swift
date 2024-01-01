@@ -39,8 +39,16 @@ final class RestaurantListVIewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserDetailsSegue" {
-       
+        if segue.identifier == "RestaurantDetailsSegue" {
+            if let userDetailsVC = segue.destination as? RestaurantDetailsViewController,
+               let indexPath = tableView.indexPathForSelectedRow {
+                let selectedRestaurant = viewModel.restaurants.value[indexPath.row]
+                userDetailsVC.restaurant = selectedRestaurant
+                userDetailsVC.hidesBottomBarWhenPushed = true
+                userDetailsVC.deleteCompletion = { [weak self] in
+                    self?.reloadData()
+                }
+            }
         } else if segue.identifier == "AddRestaurantSegue" {
             if let vc = segue.destination as? AddEditRestaurantViewController
             {
@@ -67,5 +75,9 @@ extension RestaurantListVIewController {
                        name: restaurant.name,
                        address: restaurant.address)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "RestaurantDetailsSegue", sender: indexPath)
     }
 }
