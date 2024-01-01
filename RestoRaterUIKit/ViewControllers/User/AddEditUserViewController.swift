@@ -153,21 +153,15 @@ extension AddEditUserViewController: UITableViewDelegate, UITableViewDataSource 
     private func configureCell(_ cell: TextFieldCell, for fieldType: UserField) {
         switch fieldType {
         case .name:
-            cell.configure(title: Lingo.addEditUserName)
-            cell.textField.text = viewModel.name
-            cell.textChanged = { [weak self] text in
+            cell.configure(title: Lingo.addEditUserName, content: viewModel.name) { [weak self] text in
                 self?.viewModel.name = text
             }
         case .email:
-            cell.configure(title: Lingo.addEditUserEmail)
-            cell.textField.text = viewModel.email
-            cell.textChanged = { [weak self] text in
+            cell.configure(title: Lingo.addEditUserEmail, content: viewModel.email) { [weak self] text in
                 self?.viewModel.email = text
             }
         case .password:
-            cell.configure(title: Lingo.addEditUserPassword)
-            cell.textField.text = viewModel.password
-            cell.textChanged = { [weak self] text in
+            cell.configure(title: Lingo.addEditUserPassword, content: viewModel.password) { [weak self] text in
                 self?.viewModel.password = text
             }
         default:

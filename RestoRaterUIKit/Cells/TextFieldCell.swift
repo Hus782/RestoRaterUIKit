@@ -27,8 +27,10 @@ class TextFieldCell: UITableViewCell, ReusableView {
         textChanged?(sender.text ?? "")
     }
     
-    func configure(title: String) {
-        titleLabel.text = title
+    func configure(title: String, content: String, textChanged: ((String) -> Void)?) {
+        self.titleLabel.text = title
+        self.textField.text = content
+        self.textChanged = textChanged
     }
 
 }

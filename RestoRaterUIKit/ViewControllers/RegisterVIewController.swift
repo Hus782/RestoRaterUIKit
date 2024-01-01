@@ -7,8 +7,17 @@
 
 import UIKit
 
-class RegisterViewController: UITableViewController {
+final class RegisterViewController: UITableViewController {
+    private enum RegisterRow {
+        case name
+        case email
+        case password
+        case registerButton
+        case loginButton
+    }
+    
     private var viewModel = RegisterViewModel()
+    private let rows: [RegisterRow] = [.name, .email, .password, .registerButton, .loginButton]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,62 +46,52 @@ class RegisterViewController: UITableViewController {
         }
     }
     
-    // Number of sections in the table view
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     // Number of rows in each section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return rows.count
     }
     
     // Configure each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            // Configuring for name input
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: Lingo.registerViewNamePlaceholder)
-            cell.textChanged = { [weak self] text in
-                self?.viewModel.name.value = text
+        let fieldType = rows[indexPath.row]
+        switch fieldType {
+            
+        case .loginButton:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
+            cell.configure(withTitle: Lingo.registerViewLoginButton) {
+                self.navigateToLogin()
             }
-            cell.textField.text = viewModel.name.value
             return cell
-        case 1:
-            // Configuring for email input
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: Lingo.registerViewEmailPlaceholder)
-            cell.textChanged = { [weak self] text in
-                self?.viewModel.email.value = text
-            }
-            cell.textField.text = viewModel.email.value
-            return cell
-        case 2:
-            // Configuring for password input
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: Lingo.registerViewPasswordPlaceholder)
-            cell.textChanged = { [weak self] text in
-                self?.viewModel.password.value = text
-            }
-            cell.textField.text = viewModel.password.value
-            return cell
-        case 3:
+        case .registerButton:
             // Configuring for the register action
             let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.defaultReuseIdentifier, for: indexPath) as! ButtonCell
             cell.configure(withTitle: Lingo.registerViewRegisterButton) {
                 self.register()
             }
             return cell
-        case 4:
-            // Configuring for the register action
-            let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
-            cell.configure(withTitle: Lingo.registerViewLoginButton) {
-                self.navigateToLogin()
-            }
-            return cell
         default:
-            fatalError("Unknown row in section")
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
+            configureCell(cell, for: fieldType)
+            return cell
+        }
+    }
+    
+    private func configureCell(_ cell: TextFieldCell, for fieldType: RegisterRow) {
+        switch fieldType {
+        case .name:
+            cell.configure(title: Lingo.registerViewNamePlaceholder, content: viewModel.name.value) { [weak self] text in
+                self?.viewModel.name.value = text
+            }
+        case .email:
+            cell.configure(title: Lingo.registerViewEmailPlaceholder, content: viewModel.email.value) { [weak self] text in
+                self?.viewModel.email.value = text
+            }
+        case .password:
+            cell.configure(title: Lingo.registerViewPasswordPlaceholder, content: viewModel.password.value) { [weak self] text in
+                self?.viewModel.password.value = text
+            }
+        default:
+            break
         }
     }
     

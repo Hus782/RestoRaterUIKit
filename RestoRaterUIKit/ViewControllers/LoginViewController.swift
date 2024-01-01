@@ -6,10 +6,16 @@
 //
 
 import UIKit
-import Combine
 
-class LoginVIewController: UITableViewController {
+final class LoginVIewController: UITableViewController {
+    private enum LoginRow {
+        case email
+        case password
+        case registerButton
+        case loginButton
+    }
     private var viewModel = LoginViewModel()
+    private let rows: [LoginRow] = [.email, .password, .loginButton, .registerButton]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,56 +45,48 @@ class LoginVIewController: UITableViewController {
         }
     }
     
-    // Number of sections in the table view
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     // Number of rows in each section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return rows.count
     }
     
-    // Configure each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            // Configuring for email input
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: Lingo.loginViewEmailPlaceholder)
-            cell.textChanged = { [weak self] text in
-                self?.viewModel.email.value = text
-            }
-            cell.textField.text = viewModel.email.value
-            return cell
-        case 1:
-            // Configuring for password input
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-            cell.configure(title: Lingo.loginViewPasswordPlaceholder)
-            cell.textChanged = { [weak self] text in
-                self?.viewModel.password.value = text
-            }
-            cell.textField.text = viewModel.password.value
-            return cell
-        case 2:
-            // Configuring for the login action
+        let fieldType = rows[indexPath.row]
+        switch fieldType {
+            
+        case .loginButton:
             let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.defaultReuseIdentifier, for: indexPath) as! ButtonCell
             cell.configure(withTitle: Lingo.loginViewLoginButton) {
                 self.login()
             }
             return cell
-        case 3:
-            // Configuring for the login action
+        case .registerButton:
             let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
             cell.configure(withTitle: Lingo.loginViewRegisterButton) {
                 self.navigateToRegister()
             }
             return cell
         default:
-            fatalError("Unknown row in section")
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
+            configureCell(cell, for: fieldType)
+            return cell
         }
     }
     
+    private func configureCell(_ cell: TextFieldCell, for fieldType: LoginRow) {
+        switch fieldType {
+        case .email:
+            cell.configure(title: Lingo.loginViewEmailPlaceholder, content: viewModel.email.value) { [weak self] text in
+                self?.viewModel.email.value = text
+            }
+        case .password:
+            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password.value) { [weak self] text in
+                self?.viewModel.password.value = text
+            }
+        default:
+            break
+        }
+    }
     
     private func login() {
         Task {
