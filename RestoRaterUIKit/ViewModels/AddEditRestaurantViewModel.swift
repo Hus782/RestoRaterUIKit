@@ -15,7 +15,7 @@ enum RestaurantViewScenario {
 final class AddEditRestaurantViewModel {
     var name: String = ""
     var address: String = ""
-    var image: Data?
+    var image: Data = Data()
     var errorMessage = Observable<String?>(nil)
     var isLoading = Observable<Bool>(false)
     var scenario: RestaurantViewScenario = .add

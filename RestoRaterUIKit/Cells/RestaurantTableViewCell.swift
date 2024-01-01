@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RestaurantTableViewCell: UITableViewCell, ReusableView {
+final class RestaurantTableViewCell: UITableViewCell, ReusableView {
     
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var ImageView: UIImageView!

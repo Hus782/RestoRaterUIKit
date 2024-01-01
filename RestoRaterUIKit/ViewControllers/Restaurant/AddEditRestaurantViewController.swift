@@ -38,6 +38,7 @@ final class AddEditRestaurantViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: ImagePickerCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ImagePickerCell.defaultReuseIdentifier)
     }
     
     private func setupActivityIndicator() {
@@ -124,6 +125,23 @@ final class AddEditRestaurantViewController: UIViewController {
         }
     }
     
+    func presentImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true)
+    }
+
+}
+
+extension AddEditRestaurantViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+         picker.dismiss(animated: true)
+         if let image = info[.originalImage] as? UIImage, let imageData = image.jpegData(compressionQuality: 1.0) {
+             viewModel.image = imageData
+             tableView.reloadData()
+         }
+     }
 }
 
 extension AddEditRestaurantViewController: UITableViewDelegate, UITableViewDataSource {
@@ -136,9 +154,12 @@ extension AddEditRestaurantViewController: UITableViewDelegate, UITableViewDataS
         let fieldType = fields[indexPath.row]
         switch fieldType {
         case .image:
-//            Fix this one
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
-//            configureCell(cell, for: fieldType)
+            let cell = tableView.dequeueReusableCell(withIdentifier: ImagePickerCell.defaultReuseIdentifier, for: indexPath) as! ImagePickerCell
+            cell.pickImageAction = { [weak self] in
+                self?.presentImagePicker()
+            }
+            // Configure the cell with existing image if any
+            cell.pickedImageView.image = UIImage(data: viewModel.image ?? Data())
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell

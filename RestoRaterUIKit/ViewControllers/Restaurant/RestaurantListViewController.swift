@@ -61,9 +61,9 @@ extension RestaurantListVIewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.defaultReuseIdentifier, for: indexPath) as! RestaurantTableViewCell
         let restaurant = viewModel.restaurants.value[indexPath.row]
-        cell.configure(image: UIImage(data: restaurant.image ?? Data()) ?? UIImage(),
+        cell.configure(image: UIImage(data: restaurant.image) ?? UIImage(),
                        name: restaurant.name,
                        address: restaurant.address)
         return cell
