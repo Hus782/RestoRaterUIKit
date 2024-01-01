@@ -26,6 +26,7 @@ final class RestaurantDetailsViewController: UITableViewController {
         case rating(Double)
         case review(ReviewType, Review)
         case showAllReviews
+        case addReview
     }
     
     private var viewModel = RestaurantViewModel()
@@ -42,6 +43,8 @@ final class RestaurantDetailsViewController: UITableViewController {
         tableView.register(UINib(nibName: StarRatingCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: StarRatingCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: ReviewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ReviewCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: ButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ButtonCell.defaultReuseIdentifier)
+        
         
         
         title = Lingo.userDetailsTitle
@@ -53,25 +56,25 @@ final class RestaurantDetailsViewController: UITableViewController {
     
     @objc private func moreButtonTapped() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-
+        
         let editAction = UIAlertAction(title: Lingo.commonEdit, style: .default) { [weak self] _ in
             self?.editButtonTapped()
         }
-
+        
         let deleteAction = UIAlertAction(title: Lingo.commonDelete, style: .destructive) { [weak self] _ in
             self?.confirmAndDeleteRestaurant()
         }
-
+        
         let cancelAction = UIAlertAction(title: Lingo.commonCancel, style: .cancel)
-
+        
         actionSheet.addAction(editAction)
         actionSheet.addAction(deleteAction)
         actionSheet.addAction(cancelAction)
-
+        
         present(actionSheet, animated: true)
     }
-
-
+    
+    
     
     @objc private func editButtonTapped() {
         performSegue(withIdentifier: "EditRestaurantSegue", sender: self)
@@ -99,6 +102,8 @@ final class RestaurantDetailsViewController: UITableViewController {
             }
             cells.append(.showAllReviews)
         }
+        cells.append(.addReview)
+        
         
     }
     
@@ -148,6 +153,9 @@ final class RestaurantDetailsViewController: UITableViewController {
         
     }
     
+    private func addReview() {
+        
+    }
 }
 
 extension RestaurantDetailsViewController {
@@ -177,7 +185,12 @@ extension RestaurantDetailsViewController {
                 self?.showAllReviews()
             }
             return cell
-            
+        case .addReview:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.defaultReuseIdentifier, for: indexPath) as! ButtonCell
+            cell.configure(withTitle: Lingo.restaurantDetailAddReview) { [weak self] in
+                self?.addReview()
+            }
+            return cell
         }
     }
 }
