@@ -47,9 +47,31 @@ final class RestaurantDetailsViewController: UITableViewController {
         title = Lingo.userDetailsTitle
         loadRestaurant()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
-        
+        let moreButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(moreButtonTapped))
+        navigationItem.rightBarButtonItem = moreButton
     }
+    
+    @objc private func moreButtonTapped() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let editAction = UIAlertAction(title: Lingo.commonEdit, style: .default) { [weak self] _ in
+            self?.editButtonTapped()
+        }
+
+        let deleteAction = UIAlertAction(title: Lingo.commonDelete, style: .destructive) { [weak self] _ in
+            self?.confirmAndDeleteRestaurant()
+        }
+
+        let cancelAction = UIAlertAction(title: Lingo.commonCancel, style: .cancel)
+
+        actionSheet.addAction(editAction)
+        actionSheet.addAction(deleteAction)
+        actionSheet.addAction(cancelAction)
+
+        present(actionSheet, animated: true)
+    }
+
+
     
     @objc private func editButtonTapped() {
         performSegue(withIdentifier: "EditRestaurantSegue", sender: self)
@@ -91,29 +113,29 @@ final class RestaurantDetailsViewController: UITableViewController {
         }
     }
     
-    private func confirmAndDeleteUser() {
-        //        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
-        //
-        //        confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { [weak self] _ in
-        //            Task {
-        //                let result = await self?.viewModel.deleteUser(self?.user)
-        //                switch result {
-        //                case .success:
-        //                    self?.deleteCompletion?()
-        //                    self?.navigationController?.popViewController(animated: true)
-        //                case .failure(let error):
-        //                    DispatchQueue.main.async {
-        //                        self?.presentErrorAlert(message: error.localizedDescription)
-        //                    }
-        //                case .none:
-        //                    break
-        //                }
-        //            }
-        //        }))
-        //
-        //        confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel))
-        //
-        //        present(confirmAlert, animated: true)
+    private func confirmAndDeleteRestaurant() {
+        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
+        
+        confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { [weak self] _ in
+            Task {
+                let result = await self?.viewModel.deleteRestaurant(self?.restaurant)
+                switch result {
+                case .success:
+                    self?.deleteCompletion?()
+                    self?.navigationController?.popViewController(animated: true)
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.presentErrorAlert(message: error.localizedDescription)
+                    }
+                case .none:
+                    break
+                }
+            }
+        }))
+        
+        confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel))
+        
+        present(confirmAlert, animated: true)
     }
     
     private func presentErrorAlert(message: String) {

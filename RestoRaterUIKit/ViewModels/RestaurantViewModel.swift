@@ -41,31 +41,17 @@ final class RestaurantViewModel {
         }
     }
     
-    func promptDelete(restaurant: Restaurant) {
-        restaurantToDelete = restaurant
-        showingDeleteConfirmation.value = true
+    func deleteRestaurant(_ restaurantToDelete: Restaurant?) async -> Result<Void, Error> {
+        guard let restaurantToDelete = restaurantToDelete else {
+//            Create specific errors here
+            let error = NSError(domain: "RestauratnDeletionError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Restaurant not found"])
+            return .failure(error)
+        }
+        do {
+            try await dataManager.deleteEntity(entity: restaurantToDelete)
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
     }
-    
-    func deleteRestaurant(completion: @escaping () -> Void) async {
-         guard let restaurant = restaurantToDelete else {
-             await MainActor.run { [weak self] in
-                 self?.showingAlert.value = true
-                 self?.alertMessage.value = Lingo.commonErrorMessage
-             }
-             return
-         }
-         
-         do {
-             try await dataManager.deleteEntity(entity: restaurant)
-             await MainActor.run {
-                 completion()
-             }
-         } catch {
-             await MainActor.run { [weak self] in
-                 self?.showingAlert.value = true
-                 self?.alertMessage.value = error.localizedDescription
-             }
-         }
-     }
-    
 }
