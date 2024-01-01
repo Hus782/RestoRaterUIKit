@@ -27,11 +27,12 @@ final class RestaurantDetailsViewController: UITableViewController {
         case review(ReviewType, Review)
         case showAllReviews
     }
-  
+    
     private var viewModel = RestaurantViewModel()
     private var cells: [CellType] = []
     var restaurant: Restaurant?
     var deleteCompletion: (() -> Void)?
+    var editCompletion: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ final class RestaurantDetailsViewController: UITableViewController {
     }
     
     @objc private func editButtonTapped() {
-        performSegue(withIdentifier: "EditUserSegue", sender: self)
+        performSegue(withIdentifier: "EditRestaurantSegue", sender: self)
         
     }
     
@@ -79,15 +80,16 @@ final class RestaurantDetailsViewController: UITableViewController {
         
     }
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "EditUserSegue" {
-    //            if let vc = segue.destination as? AddEditUserViewController
-    //            {
-    //                vc.scenario = .edit
-    //                vc.user = user
-    //            }
-    //        }
-    //    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditRestaurantSegue" {
+            if let vc = segue.destination as? AddEditRestaurantViewController
+            {
+                vc.scenario = .edit
+                vc.restaurant = restaurant
+                vc.completion = deleteCompletion
+            }
+        }
+    }
     
     private func confirmAndDeleteUser() {
         //        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
@@ -153,7 +155,7 @@ extension RestaurantDetailsViewController {
                 self?.showAllReviews()
             }
             return cell
-
+            
         }
     }
 }

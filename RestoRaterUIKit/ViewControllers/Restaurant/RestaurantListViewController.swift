@@ -47,6 +47,8 @@ final class RestaurantListVIewController: UITableViewController {
                 userDetailsVC.hidesBottomBarWhenPushed = true
                 userDetailsVC.deleteCompletion = { [weak self] in
                     self?.reloadData()
+                    self?.navigationController?.popToRootViewController(animated: true)
+                    
                 }
             }
         } else if segue.identifier == "AddRestaurantSegue" {
