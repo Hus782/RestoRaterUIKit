@@ -81,7 +81,7 @@
 "login_view_email_placeholder" = "Email";
 "login_view_password_placeholder" = "Password";
 "login_view_login_button" = "Login";
-"login_view_register_button" = "Register";
+"login_view_register_button" = "Create account";
 "login_view_login_alert_title" = "Login";
 
 // register screen

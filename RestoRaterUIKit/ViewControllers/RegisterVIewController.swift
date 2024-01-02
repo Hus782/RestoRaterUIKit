@@ -103,7 +103,7 @@ final class RegisterViewController: UITableViewController {
     private func navigateToLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let registerVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        navigationController?.setViewControllers([registerVC], animated: false)
+        navigationController?.setViewControllers([registerVC], animated: true)
     }
     
 }
