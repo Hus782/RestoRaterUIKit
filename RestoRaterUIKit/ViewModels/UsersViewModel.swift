@@ -39,18 +39,15 @@ final class UsersViewModel {
         }
     }
     
-    func deleteUser(_ userToDelete: User?) async -> Result<Void, Error> {
+    func deleteUser(_ userToDelete: User?) async throws {
         guard let userToDelete = userToDelete else {
-//            Create specific errors here
-            let error = NSError(domain: "UserDeletionError", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not found"])
-            return .failure(error)
+            throw UserError.userNotFound
         }
+        
         do {
             try await dataManager.deleteEntity(entity: userToDelete)
-            return .success(())
         } catch {
-            return .failure(error)
+            throw UserError.deleteError(error.localizedDescription)
         }
     }
-    
 }

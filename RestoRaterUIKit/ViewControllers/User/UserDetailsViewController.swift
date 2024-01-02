@@ -73,25 +73,23 @@ final class UserDetailsViewController: UITableViewController {
         let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
         
         confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { [weak self] _ in
-            Task {
-                let result = await self?.viewModel.deleteUser(self?.user)
-                switch result {
-                case .success:
-                    self?.deleteCompletion?()
-                    self?.navigationController?.popViewController(animated: true)
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self?.presentErrorAlert(message: error.localizedDescription)
-                    }
-                case .none:
-                    break
-                }
-            }
+            self?.performDeletion()
         }))
         
         confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel))
-        
         present(confirmAlert, animated: true)
+    }
+    
+    private func performDeletion() {
+        Task {
+            do {
+                try await viewModel.deleteUser(user)
+                deleteCompletion?()
+                navigationController?.popViewController(animated: true)
+            } catch {
+                presentErrorAlert(message: error.localizedDescription)
+            }
+        }
     }
     
     private func presentErrorAlert(message: String) {

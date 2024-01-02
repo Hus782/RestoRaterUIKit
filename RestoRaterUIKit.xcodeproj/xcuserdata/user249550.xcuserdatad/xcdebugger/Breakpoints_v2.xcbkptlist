@@ -664,8 +664,8 @@
             filePath = "RestoRaterUIKit/ViewControllers/User/UserDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "userDidUpdate(_:)"
             landmarkType = "7">
          </BreakpointContent>
