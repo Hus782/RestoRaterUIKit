@@ -68,6 +68,9 @@ final class RegisterViewController: UITableViewController {
             cell.configure(withTitle: Lingo.registerViewRegisterButton) {
                 self.register()
             }
+            viewModel.isFormValid.bind { isValid in
+                cell.buttonView.isEnabled = isValid
+            }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
@@ -81,14 +84,17 @@ final class RegisterViewController: UITableViewController {
         case .name:
             cell.configure(title: Lingo.registerViewNamePlaceholder, content: viewModel.name.value) { [weak self] text, validationResult in
                 self?.viewModel.name.value = text
+                self?.viewModel.isNameValid = validationResult
             }
         case .email:
             cell.configure(title: Lingo.registerViewEmailPlaceholder, content: viewModel.email.value, validationType: .email) { [weak self] text, validationResult in
                 self?.viewModel.email.value = text
+                self?.viewModel.isEmailValid = validationResult
             }
         case .password:
             cell.configure(title: Lingo.registerViewPasswordPlaceholder, content: viewModel.password.value, validationType: .password) { [weak self] text, validationResult in
                 self?.viewModel.password.value = text
+                self?.viewModel.isPasswordValid = validationResult
             }
         default:
             break

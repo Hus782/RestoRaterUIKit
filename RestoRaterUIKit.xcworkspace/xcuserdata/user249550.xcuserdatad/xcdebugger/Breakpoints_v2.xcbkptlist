@@ -46,8 +46,8 @@
             filePath = "RestoRaterUIKit/Cells/TextFieldCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "resetToDefaultState(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "RestoRaterUIKit/Cells/TextFieldCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "updateUIForValidationResult(_:textField:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -72,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8D3FF2ED-40C9-47FA-8B41-DFF6696D4991"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestoRaterUIKit/Utils/ValidationService.swift"
@@ -94,8 +94,8 @@
             filePath = "RestoRaterUIKit/Cells/TextFieldCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "configure(title:content:validationType:textChanged:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -104,7 +104,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B2AFC53B-BDA5-4E2F-B424-90CE3F719E3B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestoRaterUIKit/ViewControllers/LoginViewController.swift"

@@ -59,9 +59,8 @@ final class LoginVIewController: UITableViewController {
             cell.configure(withTitle: Lingo.loginViewLoginButton) {
                 self.login()
             }
-            viewModel.isFormValid.bind { [weak self] isValid in
+            viewModel.isFormValid.bind { isValid in
                 cell.buttonView.isEnabled = isValid
-                
             }
             return cell
         case .registerButton:

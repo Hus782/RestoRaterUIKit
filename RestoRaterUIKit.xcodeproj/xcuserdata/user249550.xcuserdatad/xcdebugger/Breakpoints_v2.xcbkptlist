@@ -297,8 +297,8 @@
             filePath = "RestoRaterUIKit/ViewModels/RegisterViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "registerUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,8 +313,8 @@
             filePath = "RestoRaterUIKit/ViewModels/RegisterViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "registerUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -744,8 +744,8 @@
             filePath = "RestoRaterUIKit/ViewControllers/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "navigateToRegister()"
             landmarkType = "7">
          </BreakpointContent>

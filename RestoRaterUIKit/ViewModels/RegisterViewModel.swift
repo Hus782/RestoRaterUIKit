@@ -15,6 +15,26 @@ final class RegisterViewModel: ObservableObject {
     var showingAlert = Observable<Bool>(false)
     var alertMessage = Observable<String>("")
     var registrationSuccessful = Observable<Bool>(false)
+    
+    var isEmailValid: Bool = false  {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    var isPasswordValid: Bool = false {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    
+    var isNameValid: Bool = false {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    
+    var isFormValid = Observable<Bool>(false)
+    
     private let dataManager: CoreDataManager<User>
     private let userManager: UserManagerProtocol
     
@@ -49,5 +69,9 @@ final class RegisterViewModel: ObservableObject {
     
     func navigateToLogin() {
         userManager.setIsRegistering(false)
+    }
+    
+    private func updateFormValidity() {
+        isFormValid.value = isEmailValid && isPasswordValid && isNameValid
     }
 }

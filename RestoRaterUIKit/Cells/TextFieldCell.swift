@@ -34,6 +34,7 @@ final class TextFieldCell: UITableViewCell, ReusableView {
             textField.borderActiveColor = .link
             textField.borderInactiveColor = .gray
             textField.placeholder = placeHolder
+            textChanged?(text, false)
             return
         }
         let validationResult = ValidationService.validate(text: text, for: validationType)
