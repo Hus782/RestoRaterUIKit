@@ -64,6 +64,7 @@ final class UserDetailsViewController: UITableViewController {
                 vc.delegate = self
                 vc.scenario = .edit
                 vc.user = user
+                vc.completion = self.deleteCompletion
             }
         }
     }
