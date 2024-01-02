@@ -34,14 +34,6 @@ final class ReviewListVIewController: UITableViewController {
         }
     }
     
-    private func reloadData() {
-        self.loadRestaurants()
-        self.tableView.reloadData()
-    }
-    
-//    if segue.identifier == "EditReviewSegue", let destinationVC = segue.destination as? EditReviewViewController, let reviewToEdit = sender as? Review {
-//         destinationVC.review = reviewToEdit
-        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditReviewSegue" {
             if let vc = segue.destination as? AddEditReviewViewController, let reviewToEdit = sender as? Review
@@ -71,7 +63,7 @@ final class ReviewListVIewController: UITableViewController {
             present(confirmAlert, animated: true)
         }
     }
-
+    
     
     private func presentErrorAlert(message: String) {
         let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
@@ -96,14 +88,14 @@ extension ReviewListVIewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-          // Swipe-to-Delete Action
+        // Swipe-to-Delete Action
         let deleteAction = UIContextualAction(style: .destructive, title: Lingo.commonDelete) { [weak self] (action, view, completionHandler) in
             guard let self = self else { return }
             
             Task {
                 let reviewToDelete = self.reviews[indexPath.row]
                 let result = await self.confirmAndDeleteReview(review: reviewToDelete)
-
+                
                 await MainActor.run {
                     switch result {
                     case .success:
@@ -116,19 +108,19 @@ extension ReviewListVIewController {
                 }
             }
         }
-
-          // Swipe-to-Edit Action
+        
+        // Swipe-to-Edit Action
         let editAction = UIContextualAction(style: .normal, title: Lingo.commonEdit) { [weak self] (action, view, completionHandler) in
-              // Perform edit action
-              let reviewToEdit = self?.reviews[indexPath.row]
-              self?.performSegue(withIdentifier: "EditReviewSegue", sender: reviewToEdit) // Set up this segue in Storyboard
-              completionHandler(true)
-          }
-          editAction.backgroundColor = UIColor.blue
-
-          let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-          return configuration
-      }
+            // Perform edit action
+            let reviewToEdit = self?.reviews[indexPath.row]
+            self?.performSegue(withIdentifier: "EditReviewSegue", sender: reviewToEdit)
+            completionHandler(true)
+        }
+        editAction.backgroundColor = UIColor.blue
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        return configuration
+    }
     
     
 }
