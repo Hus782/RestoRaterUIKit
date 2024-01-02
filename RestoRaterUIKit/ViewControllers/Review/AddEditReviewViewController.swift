@@ -39,6 +39,7 @@ final class AddEditReviewViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: DatePickerCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: DatePickerCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: RatingPickerCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RatingPickerCell.defaultReuseIdentifier)
     }
     
     private func setupActivityIndicator() {
@@ -144,12 +145,16 @@ extension AddEditReviewViewController: UITableViewDelegate, UITableViewDataSourc
             return cell
         case .date:
             let cell = tableView.dequeueReusableCell(withIdentifier: DatePickerCell.defaultReuseIdentifier, for: indexPath) as! DatePickerCell
-            cell.configure(withTitle: Lingo.addEditReviewDateOfVisit, date: viewModel.visitDate) { date in
-                self.viewModel.visitDate = date
-              }
+            cell.configure(withTitle: Lingo.addEditReviewDateOfVisit, date: viewModel.visitDate) { [weak self] newDate in
+                self?.viewModel.visitDate = newDate
+            }
             return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
+            
+        case .rating:
+            let cell = tableView.dequeueReusableCell(withIdentifier: RatingPickerCell.defaultReuseIdentifier, for: indexPath) as! RatingPickerCell
+            cell.configure(withRating: Int(review?.rating ?? 0)) { [weak self] newRating in
+                self?.viewModel.rating = newRating
+            }
             return cell
         }
     }

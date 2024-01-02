@@ -66,6 +66,8 @@
 		3D8AB75E2B40160C00640749 /* DetailInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8AB75C2B40160C00640749 /* DetailInfoTableViewCell.xib */; };
 		3DAA82372B4071210051AC8D /* AddEditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA82362B4071210051AC8D /* AddEditUserViewController.swift */; };
 		3DAA82392B40716B0051AC8D /* AddEditUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA82382B40716B0051AC8D /* AddEditUserViewModel.swift */; };
+		3DCE160B2B43F44B004BFEC6 /* RatingPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */; };
+		3DCE160C2B43F44B004BFEC6 /* RatingPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */; };
 		3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */; };
 		3DCF86232B3871510032525E /* Restaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */; };
 		3DCF86252B3872780032525E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86242B3872780032525E /* Observable.swift */; };
@@ -138,6 +140,8 @@
 		3D8AB75C2B40160C00640749 /* DetailInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInfoTableViewCell.xib; sourceTree = "<group>"; };
 		3DAA82362B4071210051AC8D /* AddEditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditUserViewController.swift; sourceTree = "<group>"; };
 		3DAA82382B40716B0051AC8D /* AddEditUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditUserViewModel.swift; sourceTree = "<group>"; };
+		3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPickerCell.swift; sourceTree = "<group>"; };
+		3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingPickerCell.xib; sourceTree = "<group>"; };
 		3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3DCF86212B3871510032525E /* Restaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3DCF86242B3872780032525E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 				3D4B86412B42DF5800F63D21 /* ReviewCell.xib */,
 				3D83C9962B431E54001BECEF /* DatePickerCell.swift */,
 				3D83C9972B431E54001BECEF /* DatePickerCell.xib */,
+				3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */,
+				3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				3D83C9992B431E54001BECEF /* DatePickerCell.xib in Resources */,
 				3D06AC042B357BF90057139A /* Main.storyboard in Resources */,
 				3D8AB75E2B40160C00640749 /* DetailInfoTableViewCell.xib in Resources */,
+				3DCE160C2B43F44B004BFEC6 /* RatingPickerCell.xib in Resources */,
 				3D4B86432B42DF5800F63D21 /* ReviewCell.xib in Resources */,
 				3D2F83C02B35C6C1002D7FF1 /* SecondaryButtonCell.xib in Resources */,
 				3D8186002B42BB6F002DF965 /* RestaurantHeaderCell.xib in Resources */,
@@ -463,6 +470,7 @@
 				3D8AB7522B40089600640749 /* UserListViewController.swift in Sources */,
 				3D3A207E2B40422600B606E2 /* TabBarController.swift in Sources */,
 				3D8AB7542B4008DE00640749 /* UsersViewModel.swift in Sources */,
+				3DCE160B2B43F44B004BFEC6 /* RatingPickerCell.swift in Sources */,
 				3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */,
 				3D8185F62B42A639002DF965 /* AddEditRestaurantViewModel.swift in Sources */,
 				3D8AB75D2B40160C00640749 /* DetailInfoTableViewCell.swift in Sources */,
