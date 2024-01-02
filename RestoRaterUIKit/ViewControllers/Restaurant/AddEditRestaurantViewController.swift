@@ -22,15 +22,16 @@ final class AddEditRestaurantViewController: UIViewController {
     var scenario: RestaurantViewScenario = .add
     var completion: (() -> Void)?
     private var activityIndicator: UIActivityIndicatorView?
+    private var saveButtonItem: UIBarButtonItem?
     private let viewModel: AddEditRestaurantViewModel = AddEditRestaurantViewModel(dataManager: CoreDataManager<Restaurant>())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
-        initializeViewModel()
         setNavigationBar()
         setupActivityIndicator()
+        initializeViewModel()
     }
     
     private func setupTableView() {
@@ -67,6 +68,10 @@ final class AddEditRestaurantViewController: UIViewController {
                 self?.presentErrorAlert(message: message)
             }
         }
+        
+        viewModel.isFormValid.bind { [weak self]  isValid in
+            self?.saveButtonItem?.isEnabled = isValid
+        }
     }
     
     private func setNavigationBar() {
@@ -75,7 +80,7 @@ final class AddEditRestaurantViewController: UIViewController {
         // Save item
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
         navItem.rightBarButtonItem = saveItem
-        
+        saveButtonItem = saveItem
         // Cancel item
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navItem.leftBarButtonItem = cancelItem
@@ -159,7 +164,7 @@ extension AddEditRestaurantViewController: UITableViewDelegate, UITableViewDataS
                 self?.presentImagePicker()
             }
             // Configure the cell with existing image if any
-            cell.pickedImageView.image = UIImage(data: viewModel.image ?? Data())
+            cell.pickedImageView.image = UIImage(data: viewModel.image)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
@@ -174,10 +179,12 @@ extension AddEditRestaurantViewController: UITableViewDelegate, UITableViewDataS
         case .name:
             cell.configure(title: Lingo.addEditUserName, content: viewModel.name) { [weak self]text, validationResult in
                 self?.viewModel.name = text
+                self?.viewModel.isNameValid = validationResult
             }
         case .address:
             cell.configure(title: Lingo.addEditRestaurantAddress, content: viewModel.address) { [weak self] text, validationResult in
                 self?.viewModel.address = text
+                self?.viewModel.isAddressValid = validationResult
             }
         default:
             break

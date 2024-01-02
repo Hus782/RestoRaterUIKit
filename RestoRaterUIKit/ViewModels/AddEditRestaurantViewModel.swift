@@ -23,6 +23,20 @@ final class AddEditRestaurantViewModel {
     var onAddCompletion: (() -> Void)?
     private let dataManager: CoreDataManager<Restaurant>
     
+    var isNameValid: Bool = false {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    
+    var isAddressValid: Bool = false {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    
+    var isFormValid = Observable<Bool>(false)
+    
     var title: String {
         switch scenario {
         case .add:
@@ -44,6 +58,11 @@ final class AddEditRestaurantViewModel {
             self.name = restaurant.name
             self.address = restaurant.address
             self.image = restaurant.image
+        }
+        
+        if scenario == .edit {
+            isNameValid = true
+            isAddressValid = true
         }
     }
     
@@ -92,5 +111,9 @@ final class AddEditRestaurantViewModel {
             }
             return nil
         }
+    }
+    
+    private func updateFormValidity() {
+        isFormValid.value = isNameValid && isAddressValid
     }
 }

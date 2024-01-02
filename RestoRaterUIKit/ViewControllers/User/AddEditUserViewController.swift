@@ -25,7 +25,6 @@ final class AddEditUserViewController: UIViewController {
     var completion: (() -> Void)?
     private var activityIndicator: UIActivityIndicatorView?
     private var saveButtonItem: UIBarButtonItem?
-
     private let viewModel: AddEditUserViewModel = AddEditUserViewModel(dataManager: CoreDataManager<User>())
     
     override func viewDidLoad() {
