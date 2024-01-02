@@ -7,45 +7,57 @@
 
 import UIKit
 
+enum RegisterRow {
+    case name
+    case email
+    case password
+    case registerButton
+    case loginButton
+}
+
 final class RegisterViewController: UITableViewController {
-    private enum RegisterRow {
-        case name
-        case email
-        case password
-        case registerButton
-        case loginButton
-    }
-    
+
     private var viewModel = RegisterViewModel()
     private let rows: [RegisterRow] = [.name, .email, .password, .registerButton, .loginButton]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        bindViewModel()
+    }
+    
+    private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: ButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ButtonCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
-        
-        bindViewModel()
     }
     
     private func bindViewModel() {
-        viewModel.showingAlert.bind { [weak self] showing in
-            if showing {
-                self?.presentAlert(message: self?.viewModel.alertMessage.value ?? "")
+        viewModel.alertMessage.bind { [weak self] message in
+            guard let self = self else { return }
+            if !message.isEmpty {
+                ViewControllerHelper.presentErrorAlert(on: self, message: message)
             }
         }
     }
-    
-    private func presentAlert(message: String) {
-        let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default, handler: nil))
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
+        
+    private func register() {
+        Task {
+            await viewModel.registerUser()
         }
     }
+
+    private func navigateToLogin() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let registerVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        navigationController?.setViewControllers([registerVC], animated: true)
+    }
     
+}
+
+extension RegisterViewController {
     // Number of rows in each section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rows.count
@@ -100,16 +112,4 @@ final class RegisterViewController: UITableViewController {
             break
         }
     }
-    
-    private func register() {
-        Task {
-            await viewModel.registerUser()
-        }
-    }
-    private func navigateToLogin() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let registerVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        navigationController?.setViewControllers([registerVC], animated: true)
-    }
-    
 }

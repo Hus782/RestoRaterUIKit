@@ -243,7 +243,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8F69FB23-4F0E-4A26-87D3-F61DAAA49541"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
@@ -259,7 +259,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7C1C4204-D7DF-44EF-82CB-248985D148B8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
@@ -297,8 +297,8 @@
             filePath = "RestoRaterUIKit/ViewModels/RegisterViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "registerUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,8 +313,8 @@
             filePath = "RestoRaterUIKit/ViewModels/RegisterViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "registerUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -721,22 +721,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FF6070A8-CFAA-4890-95B8-615C72729271"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RestoRaterUIKit/ViewControllers/RegisterVIewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "BBC03695-84A5-4210-AFA1-AFB374DF845F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -744,8 +728,8 @@
             filePath = "RestoRaterUIKit/ViewControllers/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "navigateToRegister()"
             landmarkType = "7">
          </BreakpointContent>
@@ -824,8 +808,8 @@
             filePath = "RestoRaterUIKit/ViewModels/AddEditReviewViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "addReview()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1014,8 +998,8 @@
             filePath = "RestoRaterUIKit/ViewModels/AddEditReviewViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "initialize(scenario:restaurant:review:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1030,10 +1014,10 @@
             filePath = "RestoRaterUIKit/ViewModels/AddEditReviewViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "initialize(scenario:restaurant:review:)"
-            landmarkType = "7">
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "AddEditReviewViewModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

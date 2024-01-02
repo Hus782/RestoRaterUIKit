@@ -12,7 +12,6 @@ final class RegisterViewModel: ObservableObject {
     var password = Observable<String>("")
     var name = Observable<String>("")
     var isAdmin = Observable<Bool>(false)
-    var showingAlert = Observable<Bool>(false)
     var alertMessage = Observable<String>("")
     var registrationSuccessful = Observable<Bool>(false)
     
@@ -55,9 +54,12 @@ final class RegisterViewModel: ObservableObject {
         } catch {
             await MainActor.run { [weak self] in
                 self?.alertMessage.value = "\(Lingo.registrationFailed): \(error.localizedDescription)"
-                self?.showingAlert.value = true
             }
         }
+    }
+    
+    func navigateToLogin() {
+        userManager.setIsRegistering(false)
     }
     
     private func configureUser(newUser: User) {
@@ -65,10 +67,6 @@ final class RegisterViewModel: ObservableObject {
         newUser.password = password.value
         newUser.name = name.value
         newUser.isAdmin = isAdmin.value
-    }
-    
-    func navigateToLogin() {
-        userManager.setIsRegistering(false)
     }
     
     private func updateFormValidity() {
