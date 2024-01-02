@@ -172,11 +172,11 @@ extension AddEditRestaurantViewController: UITableViewDelegate, UITableViewDataS
     private func configureCell(_ cell: TextFieldCell, for fieldType: RestaurantField) {
         switch fieldType {
         case .name:
-            cell.configure(title: Lingo.addEditUserName, content: viewModel.name) { [weak self] text in
+            cell.configure(title: Lingo.addEditUserName, content: viewModel.name) { [weak self]text, validationResult in
                 self?.viewModel.name = text
             }
         case .address:
-            cell.configure(title: Lingo.addEditRestaurantAddress, content: viewModel.address) { [weak self] text in
+            cell.configure(title: Lingo.addEditRestaurantAddress, content: viewModel.address) { [weak self] text, validationResult in
                 self?.viewModel.address = text
             }
         default:

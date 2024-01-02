@@ -10,6 +10,7 @@ import Foundation
 enum ValidationType {
     case email
     case password
+    case none
 }
 
 enum ValidationResult: Equatable {
@@ -49,13 +50,18 @@ struct FieldValidator {
         }
     }
 
-    static func checkCharacterLimit(_ text: String, limit: Int) -> ValidationResult {
-        if text.count <= limit {
-            return .success
+    static func checkCharacterLimits(_ text: String, min: Int = 1, max: Int = 50) -> ValidationResult {
+        if text.isEmpty {
+            return .failure("Field cannot be empty")
+        } else if text.count < min {
+            return .failure("Text must be at least \(min) characters")
+        } else if text.count > max {
+            return .failure("Text exceeds limit of \(max) characters")
         } else {
-            return .failure("Text exceeds limit of \(limit) characters")
+            return .success
         }
     }
+
 
 }
 

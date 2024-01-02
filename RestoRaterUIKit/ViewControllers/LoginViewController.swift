@@ -16,7 +16,7 @@ final class LoginVIewController: UITableViewController {
     }
     private var viewModel = LoginViewModel()
     private let rows: [LoginRow] = [.email, .password, .loginButton, .registerButton]
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +59,10 @@ final class LoginVIewController: UITableViewController {
             cell.configure(withTitle: Lingo.loginViewLoginButton) {
                 self.login()
             }
+            viewModel.isFormValid.bind { [weak self] isValid in
+                cell.buttonView.isEnabled = isValid
+                
+            }
             return cell
         case .registerButton:
             let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
@@ -76,12 +80,15 @@ final class LoginVIewController: UITableViewController {
     private func configureCell(_ cell: TextFieldCell, for fieldType: LoginRow) {
         switch fieldType {
         case .email:
-            cell.configure(title: Lingo.loginViewEmailPlaceholder, content: viewModel.email.value, validationType: .email) { [weak self] text in
+            cell.configure(title: Lingo.loginViewEmailPlaceholder, content: viewModel.email.value, validationType: .email) { [weak self] text, validationResult in
                 self?.viewModel.email.value = text
+                self?.viewModel.isEmailValid = validationResult
             }
         case .password:
-            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password.value, validationType: .password) { [weak self] text in
+            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password.value, validationType: .none) { [weak self] text, validationResult in
                 self?.viewModel.password.value = text
+                self?.viewModel.isPasswordValid = validationResult
+
             }
         default:
             break

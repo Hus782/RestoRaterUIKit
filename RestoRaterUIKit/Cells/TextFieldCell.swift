@@ -9,8 +9,8 @@ import UIKit
 import TextFieldEffects
 
 final class TextFieldCell: UITableViewCell, ReusableView {
-    private var textChanged: ((String) -> Void)?
-    private var validationType: ValidationType = .email
+    private var textChanged: ((String, Bool) -> Void)?
+    private var validationType: ValidationType = .none
     private var placeHolder: String = ""
     private var validationState: ValidationResult = .success
 
@@ -29,10 +29,8 @@ final class TextFieldCell: UITableViewCell, ReusableView {
     
     @IBAction func textChanged(_ sender: HoshiTextField) {
         guard let text = sender.text else { return }
-
-        textChanged?(text)
         
-        if text.isEmpty {
+        if text.isEmpty && validationType == .email {
             textField.borderActiveColor = .link
             textField.borderInactiveColor = .gray
             textField.placeholder = placeHolder
@@ -40,6 +38,7 @@ final class TextFieldCell: UITableViewCell, ReusableView {
         }
         let validationResult = ValidationService.validate(text: text, for: validationType)
 
+        textChanged?(text, validationResult == .success)
           // Update UI only if there is a change in validation state
           if validationResult != validationState {
               updateUIForValidationResult(validationResult, textField: sender)
@@ -47,11 +46,12 @@ final class TextFieldCell: UITableViewCell, ReusableView {
         
     }
     
-    func configure(title: String, content: String, validationType: ValidationType = .email, textChanged: ((String) -> Void)?) {
+    func configure(title: String, content: String, validationType: ValidationType = .none, textChanged: ((String, Bool) -> Void)?) {
         self.placeHolder = title
         self.textField.text = content
         self.textField.placeholder = title
         self.textChanged = textChanged
+        self.validationType = validationType
     }
 
     private func updateUIForValidationResult(_ result: ValidationResult, textField: HoshiTextField) {

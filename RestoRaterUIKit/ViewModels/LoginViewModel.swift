@@ -13,6 +13,18 @@ final class LoginViewModel: ObservableObject {
     var loginSuccessful = Observable<Bool>(false)
     var showingAlert = Observable<Bool>(false)
     var alertMessage = Observable<String>("")
+    var isEmailValid: Bool = false  {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    var isPasswordValid: Bool = false {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    var isFormValid = Observable<Bool>(false)
+    
     private let dataManager: CoreDataManager<User>
     private let userManager: UserManagerProtocol
     
@@ -49,5 +61,9 @@ final class LoginViewModel: ObservableObject {
     
     func navigateToRegister() {
         userManager.setIsRegistering(true)
+    }
+    
+    private func updateFormValidity() {
+        isFormValid.value = isEmailValid && isPasswordValid
     }
 }

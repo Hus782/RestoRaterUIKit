@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct ValidationService {
 
     static func validate(text: String, for type: ValidationType) -> ValidationResult {
@@ -14,6 +15,8 @@ struct ValidationService {
             return FieldValidator.validateEmail(text)
         case .password:
             return FieldValidator.validatePassword(text)
+        case .none:
+            return FieldValidator.checkCharacterLimits(text)
         }
     }
 }
