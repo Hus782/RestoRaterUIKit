@@ -115,6 +115,13 @@ final class RestaurantDetailsViewController: UITableViewController {
                 vc.restaurant = restaurant
                 vc.completion = deleteCompletion
             }
+        } else   if segue.identifier == "AddReviewSegue" {
+            if let vc = segue.destination as? AddEditReviewViewController
+            {
+                vc.scenario = .add
+                vc.restaurant = restaurant
+                vc.completion = deleteCompletion
+            }
         }
     }
     

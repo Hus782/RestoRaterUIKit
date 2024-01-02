@@ -66,6 +66,8 @@
 		3D8AB75E2B40160C00640749 /* DetailInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8AB75C2B40160C00640749 /* DetailInfoTableViewCell.xib */; };
 		3DAA82372B4071210051AC8D /* AddEditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA82362B4071210051AC8D /* AddEditUserViewController.swift */; };
 		3DAA82392B40716B0051AC8D /* AddEditUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA82382B40716B0051AC8D /* AddEditUserViewModel.swift */; };
+		3DB116F32B43FD36007F0D6D /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116F12B43FD36007F0D6D /* TextViewCell.swift */; };
+		3DB116F42B43FD36007F0D6D /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB116F22B43FD36007F0D6D /* TextViewCell.xib */; };
 		3DCE160B2B43F44B004BFEC6 /* RatingPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */; };
 		3DCE160C2B43F44B004BFEC6 /* RatingPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */; };
 		3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */; };
@@ -140,6 +142,8 @@
 		3D8AB75C2B40160C00640749 /* DetailInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInfoTableViewCell.xib; sourceTree = "<group>"; };
 		3DAA82362B4071210051AC8D /* AddEditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditUserViewController.swift; sourceTree = "<group>"; };
 		3DAA82382B40716B0051AC8D /* AddEditUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditUserViewModel.swift; sourceTree = "<group>"; };
+		3DB116F12B43FD36007F0D6D /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
+		3DB116F22B43FD36007F0D6D /* TextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
 		3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPickerCell.swift; sourceTree = "<group>"; };
 		3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingPickerCell.xib; sourceTree = "<group>"; };
 		3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 				3D83C9972B431E54001BECEF /* DatePickerCell.xib */,
 				3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */,
 				3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */,
+				3DB116F12B43FD36007F0D6D /* TextViewCell.swift */,
+				3DB116F22B43FD36007F0D6D /* TextViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 				3D2F83B92B35B86D002D7FF1 /* ButtonCell.xib in Resources */,
 				3D2F83C32B35C9BD002D7FF1 /* Localizable.strings in Resources */,
 				3D4E8FCF2B404A6E00EA9C28 /* Profile.storyboard in Resources */,
+				3DB116F42B43FD36007F0D6D /* TextViewCell.xib in Resources */,
 				3D8185FA2B42AB69002DF965 /* ImagePickerCell.xib in Resources */,
 				3D83C9992B431E54001BECEF /* DatePickerCell.xib in Resources */,
 				3D06AC042B357BF90057139A /* Main.storyboard in Resources */,
@@ -469,6 +476,7 @@
 				3DCF86272B3878660032525E /* RegisterViewModel.swift in Sources */,
 				3D8AB7522B40089600640749 /* UserListViewController.swift in Sources */,
 				3D3A207E2B40422600B606E2 /* TabBarController.swift in Sources */,
+				3DB116F32B43FD36007F0D6D /* TextViewCell.swift in Sources */,
 				3D8AB7542B4008DE00640749 /* UsersViewModel.swift in Sources */,
 				3DCE160B2B43F44B004BFEC6 /* RatingPickerCell.swift in Sources */,
 				3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */,

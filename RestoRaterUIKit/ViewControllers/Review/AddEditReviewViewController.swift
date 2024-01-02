@@ -37,7 +37,7 @@ final class AddEditReviewViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
+        tableView.register(UINib(nibName: TextViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextViewCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: DatePickerCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: DatePickerCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: RatingPickerCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RatingPickerCell.defaultReuseIdentifier)
     }
@@ -48,7 +48,7 @@ final class AddEditReviewViewController: UIViewController {
     }
     
     private func initializeViewModel() {
-        if let scenario = scenario, let review = review, let restaurant = restaurant {
+        if let scenario = scenario, let restaurant = restaurant {
             viewModel.initialize(scenario: scenario, restaurant: restaurant, review: review)
         }
         
@@ -138,7 +138,7 @@ extension AddEditReviewViewController: UITableViewDelegate, UITableViewDataSourc
         let fieldType = fields[indexPath.row]
         switch fieldType {
         case .comment:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextViewCell.defaultReuseIdentifier, for: indexPath) as! TextViewCell
             cell.configure(title: Lingo.addEditReviewComment, content: viewModel.comment) { [weak self] text in
                 self?.viewModel.comment = text
             }
