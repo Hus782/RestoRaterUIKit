@@ -23,6 +23,25 @@ final class AddEditUserViewModel {
     var scenario: UserViewScenario = .add
     var user: User?
     var onAddCompletion: (() -> Void)?
+    var isEmailValid: Bool = false  {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    var isPasswordValid: Bool = false {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    
+    var isNameValid: Bool = false {
+        didSet {
+            updateFormValidity()
+        }
+    }
+    
+    var isFormValid = Observable<Bool>(false)
+    
     private let dataManager: CoreDataManager<User>
     
     var title: String {
@@ -98,5 +117,9 @@ final class AddEditUserViewModel {
             }
             return nil
         } 
+    }
+    
+    private func updateFormValidity() {
+        isFormValid.value = isEmailValid && isPasswordValid && isNameValid
     }
 }

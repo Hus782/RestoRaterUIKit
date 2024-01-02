@@ -24,15 +24,17 @@ final class AddEditUserViewController: UIViewController {
     var scenario: UserViewScenario?
     var completion: (() -> Void)?
     private var activityIndicator: UIActivityIndicatorView?
+    private var saveButtonItem: UIBarButtonItem?
+
     private let viewModel: AddEditUserViewModel = AddEditUserViewModel(dataManager: CoreDataManager<User>())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
-        initializeViewModel()
         setNavigationBar()
         setupActivityIndicator()
+        initializeViewModel()
     }
     
     private func setupTableView() {
@@ -70,6 +72,11 @@ final class AddEditUserViewController: UIViewController {
                 ViewControllerHelper.presentErrorAlert(on: self, message: message)
             }
         }
+        
+        viewModel.isFormValid.bind { [weak self]  isValid in
+            self?.saveButtonItem?.isEnabled = isValid
+        }
+        
     }
     
     private func setNavigationBar() {
@@ -78,7 +85,8 @@ final class AddEditUserViewController: UIViewController {
         // Save item
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
         navItem.rightBarButtonItem = saveItem
-        
+        saveButtonItem = saveItem
+
         // Cancel item
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navItem.leftBarButtonItem = cancelItem
@@ -108,6 +116,7 @@ final class AddEditUserViewController: UIViewController {
     }
     
     private func handleSave() async {
+        guard let scenario = scenario else { return }
         switch scenario {
         case .add:
             await viewModel.addUser()
@@ -115,8 +124,6 @@ final class AddEditUserViewController: UIViewController {
             if let updatedUser = await viewModel.editUser() {
                 delegate?.userDidUpdate(updatedUser)
             }
-        default:
-            break
         }
     }
     
@@ -148,14 +155,17 @@ extension AddEditUserViewController: UITableViewDelegate, UITableViewDataSource 
         case .name:
             cell.configure(title: Lingo.addEditUserName, content: viewModel.name) { [weak self] text, validationResult in
                 self?.viewModel.name = text
+                self?.viewModel.isNameValid = validationResult
             }
         case .email:
-            cell.configure(title: Lingo.addEditUserEmail, content: viewModel.email) { [weak self] text, validationResult in
+            cell.configure(title: Lingo.addEditUserEmail, content: viewModel.email, validationType: .email) { [weak self] text, validationResult in
                 self?.viewModel.email = text
+                self?.viewModel.isEmailValid = validationResult
             }
         case .password:
-            cell.configure(title: Lingo.addEditUserPassword, content: viewModel.password) { [weak self] text, validationResult in
+            cell.configure(title: Lingo.addEditUserPassword, content: viewModel.password, validationType: .password) { [weak self] text, validationResult in
                 self?.viewModel.password = text
+                self?.viewModel.isPasswordValid = validationResult
             }
         default:
             break
