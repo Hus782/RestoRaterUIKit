@@ -13,18 +13,22 @@ final class ReviewCell: UITableViewCell, ReusableView {
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupInitialStarAppearance()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    private func setupInitialStarAppearance() {
+        for imageView in stars {
+            imageView.image = UIImage(systemName: "star.fill")
+            imageView.tintColor = StarRatingUtility.inactiveStarColor
+        }
     }
     
-    func configure(date: Date, commnent: String, rating: Double, reviewType: ReviewType) {
+    func configure(date: Date, comment: String, rating: Double, reviewType: ReviewType) {
         self.dateLabel.text = date.formattedDate()
-        self.commentLabel.text = commnent
+        self.commentLabel.text = comment
         
         switch reviewType {
         case .latest:
@@ -37,14 +41,9 @@ final class ReviewCell: UITableViewCell, ReusableView {
             titleLabel.isHidden = true
         }
         
-        for (index, imageView) in stars.enumerated() {
-            if rating > Double(index) + 0.5 {
-                imageView.image = UIImage(systemName: "star.fill")
-            } else if rating > Double(index) {
-                imageView.image = UIImage(systemName: "star.leadinghalf.filled")
-            } else {
-                imageView.image = UIImage(systemName: "star")
-            }
+        for index in 0..<stars.count {
+            stars[index].image = StarRatingUtility.imageForRating(rating, at: index)
+            stars[index].tintColor = StarRatingUtility.colorForStar(at: index, rating: rating)
         }
     }
 }

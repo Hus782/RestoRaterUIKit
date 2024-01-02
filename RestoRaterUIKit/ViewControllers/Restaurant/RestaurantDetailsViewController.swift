@@ -184,7 +184,7 @@ extension RestaurantDetailsViewController {
             return cell
         case .review(let reviewType, let review):
             let cell = tableView.dequeueReusableCell(withIdentifier: ReviewCell.defaultReuseIdentifier, for: indexPath) as! ReviewCell
-            cell.configure(date: review.visitDate, commnent: review.comment, rating: Double(review.rating), reviewType: reviewType)
+            cell.configure(date: review.visitDate, comment: review.comment, rating: Double(review.rating), reviewType: reviewType)
             return cell
         case .showAllReviews:
             let cell = tableView.dequeueReusableCell(withIdentifier: SecondaryButtonCell.defaultReuseIdentifier, for: indexPath) as! SecondaryButtonCell
