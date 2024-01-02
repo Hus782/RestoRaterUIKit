@@ -65,8 +65,9 @@ final class AddEditUserViewController: UIViewController {
         }
         
         viewModel.errorMessage.bind { [weak self] message in
+            guard let self = self else { return }
             if let message = message {
-                self?.presentErrorAlert(message: message)
+                ViewControllerHelper.presentErrorAlert(on: self, message: message)
             }
         }
     }
@@ -88,14 +89,6 @@ final class AddEditUserViewController: UIViewController {
     @objc private func saveButtonTapped() {
         Task {
             await handleSave()
-        }
-    }
-    
-    private func presentErrorAlert(message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
-            self.present(alert, animated: true)
         }
     }
     

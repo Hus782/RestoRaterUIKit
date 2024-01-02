@@ -521,8 +521,8 @@
             filePath = "RestoRaterUIKit/ViewControllers/User/AddEditUserViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -648,8 +648,8 @@
             filePath = "RestoRaterUIKit/ViewControllers/User/AddEditUserViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "handleSave()"
             landmarkType = "7">
          </BreakpointContent>
@@ -680,8 +680,8 @@
             filePath = "RestoRaterUIKit/ViewControllers/User/AddEditUserViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "setNavigationBar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -696,8 +696,8 @@
             filePath = "RestoRaterUIKit/ViewControllers/User/AddEditUserViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "showLoading(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -712,25 +712,9 @@
             filePath = "RestoRaterUIKit/ViewControllers/User/AddEditUserViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "showLoading(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "34CE3F68-DC3B-41F4-A6E3-0C3409F24B47"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RestoRaterUIKit/ViewControllers/User/AddEditUserViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "presentErrorAlert(message:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
