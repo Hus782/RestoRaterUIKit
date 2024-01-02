@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06ABFC2B357BF90057139A /* AppDelegate.swift */; };
 		3D06ABFF2B357BF90057139A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06ABFE2B357BF90057139A /* SceneDelegate.swift */; };
-		3D06AC012B357BF90057139A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC002B357BF90057139A /* ViewController.swift */; };
 		3D06AC042B357BF90057139A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D06AC022B357BF90057139A /* Main.storyboard */; };
 		3D06AC072B357BF90057139A /* RestoRaterUIKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC052B357BF90057139A /* RestoRaterUIKit.xcdatamodeld */; };
 		3D06AC092B357BFB0057139A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D06AC082B357BFB0057139A /* Assets.xcassets */; };
@@ -88,7 +87,6 @@
 		3D06ABF92B357BF90057139A /* RestoRaterUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestoRaterUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D06ABFC2B357BF90057139A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D06ABFE2B357BF90057139A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D06AC002B357BF90057139A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3D06AC032B357BF90057139A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D06AC062B357BF90057139A /* RestoRaterUIKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestoRaterUIKit.xcdatamodel; sourceTree = "<group>"; };
 		3D06AC082B357BFB0057139A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,13 +203,11 @@
 				3D2F83BA2B35C4BE002D7FF1 /* Extensions */,
 				3D06ABFC2B357BF90057139A /* AppDelegate.swift */,
 				3D06ABFE2B357BF90057139A /* SceneDelegate.swift */,
-				3D06AC002B357BF90057139A /* ViewController.swift */,
 				3D06AC022B357BF90057139A /* Main.storyboard */,
 				3D06AC082B357BFB0057139A /* Assets.xcassets */,
 				3D06AC0A2B357BFB0057139A /* LaunchScreen.storyboard */,
 				3D06AC0D2B357BFB0057139A /* Info.plist */,
 				3D06AC052B357BF90057139A /* RestoRaterUIKit.xcdatamodeld */,
-				3DCF86242B3872780032525E /* Observable.swift */,
 			);
 			path = RestoRaterUIKit;
 			sourceTree = "<group>";
@@ -315,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				3DB116F62B4407A0007F0D6D /* StarRatingUtility .swift */,
+				3DCF86242B3872780032525E /* Observable.swift */,
 				3DB116FD2B441FD5007F0D6D /* ViewControllerHelper.swift */,
 			);
 			path = Utils;
@@ -475,7 +472,6 @@
 				3D2F83BF2B35C6C1002D7FF1 /* SecondaryButtonCell.swift in Sources */,
 				3D8AB7572B4009BD00640749 /* UserTableViewCell.swift in Sources */,
 				3DCF86312B3883E20032525E /* RestaurantViewModel.swift in Sources */,
-				3D06AC012B357BF90057139A /* ViewController.swift in Sources */,
 				3DB116FC2B441D53007F0D6D /* UserError.swift in Sources */,
 				3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */,
 				3D8185F92B42AB69002DF965 /* ImagePickerCell.swift in Sources */,
