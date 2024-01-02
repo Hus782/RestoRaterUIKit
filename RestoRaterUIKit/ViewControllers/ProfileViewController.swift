@@ -22,6 +22,15 @@ final class ProfileVIewController: UITableViewController {
         tableView.register(UINib(nibName: DetailInfoTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.defaultReuseIdentifier)
         
         loadUserData()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+    }
+    
+    @objc private func logoutTapped() {
+        UserManager.shared.logoutUser()
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.switchRootViewController(to: loginVC)
     }
     
     private func loadUserData() {

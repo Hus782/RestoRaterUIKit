@@ -89,6 +89,7 @@ final class UserManager: ObservableObject, UserManagerProtocol {
         UserDefaults.standard.removeObject(forKey: isLoggedInKey)
         UserDefaults.standard.removeObject(forKey: userEmailKey)
         UserDefaults.standard.removeObject(forKey: userNameKey)
+        UserDefaults.standard.removeObject(forKey: isAdminKey)
     }
     
 }
