@@ -1,0 +1,6 @@
+framework module Pods_RestoRaterUIKit {
+  umbrella header "Pods-RestoRaterUIKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

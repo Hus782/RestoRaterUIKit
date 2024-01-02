@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1392498F9293453C4D419488 /* Pods_RestoRaterUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 960BB49D982065C2EA8CF7C0 /* Pods_RestoRaterUIKit.framework */; };
 		3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06ABFC2B357BF90057139A /* AppDelegate.swift */; };
 		3D06ABFF2B357BF90057139A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06ABFE2B357BF90057139A /* SceneDelegate.swift */; };
 		3D06AC042B357BF90057139A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D06AC022B357BF90057139A /* Main.storyboard */; };
@@ -160,6 +161,9 @@
 		3DCF862B2B3880BF0032525E /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		3DCF862C2B3880BF0032525E /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
 		3DCF86302B3883E20032525E /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		960BB49D982065C2EA8CF7C0 /* Pods_RestoRaterUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestoRaterUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1E5A81F0A2D697F67323C59 /* Pods-RestoRaterUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestoRaterUIKit.debug.xcconfig"; path = "Target Support Files/Pods-RestoRaterUIKit/Pods-RestoRaterUIKit.debug.xcconfig"; sourceTree = "<group>"; };
+		B9026F5F8D0ABC856ADFD29F /* Pods-RestoRaterUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestoRaterUIKit.release.xcconfig"; path = "Target Support Files/Pods-RestoRaterUIKit/Pods-RestoRaterUIKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1392498F9293453C4D419488 /* Pods_RestoRaterUIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +183,8 @@
 			children = (
 				3D06ABFB2B357BF90057139A /* RestoRaterUIKit */,
 				3D06ABFA2B357BF90057139A /* Products */,
+				4231B27783C3A96CB9905A8D /* Pods */,
+				5860F6396C6FF8EA78A8D385 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -375,6 +382,24 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		4231B27783C3A96CB9905A8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5A81F0A2D697F67323C59 /* Pods-RestoRaterUIKit.debug.xcconfig */,
+				B9026F5F8D0ABC856ADFD29F /* Pods-RestoRaterUIKit.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5860F6396C6FF8EA78A8D385 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				960BB49D982065C2EA8CF7C0 /* Pods_RestoRaterUIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -382,9 +407,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D06AC102B357BFB0057139A /* Build configuration list for PBXNativeTarget "RestoRaterUIKit" */;
 			buildPhases = (
+				869CFDC1651B0E0E0EADAEE6 /* [CP] Check Pods Manifest.lock */,
 				3D06ABF52B357BF90057139A /* Sources */,
 				3D06ABF62B357BF90057139A /* Frameworks */,
 				3D06ABF72B357BF90057139A /* Resources */,
+				80EAD9DA7711D8F43F72DEBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -458,6 +485,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		80EAD9DA7711D8F43F72DEBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestoRaterUIKit/Pods-RestoRaterUIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestoRaterUIKit/Pods-RestoRaterUIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestoRaterUIKit/Pods-RestoRaterUIKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		869CFDC1651B0E0E0EADAEE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RestoRaterUIKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D06ABF52B357BF90057139A /* Sources */ = {
@@ -666,6 +735,7 @@
 		};
 		3D06AC112B357BFB0057139A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1E5A81F0A2D697F67323C59 /* Pods-RestoRaterUIKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -693,6 +763,7 @@
 		};
 		3D06AC122B357BFB0057139A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9026F5F8D0ABC856ADFD29F /* Pods-RestoRaterUIKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
