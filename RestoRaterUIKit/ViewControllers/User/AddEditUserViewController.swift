@@ -140,7 +140,9 @@ extension AddEditUserViewController: UITableViewDelegate, UITableViewDataSource 
         switch fieldType {
         case .isAdmin:
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.defaultReuseIdentifier, for: indexPath) as! SwitchTableViewCell
-            cell.configure(title: Lingo.addEditUserAdminAccess, description: Lingo.addEditUserAdminAccess, isOn: user?.isAdmin ?? false)
+            cell.configure(title: Lingo.addEditUserAdminAccess, description: Lingo.addEditUserAdminAccess, isOn: user?.isAdmin ?? false) { [weak self] isOn in
+                self?.viewModel.isAdmin = isOn
+            }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.defaultReuseIdentifier, for: indexPath) as! TextFieldCell

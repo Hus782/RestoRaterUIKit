@@ -42,6 +42,9 @@
                                     </view>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="755" verticalHuggingPriority="750" horizontalCompressionResistancePriority="754" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QNq-av-qfS">
                                         <rect key="frame" x="264" y="23" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="aJN-Mx-qyC"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                             </stackView>

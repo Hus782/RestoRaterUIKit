@@ -7,26 +7,28 @@
 
 import UIKit
 
-class SwitchTableViewCell: UITableViewCell, ReusableView {
-
+final class SwitchTableViewCell: UITableViewCell, ReusableView {
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var switchView: UISwitch!
+    
+    var switchValueChanged: ((Bool) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func switchValueChanged(_ sender: UISwitch) {
+        switchValueChanged?(sender.isOn)
     }
     
-    func configure(title: String, description: String, isOn: Bool) {
-        self.titleLabel.text = title
-        self.descriptionLabel.text = description
-        self.switchView.isOn = isOn
-    }
+    func configure(title: String, description: String, isOn: Bool, switchValueChanged: ((Bool) -> Void)?) {
+          self.titleLabel.text = title
+          self.descriptionLabel.text = description
+          self.switchView.isOn = isOn
+          self.switchValueChanged = switchValueChanged
+      }
     
 }
