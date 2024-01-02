@@ -81,6 +81,7 @@ final class RestaurantDetailsViewController: UITableViewController {
         
     }
     
+    
     private func loadRestaurant() {
         guard let restaurant = restaurant else {
             return // Add logic later
@@ -122,6 +123,12 @@ final class RestaurantDetailsViewController: UITableViewController {
                 vc.restaurant = restaurant
                 vc.completion = deleteCompletion
             }
+        } else   if segue.identifier == "ShowAllReviewsSegue" {
+            if let vc = segue.destination as? ReviewListVIewController
+            {
+                vc.restaurant = restaurant
+//                vc.completion = deleteCompletion
+            }
         }
     }
     
@@ -157,7 +164,7 @@ final class RestaurantDetailsViewController: UITableViewController {
     }
     
     private func showAllReviews() {
-        
+        performSegue(withIdentifier: "ShowAllReviewsSegue", sender: nil)
     }
     
     private func addReview() {

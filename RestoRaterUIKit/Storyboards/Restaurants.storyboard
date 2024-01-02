@@ -67,6 +67,7 @@
                     <connections>
                         <segue destination="mTU-c9-9L5" kind="presentation" identifier="EditRestaurantSegue" id="65R-Xe-bTl"/>
                         <segue destination="cg8-V5-fVp" kind="presentation" identifier="AddReviewSegue" id="usk-Am-78R"/>
+                        <segue destination="pfc-1q-xOE" kind="show" identifier="ShowAllReviewsSegue" id="krm-6c-iV2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ry7-d8-Ezh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -113,6 +114,38 @@
             </objects>
             <point key="canvasLocation" x="830" y="-11"/>
         </scene>
+        <!--Review ListV Iew Controller-->
+        <scene sceneID="hbQ-RK-VZg">
+            <objects>
+                <tableViewController storyboardIdentifier="ReviewListVIewController" id="pfc-1q-xOE" customClass="ReviewListVIewController" customModule="RestoRaterUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="LLE-sA-fys">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uzs-Bw-xbg">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uzs-Bw-xbg" id="gsL-M6-afs">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pfc-1q-xOE" id="5sr-8a-Dkl"/>
+                            <outlet property="delegate" destination="pfc-1q-xOE" id="32X-CJ-bts"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="h6H-Ix-dWN"/>
+                    <connections>
+                        <segue destination="cg8-V5-fVp" kind="presentation" identifier="EditReviewSegue" id="ues-nJ-vEe"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aiV-uZ-IfL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="57"/>
+        </scene>
         <!--Add Edit Review View Controller-->
         <scene sceneID="nEM-IT-GAd">
             <objects>
@@ -151,10 +184,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWj-O5-udd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="758"/>
+            <point key="canvasLocation" x="1598" y="-692"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ues-nJ-vEe"/>
         <segue reference="65R-Xe-bTl"/>
     </inferredMetricsTieBreakers>
     <resources>

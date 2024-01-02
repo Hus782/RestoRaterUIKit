@@ -118,9 +118,7 @@ final class AddEditReviewViewController: UIViewController {
         case .add:
             await viewModel.addReview()
         case .edit:
-            if let updatedUser = await viewModel.editUser() {
-//                delegate?.userDidUpdate(updatedUser)
-            }
+            await viewModel.editReview() 
         default:
             break
         }

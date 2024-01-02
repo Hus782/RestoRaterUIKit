@@ -76,8 +76,8 @@ final class AddEditReviewViewModel {
         isLoading.value = false
     }
     
-    func editUser() async -> Review? {
-        guard let review = review else { return nil}
+    func editReview() async {
+        guard let review = review else { return }
         configure(review: review)
         
         isLoading.value = true
@@ -88,13 +88,25 @@ final class AddEditReviewViewModel {
                 self?.onAddCompletion?()
                 self?.isLoading.value = false
             }
-            return review
         } catch {
             await MainActor.run { [weak self] in
                 self?.errorMessage.value = error.localizedDescription
                 self?.isLoading.value = false
             }
-            return nil
+        }
+    }
+    
+    func deleteReview(_ reviewToDelete: Review?) async -> Result<Void, Error> {
+        guard let reviewToDelete = reviewToDelete else {
+//            Create specific errors here
+            let error = NSError(domain: "ReviewDeletionError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Review not found"])
+            return .failure(error)
+        }
+        do {
+            try await dataManager.deleteEntity(entity: reviewToDelete)
+            return .success(())
+        } catch {
+            return .failure(error)
         }
     }
 }

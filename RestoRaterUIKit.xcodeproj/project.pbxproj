@@ -69,6 +69,7 @@
 		3DB116F32B43FD36007F0D6D /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116F12B43FD36007F0D6D /* TextViewCell.swift */; };
 		3DB116F42B43FD36007F0D6D /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB116F22B43FD36007F0D6D /* TextViewCell.xib */; };
 		3DB116F72B4407A0007F0D6D /* StarRatingUtility .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116F62B4407A0007F0D6D /* StarRatingUtility .swift */; };
+		3DB116F92B4408B2007F0D6D /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116F82B4408B2007F0D6D /* ReviewListViewController.swift */; };
 		3DCE160B2B43F44B004BFEC6 /* RatingPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */; };
 		3DCE160C2B43F44B004BFEC6 /* RatingPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */; };
 		3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */; };
@@ -146,6 +147,7 @@
 		3DB116F12B43FD36007F0D6D /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		3DB116F22B43FD36007F0D6D /* TextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
 		3DB116F62B4407A0007F0D6D /* StarRatingUtility .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarRatingUtility .swift"; sourceTree = "<group>"; };
+		3DB116F82B4408B2007F0D6D /* ReviewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
 		3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPickerCell.swift; sourceTree = "<group>"; };
 		3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingPickerCell.xib; sourceTree = "<group>"; };
 		3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4B86472B42F26000F63D21 /* AddEditReviewViewController.swift */,
+				3DB116F82B4408B2007F0D6D /* ReviewListViewController.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				3D8AB7542B4008DE00640749 /* UsersViewModel.swift in Sources */,
 				3DCE160B2B43F44B004BFEC6 /* RatingPickerCell.swift in Sources */,
 				3D6F80832B3830FD006C8684 /* UserManager.swift in Sources */,
+				3DB116F92B4408B2007F0D6D /* ReviewListViewController.swift in Sources */,
 				3D8185F62B42A639002DF965 /* AddEditRestaurantViewModel.swift in Sources */,
 				3D8AB75D2B40160C00640749 /* DetailInfoTableViewCell.swift in Sources */,
 				3D8185FC2B42B728002DF965 /* RestaurantDetailsViewController.swift in Sources */,
