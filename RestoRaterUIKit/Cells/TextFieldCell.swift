@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import TextFieldEffects
 
-class TextFieldCell: UITableViewCell, ReusableView {
+final class TextFieldCell: UITableViewCell, ReusableView {
     var textChanged: ((String) -> Void)?
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: HoshiTextField!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
@@ -28,8 +29,9 @@ class TextFieldCell: UITableViewCell, ReusableView {
     }
     
     func configure(title: String, content: String, textChanged: ((String) -> Void)?) {
-        self.titleLabel.text = title
+//        self.titleLabel.text = title
         self.textField.text = content
+        self.textField.placeholder = title
         self.textChanged = textChanged
     }
 
