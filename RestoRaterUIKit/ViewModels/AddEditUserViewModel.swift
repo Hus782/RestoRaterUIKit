@@ -67,6 +67,12 @@ final class AddEditUserViewModel {
             self.password = user.password
             self.isAdmin = user.isAdmin
         }
+//        Assume that user's data is already valid
+        if scenario == .edit {
+            isNameValid = true
+            isEmailValid = true
+            isPasswordValid = true
+        }
     }
     
     private func configure(user: User) {
