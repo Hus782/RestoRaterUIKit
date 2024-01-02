@@ -82,6 +82,8 @@
 		3DCF862D2B3880BF0032525E /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF862B2B3880BF0032525E /* RestaurantTableViewCell.swift */; };
 		3DCF862E2B3880BF0032525E /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCF862C2B3880BF0032525E /* RestaurantTableViewCell.xib */; };
 		3DCF86312B3883E20032525E /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86302B3883E20032525E /* RestaurantViewModel.swift */; };
+		3DE230D52B443F1500C669AB /* FieldValidator .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE230D42B443F1500C669AB /* FieldValidator .swift */; };
+		3DE230D72B4441CE00C669AB /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE230D62B4441CE00C669AB /* ValidationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +163,8 @@
 		3DCF862B2B3880BF0032525E /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		3DCF862C2B3880BF0032525E /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
 		3DCF86302B3883E20032525E /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		3DE230D42B443F1500C669AB /* FieldValidator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldValidator .swift"; sourceTree = "<group>"; };
+		3DE230D62B4441CE00C669AB /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		960BB49D982065C2EA8CF7C0 /* Pods_RestoRaterUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestoRaterUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E5A81F0A2D697F67323C59 /* Pods-RestoRaterUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestoRaterUIKit.debug.xcconfig"; path = "Target Support Files/Pods-RestoRaterUIKit/Pods-RestoRaterUIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		B9026F5F8D0ABC856ADFD29F /* Pods-RestoRaterUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestoRaterUIKit.release.xcconfig"; path = "Target Support Files/Pods-RestoRaterUIKit/Pods-RestoRaterUIKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 				3DB116F62B4407A0007F0D6D /* StarRatingUtility .swift */,
 				3DCF86242B3872780032525E /* Observable.swift */,
 				3DB116FD2B441FD5007F0D6D /* ViewControllerHelper.swift */,
+				3DE230D42B443F1500C669AB /* FieldValidator .swift */,
+				3DE230D62B4441CE00C669AB /* ValidationService.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -388,7 +394,6 @@
 				A1E5A81F0A2D697F67323C59 /* Pods-RestoRaterUIKit.debug.xcconfig */,
 				B9026F5F8D0ABC856ADFD29F /* Pods-RestoRaterUIKit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -567,6 +572,7 @@
 				3D4B864A2B42F34A00F63D21 /* AddEditReviewViewModel.swift in Sources */,
 				3D8185FF2B42BB6F002DF965 /* RestaurantHeaderCell.swift in Sources */,
 				3D2F83B42B35AF8C002D7FF1 /* TextFieldCell.swift in Sources */,
+				3DE230D52B443F1500C669AB /* FieldValidator .swift in Sources */,
 				3D6F80662B382EC9006C8684 /* CoreDataManager.swift in Sources */,
 				3DCF86272B3878660032525E /* RegisterViewModel.swift in Sources */,
 				3D8AB7522B40089600640749 /* UserListViewController.swift in Sources */,
@@ -583,6 +589,7 @@
 				3D2F83C72B35C9F2002D7FF1 /* Lingo.swift in Sources */,
 				3DCF862A2B38800B0032525E /* RestaurantListViewController.swift in Sources */,
 				3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */,
+				3DE230D72B4441CE00C669AB /* ValidationService.swift in Sources */,
 				3DCF862D2B3880BF0032525E /* RestaurantTableViewCell.swift in Sources */,
 				3DCF86252B3872780032525E /* Observable.swift in Sources */,
 				3DAA82392B40716B0051AC8D /* AddEditUserViewModel.swift in Sources */,

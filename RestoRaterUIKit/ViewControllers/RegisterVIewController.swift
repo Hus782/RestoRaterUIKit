@@ -79,15 +79,15 @@ final class RegisterViewController: UITableViewController {
     private func configureCell(_ cell: TextFieldCell, for fieldType: RegisterRow) {
         switch fieldType {
         case .name:
-            cell.configure(title: Lingo.registerViewNamePlaceholder, content: viewModel.name.value) { [weak self] text in
+            cell.configure(title: Lingo.registerViewNamePlaceholder, content: viewModel.name.value, validationType: .email) { [weak self] text in
                 self?.viewModel.name.value = text
             }
         case .email:
-            cell.configure(title: Lingo.registerViewEmailPlaceholder, content: viewModel.email.value) { [weak self] text in
+            cell.configure(title: Lingo.registerViewEmailPlaceholder, content: viewModel.email.value, validationType: .email) { [weak self] text in
                 self?.viewModel.email.value = text
             }
         case .password:
-            cell.configure(title: Lingo.registerViewPasswordPlaceholder, content: viewModel.password.value) { [weak self] text in
+            cell.configure(title: Lingo.registerViewPasswordPlaceholder, content: viewModel.password.value, validationType: .email) { [weak self] text in
                 self?.viewModel.password.value = text
             }
         default:

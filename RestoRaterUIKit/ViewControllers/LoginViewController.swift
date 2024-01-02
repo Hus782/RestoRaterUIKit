@@ -76,11 +76,11 @@ final class LoginVIewController: UITableViewController {
     private func configureCell(_ cell: TextFieldCell, for fieldType: LoginRow) {
         switch fieldType {
         case .email:
-            cell.configure(title: Lingo.loginViewEmailPlaceholder, content: viewModel.email.value) { [weak self] text in
+            cell.configure(title: Lingo.loginViewEmailPlaceholder, content: viewModel.email.value, validationType: .email) { [weak self] text in
                 self?.viewModel.email.value = text
             }
         case .password:
-            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password.value) { [weak self] text in
+            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password.value, validationType: .password) { [weak self] text in
                 self?.viewModel.password.value = text
             }
         default:
