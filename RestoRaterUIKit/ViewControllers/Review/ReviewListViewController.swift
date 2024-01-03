@@ -18,7 +18,7 @@ final class ReviewListVIewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: ReviewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ReviewCell.defaultReuseIdentifier)
         
-        loadRestaurants()
+        loadReviews()
         
         title = "Reviews"
     }
@@ -27,7 +27,7 @@ final class ReviewListVIewController: UITableViewController {
         performSegue(withIdentifier: "AddRestaurantSegue", sender: self)
     }
     
-    private func loadRestaurants() {
+    private func loadReviews() {
         if let restaurant = restaurant, let fetchedReviews = restaurant.reviews?.allObjects as? [Review] {
             self.reviews = fetchedReviews
             tableView.reloadData()
@@ -41,8 +41,8 @@ final class ReviewListVIewController: UITableViewController {
                 vc.scenario = .edit
                 vc.restaurant = restaurant
                 vc.review = reviewToEdit
-                vc.completion = {
-                    self.navigationController?.popViewController(animated: true)
+                vc.completion = { [weak self] in
+                    self?.loadReviews()
                 }
             }
         }
@@ -82,27 +82,6 @@ final class ReviewListVIewController: UITableViewController {
             }
         }
     }
-    
-//    private func confirmAndDeleteReview(review: Review?) async -> Result<Void, Error> {
-//        await withCheckedContinuation { continuation in
-//            let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
-//
-//            confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { _ in
-//                Task {
-//                    let result = await self.viewModel.deleteReview(review)
-//                    continuation.resume(returning: result)
-//                }
-//            }))
-//
-//            confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel, handler: { _ in
-//                continuation.resume(returning: .failure(CancellationError()))
-//            }))
-//
-//            present(confirmAlert, animated: true)
-//        }
-//    }
-
-    
 }
 
 extension ReviewListVIewController {
