@@ -8,10 +8,8 @@
 import Foundation
 
 final class LoginViewModel: ObservableObject {
-    var email = Observable<String>("")
-    var password = Observable<String>("")
-    var loginSuccessful = Observable<Bool>(false)
-    var showingAlert = Observable<Bool>(false)
+    var email: String = ""
+    var password: String = ""
     var alertMessage = Observable<String>("")
     var isEmailValid: Bool = false  {
         didSet {
@@ -33,14 +31,13 @@ final class LoginViewModel: ObservableObject {
         self.userManager = userManager
     }
     
-    func loginUser(successCompletion: (() -> Void)?) async {
-        let predicate = NSPredicate(format: "email == %@", email.value)
+    func loginUser(successCompletion: (() -> Void)? = nil) async {
+        let predicate = NSPredicate(format: "email == %@", email)
         
         do {
             let results = try await dataManager.fetchEntities(predicate: predicate)
-            if let user = results.first, user.password == password.value {
+            if let user = results.first, user.password == password {
                 await MainActor.run { [weak self] in
-                    self?.loginSuccessful.value = true
                     self?.userManager.loginUser(user: user)
                     successCompletion?()
                 }
@@ -48,19 +45,13 @@ final class LoginViewModel: ObservableObject {
             } else {
                 await MainActor.run { [weak self] in
                     self?.alertMessage.value = Lingo.invalidCredentials
-                    self?.showingAlert.value = true
                 }
             }
         } catch {
             await MainActor.run { [weak self] in
                 self?.alertMessage.value = "\(Lingo.loginFailed): \(error.localizedDescription)"
-                self?.showingAlert.value = true
             }
         }
-    }
-    
-    func navigateToRegister() {
-        userManager.setIsRegistering(true)
     }
     
     private func updateFormValidity() {

@@ -46,8 +46,8 @@
             filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "loginUser(successCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "loginUser(successCompletion:)"
             landmarkType = "7">
             <Locations>
@@ -155,8 +155,8 @@
             filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "loginUser(successCompletion:)"
             landmarkType = "7">
             <Locations>
@@ -226,22 +226,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D27B2847-F96E-4E37-AEF8-41489EE15676"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "loginUser(successCompletion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8F69FB23-4F0E-4A26-87D3-F61DAAA49541"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -249,8 +233,8 @@
             filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "loginUser(successCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -265,8 +249,8 @@
             filePath = "RestoRaterUIKit/ViewModels/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "loginUser(successCompletion:)"
             landmarkType = "7">
          </BreakpointContent>

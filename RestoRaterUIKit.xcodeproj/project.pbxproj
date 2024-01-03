@@ -72,6 +72,9 @@
 		3DB116F92B4408B2007F0D6D /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116F82B4408B2007F0D6D /* ReviewListViewController.swift */; };
 		3DB116FC2B441D53007F0D6D /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116FB2B441D53007F0D6D /* UserError.swift */; };
 		3DB116FE2B441FD5007F0D6D /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116FD2B441FD5007F0D6D /* ViewControllerHelper.swift */; };
+		3DB55AC32B45AC2E0092F942 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55AC22B45AC2E0092F942 /* LoginViewModelTests.swift */; };
+		3DB55ACA2B45AC710092F942 /* MockUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55AC92B45AC710092F942 /* MockUserManager.swift */; };
+		3DB55ACC2B45AEFA0092F942 /* RegisterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55ACB2B45AEFA0092F942 /* RegisterViewModelTests.swift */; };
 		3DCE160B2B43F44B004BFEC6 /* RatingPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */; };
 		3DCE160C2B43F44B004BFEC6 /* RatingPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */; };
 		3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */; };
@@ -85,6 +88,16 @@
 		3DE230D52B443F1500C669AB /* FieldValidator .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE230D42B443F1500C669AB /* FieldValidator .swift */; };
 		3DE230D72B4441CE00C669AB /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE230D62B4441CE00C669AB /* ValidationService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3DB55AC42B45AC2E0092F942 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D06ABF12B357BF90057139A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D06ABF82B357BF90057139A;
+			remoteInfo = RestoRaterUIKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3D06ABF92B357BF90057139A /* RestoRaterUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestoRaterUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +166,10 @@
 		3DB116F82B4408B2007F0D6D /* ReviewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
 		3DB116FB2B441D53007F0D6D /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		3DB116FD2B441FD5007F0D6D /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		3DB55AC02B45AC2E0092F942 /* RestoRaterUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestoRaterUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB55AC22B45AC2E0092F942 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		3DB55AC92B45AC710092F942 /* MockUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserManager.swift; sourceTree = "<group>"; };
+		3DB55ACB2B45AEFA0092F942 /* RegisterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelTests.swift; sourceTree = "<group>"; };
 		3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPickerCell.swift; sourceTree = "<group>"; };
 		3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingPickerCell.xib; sourceTree = "<group>"; };
 		3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -179,6 +196,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DB55ABD2B45AC2E0092F942 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -186,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				3D06ABFB2B357BF90057139A /* RestoRaterUIKit */,
+				3DB55AC12B45AC2E0092F942 /* RestoRaterUIKitTests */,
 				3D06ABFA2B357BF90057139A /* Products */,
 				4231B27783C3A96CB9905A8D /* Pods */,
 				5860F6396C6FF8EA78A8D385 /* Frameworks */,
@@ -196,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				3D06ABF92B357BF90057139A /* RestoRaterUIKit.app */,
+				3DB55AC02B45AC2E0092F942 /* RestoRaterUIKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,6 +364,16 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		3DB55AC12B45AC2E0092F942 /* RestoRaterUIKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				3DB55AC22B45AC2E0092F942 /* LoginViewModelTests.swift */,
+				3DB55AC92B45AC710092F942 /* MockUserManager.swift */,
+				3DB55ACB2B45AEFA0092F942 /* RegisterViewModelTests.swift */,
+			);
+			path = RestoRaterUIKitTests;
+			sourceTree = "<group>";
+		};
 		3DCF86282B387FC50032525E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +463,24 @@
 			productReference = 3D06ABF92B357BF90057139A /* RestoRaterUIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3DB55ABF2B45AC2E0092F942 /* RestoRaterUIKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB55AC62B45AC2E0092F942 /* Build configuration list for PBXNativeTarget "RestoRaterUIKitTests" */;
+			buildPhases = (
+				3DB55ABC2B45AC2E0092F942 /* Sources */,
+				3DB55ABD2B45AC2E0092F942 /* Frameworks */,
+				3DB55ABE2B45AC2E0092F942 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DB55AC52B45AC2E0092F942 /* PBXTargetDependency */,
+			);
+			name = RestoRaterUIKitTests;
+			productName = RestoRaterUIKitTests;
+			productReference = 3DB55AC02B45AC2E0092F942 /* RestoRaterUIKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -439,6 +493,10 @@
 				TargetAttributes = {
 					3D06ABF82B357BF90057139A = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					3DB55ABF2B45AC2E0092F942 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 3D06ABF82B357BF90057139A;
 					};
 				};
 			};
@@ -456,6 +514,7 @@
 			projectRoot = "";
 			targets = (
 				3D06ABF82B357BF90057139A /* RestoRaterUIKit */,
+				3DB55ABF2B45AC2E0092F942 /* RestoRaterUIKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -486,6 +545,13 @@
 				3D4E8FCD2B4049DC00EA9C28 /* Users.storyboard in Resources */,
 				3D4E8FCB2B4049AA00EA9C28 /* Restaurants.storyboard in Resources */,
 				3D2F83B52B35AF8C002D7FF1 /* TextFieldCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB55ABE2B45AC2E0092F942 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,7 +662,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DB55ABC2B45AC2E0092F942 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DB55ACC2B45AEFA0092F942 /* RegisterViewModelTests.swift in Sources */,
+				3DB55ACA2B45AC710092F942 /* MockUserManager.swift in Sources */,
+				3DB55AC32B45AC2E0092F942 /* LoginViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3DB55AC52B45AC2E0092F942 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D06ABF82B357BF90057139A /* RestoRaterUIKit */;
+			targetProxy = 3DB55AC42B45AC2E0092F942 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3D06AC022B357BF90057139A /* Main.storyboard */ = {
@@ -796,6 +880,40 @@
 			};
 			name = Release;
 		};
+		3DB55AC72B45AC2E0092F942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hus.RestoRaterUIKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestoRaterUIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RestoRaterUIKit";
+			};
+			name = Debug;
+		};
+		3DB55AC82B45AC2E0092F942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hus.RestoRaterUIKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestoRaterUIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RestoRaterUIKit";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -813,6 +931,15 @@
 			buildConfigurations = (
 				3D06AC112B357BFB0057139A /* Debug */,
 				3D06AC122B357BFB0057139A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DB55AC62B45AC2E0092F942 /* Build configuration list for PBXNativeTarget "RestoRaterUIKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB55AC72B45AC2E0092F942 /* Debug */,
+				3DB55AC82B45AC2E0092F942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,10 +8,10 @@
 import Foundation
 
 final class RegisterViewModel: ObservableObject {
-    var email = Observable<String>("")
-    var password = Observable<String>("")
-    var name = Observable<String>("")
-    var isAdmin = Observable<Bool>(false)
+    var email: String = ""
+    var password: String = ""
+    var name: String = ""
+    var isAdmin: Bool = false
     var alertMessage = Observable<String>("")
     var registrationSuccessful = Observable<Bool>(false)
     
@@ -58,15 +58,11 @@ final class RegisterViewModel: ObservableObject {
         }
     }
     
-    func navigateToLogin() {
-        userManager.setIsRegistering(false)
-    }
-    
     private func configureUser(newUser: User) {
-        newUser.email = email.value
-        newUser.password = password.value
-        newUser.name = name.value
-        newUser.isAdmin = isAdmin.value
+        newUser.email = email
+        newUser.password = password
+        newUser.name = name
+        newUser.isAdmin = isAdmin
     }
     
     private func updateFormValidity() {

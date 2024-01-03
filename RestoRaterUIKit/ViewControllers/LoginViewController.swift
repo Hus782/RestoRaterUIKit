@@ -100,13 +100,13 @@ extension LoginVIewController {
     private func configureCell(_ cell: TextFieldCell, for fieldType: LoginRow) {
         switch fieldType {
         case .email:
-            cell.configure(title: Lingo.loginViewEmailPlaceholder, content: viewModel.email.value, validationType: .email) { [weak self] text, validationResult in
-                self?.viewModel.email.value = text
+            cell.configure(title: Lingo.loginViewEmailPlaceholder, content: viewModel.email, validationType: .email) { [weak self] text, validationResult in
+                self?.viewModel.email = text
                 self?.viewModel.isEmailValid = validationResult
             }
         case .password:
-            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password.value, validationType: .none) { [weak self] text, validationResult in
-                self?.viewModel.password.value = text
+            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password, validationType: .none) { [weak self] text, validationResult in
+                self?.viewModel.password = text
                 self?.viewModel.isPasswordValid = validationResult
                 
             }

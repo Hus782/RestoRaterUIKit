@@ -94,18 +94,18 @@ extension RegisterViewController {
     private func configureCell(_ cell: TextFieldCell, for fieldType: RegisterRow) {
         switch fieldType {
         case .name:
-            cell.configure(title: Lingo.registerViewNamePlaceholder, content: viewModel.name.value) { [weak self] text, validationResult in
-                self?.viewModel.name.value = text
+            cell.configure(title: Lingo.registerViewNamePlaceholder, content: viewModel.name) { [weak self] text, validationResult in
+                self?.viewModel.name = text
                 self?.viewModel.isNameValid = validationResult
             }
         case .email:
-            cell.configure(title: Lingo.registerViewEmailPlaceholder, content: viewModel.email.value, validationType: .email) { [weak self] text, validationResult in
-                self?.viewModel.email.value = text
+            cell.configure(title: Lingo.registerViewEmailPlaceholder, content: viewModel.email, validationType: .email) { [weak self] text, validationResult in
+                self?.viewModel.email = text
                 self?.viewModel.isEmailValid = validationResult
             }
         case .password:
-            cell.configure(title: Lingo.registerViewPasswordPlaceholder, content: viewModel.password.value, validationType: .password) { [weak self] text, validationResult in
-                self?.viewModel.password.value = text
+            cell.configure(title: Lingo.registerViewPasswordPlaceholder, content: viewModel.password, validationType: .password) { [weak self] text, validationResult in
+                self?.viewModel.password = text
                 self?.viewModel.isPasswordValid = validationResult
             }
         default:

@@ -98,7 +98,7 @@ struct PersistenceController {
 
 extension PersistenceController {
     static func inMemoryContainer() -> NSPersistentContainer {
-        let container = NSPersistentContainer(name: "RestoRaterApp")
+        let container = NSPersistentContainer(name: "RestoRaterUIKit")
         let description = NSPersistentStoreDescription()
         description.url = URL(fileURLWithPath: "/dev/null")
         container.persistentStoreDescriptions = [description]
