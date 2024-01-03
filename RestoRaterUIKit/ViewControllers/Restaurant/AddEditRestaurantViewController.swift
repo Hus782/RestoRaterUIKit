@@ -19,6 +19,7 @@ final class AddEditRestaurantViewController: UIViewController {
     private var cells: [DetailInfoCellData] = []
     private let fields: [RestaurantField] = [.name, .address, .image]
     var restaurant: Restaurant?
+    weak var delegate: RestaurantUpdateDelegate?
     var scenario: RestaurantViewScenario = .add
     var completion: (() -> Void)?
     private var activityIndicator: UIActivityIndicatorView?
@@ -122,14 +123,12 @@ final class AddEditRestaurantViewController: UIViewController {
         case .add:
             await viewModel.addRestaurant()
         case .edit:
-            if let updatedUser = await viewModel.editRestaurant() {
-//                delegate?.userDidUpdate(updatedUser)
+            if let updatedRestaurant = await viewModel.editRestaurant() {
+                delegate?.restaurantDidUpdate(updatedRestaurant)
             }
-        default:
-            break
         }
     }
-    
+        
     func presentImagePicker() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self

@@ -12,6 +12,12 @@ enum RestaurantViewScenario {
     case edit
 }
 
+
+// Used to update the current restaurant after editing
+protocol RestaurantUpdateDelegate: AnyObject {
+    func restaurantDidUpdate(_ updatedRestaurant: Restaurant)
+}
+
 final class AddEditRestaurantViewModel {
     var name: String = ""
     var address: String = ""

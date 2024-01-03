@@ -8,16 +8,22 @@
 import UIKit
 
 final class RestaurantListVIewController: UITableViewController {
-    private var viewModel = RestaurantViewModel()
+    private let viewModel = RestaurantViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        loadRestaurants()
+        setupAddButton()
+    }
+    
+    private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: RestaurantTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantTableViewCell.defaultReuseIdentifier)
-        
-        loadRestaurants()
-        
+    }
+    
+    private func setupAddButton() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRestaurantAction))
         self.navigationItem.rightBarButtonItem = addButton
     }
@@ -47,8 +53,6 @@ final class RestaurantListVIewController: UITableViewController {
                 userDetailsVC.hidesBottomBarWhenPushed = true
                 userDetailsVC.deleteCompletion = { [weak self] in
                     self?.reloadData()
-                    self?.navigationController?.popToRootViewController(animated: true)
-                    
                 }
             }
         } else if segue.identifier == "AddRestaurantSegue" {

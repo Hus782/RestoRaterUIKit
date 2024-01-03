@@ -38,18 +38,22 @@ final class RestaurantDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        title = Lingo.restaurantDetailTitle
+        loadRestaurant()
+        setupMoreButton()
+    }
+    
+    private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: RestaurantHeaderCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantHeaderCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: StarRatingCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: StarRatingCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: ReviewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ReviewCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: ButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ButtonCell.defaultReuseIdentifier)
-        
-        
-        
-        title = Lingo.userDetailsTitle
-        loadRestaurant()
-        
+    }
+    
+    private func setupMoreButton() {
         let moreButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(moreButtonTapped))
         navigationItem.rightBarButtonItem = moreButton
     }
@@ -115,6 +119,7 @@ final class RestaurantDetailsViewController: UITableViewController {
                 vc.scenario = .edit
                 vc.restaurant = restaurant
                 vc.completion = deleteCompletion
+                vc.delegate = self
             }
         } else   if segue.identifier == "AddReviewSegue" {
             if let vc = segue.destination as? AddEditReviewViewController
@@ -127,7 +132,7 @@ final class RestaurantDetailsViewController: UITableViewController {
             if let vc = segue.destination as? ReviewListVIewController
             {
                 vc.restaurant = restaurant
-//                vc.completion = deleteCompletion
+                //                vc.completion = deleteCompletion
             }
         }
     }
@@ -206,5 +211,14 @@ extension RestaurantDetailsViewController {
             }
             return cell
         }
+    }
+}
+
+extension RestaurantDetailsViewController: RestaurantUpdateDelegate {
+    func restaurantDidUpdate(_ updatedRestaurant: Restaurant) {
+        self.restaurant = updatedRestaurant
+        cells = []
+        loadRestaurant()
+        tableView.reloadData()
     }
 }
