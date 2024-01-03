@@ -30,7 +30,8 @@ final class ProfileVIewController: UITableViewController {
         UserManager.shared.logoutUser()
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.switchRootViewController(to: loginVC)
+        let navController = UINavigationController(rootViewController: loginVC)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.switchRootViewController(to: navController)
     }
     
     private func loadUserData() {
