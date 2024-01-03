@@ -48,31 +48,60 @@ final class ReviewListVIewController: UITableViewController {
         }
     }
     
-    private func confirmAndDeleteReview(review: Review?) async -> Result<Void, Error> {
-        await withCheckedContinuation { continuation in
-            let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
+    private func confirmAndDeleteRestaurant(review: Review?, completion: @escaping (Bool) -> Void) {
+        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.reviewsListViewConfirmDeleteMessage, preferredStyle: .alert)
+        
+        confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { [weak self] _ in
+            guard let self = self else { return completion(false) }
             
-            confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { _ in
-                Task {
-                    let result = await self.viewModel.deleteReview(review)
-                    continuation.resume(returning: result)
+            Task {
+                do {
+                    try await self.viewModel.deleteReview(review)
+                    completion(true)
+                } catch {
+                    ViewControllerHelper.presentErrorAlert(on: self, message: error.localizedDescription)
+                    completion(false)
                 }
-            }))
-            
-            confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel, handler: { _ in
-                continuation.resume(returning: .failure(CancellationError()))
-            }))
-            
-            present(confirmAlert, animated: true)
+            }
+        }))
+        
+        confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel, handler: { _ in
+            completion(false)
+        }))
+        present(confirmAlert, animated: true)
+    }
+    
+    private func performDeletion(review: Review?) {
+        Task {
+            do {
+                try await viewModel.deleteReview(review)
+//                deleteCompletion?()
+                navigationController?.popViewController(animated: true)
+            } catch {
+                ViewControllerHelper.presentErrorAlert(on: self, message: error.localizedDescription)
+            }
         }
     }
     
-    
-    private func presentErrorAlert(message: String) {
-        let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
-        self.present(alert, animated: true)
-    }
+//    private func confirmAndDeleteReview(review: Review?) async -> Result<Void, Error> {
+//        await withCheckedContinuation { continuation in
+//            let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
+//
+//            confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { _ in
+//                Task {
+//                    let result = await self.viewModel.deleteReview(review)
+//                    continuation.resume(returning: result)
+//                }
+//            }))
+//
+//            confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel, handler: { _ in
+//                continuation.resume(returning: .failure(CancellationError()))
+//            }))
+//
+//            present(confirmAlert, animated: true)
+//        }
+//    }
+
     
 }
 
@@ -93,24 +122,18 @@ extension ReviewListVIewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // Swipe-to-Delete Action
         let deleteAction = UIContextualAction(style: .destructive, title: Lingo.commonDelete) { [weak self] (action, view, completionHandler) in
-            guard let self = self else { return }
-            
-            Task {
-                let reviewToDelete = self.reviews[indexPath.row]
-                let result = await self.confirmAndDeleteReview(review: reviewToDelete)
-                
-                await MainActor.run {
-                    switch result {
-                    case .success:
-                        self.reviews.remove(at: indexPath.row)
-                        tableView.deleteRows(at: [indexPath], with: .fade)
-                        completionHandler(true)
-                    case .failure:
-                        completionHandler(false)
-                    }
-                }
-            }
-        }
+             guard let self = self else { return }
+
+             let reviewToDelete = self.reviews[indexPath.row]
+             self.confirmAndDeleteRestaurant(review: reviewToDelete, completion: { success in
+                 completionHandler(success)
+                 if success {
+                     // Update your data source and table view
+                     self.reviews.remove(at: indexPath.row)
+                     tableView.deleteRows(at: [indexPath], with: .fade)
+                 }
+             })
+         }
         
         // Swipe-to-Edit Action
         let editAction = UIContextualAction(style: .normal, title: Lingo.commonEdit) { [weak self] (action, view, completionHandler) in

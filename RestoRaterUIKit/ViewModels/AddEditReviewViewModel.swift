@@ -96,17 +96,15 @@ final class AddEditReviewViewModel {
         }
     }
     
-    func deleteReview(_ reviewToDelete: Review?) async -> Result<Void, Error> {
+    func deleteReview(_ reviewToDelete: Review?) async throws {
         guard let reviewToDelete = reviewToDelete else {
-//            Create specific errors here
-            let error = NSError(domain: "ReviewDeletionError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Review not found"])
-            return .failure(error)
+            throw UserError.userNotFound
         }
+        
         do {
             try await dataManager.deleteEntity(entity: reviewToDelete)
-            return .success(())
         } catch {
-            return .failure(error)
+            throw error
         }
     }
 }
