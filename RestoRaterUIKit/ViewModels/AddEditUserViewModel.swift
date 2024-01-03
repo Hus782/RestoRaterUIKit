@@ -17,7 +17,6 @@ final class AddEditUserViewModel {
     var email: String = ""
     var password: String = ""
     var isAdmin: Bool = false
-    var showingAlert = false
     var errorMessage = Observable<String?>(nil)
     var isLoading = Observable<Bool>(false)
     var scenario: UserViewScenario = .add
@@ -93,7 +92,6 @@ final class AddEditUserViewModel {
             }
         } catch {
             await MainActor.run { [weak self] in
-                self?.showingAlert = true
                 self?.errorMessage.value = error.localizedDescription
             }
         }
@@ -117,7 +115,6 @@ final class AddEditUserViewModel {
             return user
         } catch {
             await MainActor.run { [weak self] in
-                self?.showingAlert = true
                 self?.errorMessage.value = error.localizedDescription
                 self?.isLoading.value = false
             }
