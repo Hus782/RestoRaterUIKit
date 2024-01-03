@@ -75,6 +75,7 @@
 		3DB55AC32B45AC2E0092F942 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55AC22B45AC2E0092F942 /* LoginViewModelTests.swift */; };
 		3DB55ACA2B45AC710092F942 /* MockUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55AC92B45AC710092F942 /* MockUserManager.swift */; };
 		3DB55ACC2B45AEFA0092F942 /* RegisterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55ACB2B45AEFA0092F942 /* RegisterViewModelTests.swift */; };
+		3DB55ACE2B45B1BC0092F942 /* UsersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55ACD2B45B1BC0092F942 /* UsersViewModelTests.swift */; };
 		3DCE160B2B43F44B004BFEC6 /* RatingPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */; };
 		3DCE160C2B43F44B004BFEC6 /* RatingPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */; };
 		3DCF86222B3871510032525E /* Restaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */; };
@@ -170,6 +171,7 @@
 		3DB55AC22B45AC2E0092F942 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		3DB55AC92B45AC710092F942 /* MockUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserManager.swift; sourceTree = "<group>"; };
 		3DB55ACB2B45AEFA0092F942 /* RegisterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelTests.swift; sourceTree = "<group>"; };
+		3DB55ACD2B45B1BC0092F942 /* UsersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelTests.swift; sourceTree = "<group>"; };
 		3DCE16092B43F44B004BFEC6 /* RatingPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPickerCell.swift; sourceTree = "<group>"; };
 		3DCE160A2B43F44B004BFEC6 /* RatingPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingPickerCell.xib; sourceTree = "<group>"; };
 		3DCF86202B3871510032525E /* Restaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				3DB55AC22B45AC2E0092F942 /* LoginViewModelTests.swift */,
 				3DB55AC92B45AC710092F942 /* MockUserManager.swift */,
 				3DB55ACB2B45AEFA0092F942 /* RegisterViewModelTests.swift */,
+				3DB55ACD2B45B1BC0092F942 /* UsersViewModelTests.swift */,
 			);
 			path = RestoRaterUIKitTests;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB55ACC2B45AEFA0092F942 /* RegisterViewModelTests.swift in Sources */,
+				3DB55ACE2B45B1BC0092F942 /* UsersViewModelTests.swift in Sources */,
 				3DB55ACA2B45AC710092F942 /* MockUserManager.swift in Sources */,
 				3DB55AC32B45AC2E0092F942 /* LoginViewModelTests.swift in Sources */,
 			);

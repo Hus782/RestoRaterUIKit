@@ -13,16 +13,22 @@ final class UserListVIewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UINib(nibName: UserTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: UserTableViewCell.defaultReuseIdentifier)
-        
-        title = Lingo.usersListTitle
-        
+        setupTableView()
+        setupNavBar()
         loadUsers()
         
+    }
+    
+    private func setupTableView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UINib(nibName: UserTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: UserTableViewCell.defaultReuseIdentifier)
+    }
+    
+    private func setupNavBar() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addUserAction))
         self.navigationItem.rightBarButtonItem = addButton
-        
+        title = Lingo.usersListTitle
+
     }
     
     private func loadUsers() {
@@ -34,6 +40,11 @@ final class UserListVIewController: UITableViewController {
     
     @objc private func addUserAction() {
         performSegue(withIdentifier: "AddUserSegue", sender: self)
+    }
+    
+    private func reloadData() {
+        self.loadUsers()
+        self.tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,11 +68,6 @@ final class UserListVIewController: UITableViewController {
                 }
             }
         }
-    }
-    
-    private func reloadData() {
-        self.loadUsers()
-        self.tableView.reloadData()
     }
     
 }
