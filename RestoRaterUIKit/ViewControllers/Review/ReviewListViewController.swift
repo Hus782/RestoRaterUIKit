@@ -41,6 +41,9 @@ final class ReviewListVIewController: UITableViewController {
                 vc.scenario = .edit
                 vc.restaurant = restaurant
                 vc.review = reviewToEdit
+                vc.completion = {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
