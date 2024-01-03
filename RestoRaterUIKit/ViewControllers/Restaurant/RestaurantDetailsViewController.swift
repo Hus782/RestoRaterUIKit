@@ -132,40 +132,31 @@ final class RestaurantDetailsViewController: UITableViewController {
             if let vc = segue.destination as? ReviewListVIewController
             {
                 vc.restaurant = restaurant
-                //                vc.completion = deleteCompletion
             }
         }
     }
     
     private func confirmAndDeleteRestaurant() {
-        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
+        let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.restaurantDetailConfirmDeleteMessage, preferredStyle: .alert)
         
         confirmAlert.addAction(UIAlertAction(title: Lingo.commonDelete, style: .destructive, handler: { [weak self] _ in
-            Task {
-                let result = await self?.viewModel.deleteRestaurant(self?.restaurant)
-                switch result {
-                case .success:
-                    self?.deleteCompletion?()
-                    self?.navigationController?.popViewController(animated: true)
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self?.presentErrorAlert(message: error.localizedDescription)
-                    }
-                case .none:
-                    break
-                }
-            }
+            self?.performDeletion()
         }))
         
         confirmAlert.addAction(UIAlertAction(title: Lingo.commonCancel, style: .cancel))
-        
         present(confirmAlert, animated: true)
     }
     
-    private func presentErrorAlert(message: String) {
-        let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
-        self.present(alert, animated: true)
+    private func performDeletion() {
+        Task {
+            do {
+                try await viewModel.deleteRestaurant(restaurant)
+                deleteCompletion?()
+                navigationController?.popViewController(animated: true)
+            } catch {
+                ViewControllerHelper.presentErrorAlert(on: self, message: error.localizedDescription)
+            }
+        }
     }
     
     private func showAllReviews() {

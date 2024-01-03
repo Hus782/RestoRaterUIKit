@@ -48,7 +48,7 @@ final class RestaurantListVIewController: UITableViewController {
         if segue.identifier == "RestaurantDetailsSegue" {
             if let userDetailsVC = segue.destination as? RestaurantDetailsViewController,
                let indexPath = tableView.indexPathForSelectedRow {
-                let selectedRestaurant = viewModel.restaurants.value[indexPath.row]
+                let selectedRestaurant = viewModel.restaurants[indexPath.row]
                 userDetailsVC.restaurant = selectedRestaurant
                 userDetailsVC.hidesBottomBarWhenPushed = true
                 userDetailsVC.deleteCompletion = { [weak self] in
@@ -71,12 +71,12 @@ final class RestaurantListVIewController: UITableViewController {
 extension RestaurantListVIewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.restaurants.value.count
+        return viewModel.restaurants.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.defaultReuseIdentifier, for: indexPath) as! RestaurantTableViewCell
-        let restaurant = viewModel.restaurants.value[indexPath.row]
+        let restaurant = viewModel.restaurants[indexPath.row]
         cell.configure(image: UIImage(data: restaurant.image) ?? UIImage(),
                        name: restaurant.name,
                        address: restaurant.address)
