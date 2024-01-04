@@ -9,7 +9,6 @@ import UIKit
 
 struct ViewControllerHelper {
     
-    
     static func presentErrorAlert(on viewController: UIViewController, message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)

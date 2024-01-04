@@ -15,7 +15,7 @@ final class RestaurantListVIewController: UITableViewController {
         
         setupTableView()
         loadRestaurants()
-        setupAddButton()
+        setupNavBar()
     }
     
     private func setupTableView() {
@@ -23,9 +23,10 @@ final class RestaurantListVIewController: UITableViewController {
         tableView.register(UINib(nibName: RestaurantTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantTableViewCell.defaultReuseIdentifier)
     }
     
-    private func setupAddButton() {
+    private func setupNavBar() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRestaurantAction))
         self.navigationItem.rightBarButtonItem = addButton
+        title = Lingo.restaurantsListTitle
     }
     
     @objc private func addRestaurantAction() {

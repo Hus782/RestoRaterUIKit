@@ -18,12 +18,21 @@ final class ProfileVIewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        loadUserData()
+        setupNavBar()
+        
+    }
+    
+    private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: DetailInfoTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.defaultReuseIdentifier)
+    }
+    
+    private func setupNavBar() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Lingo.profileViewLogoutButton, style: .plain, target: self, action: #selector(logoutTapped))
         
-        loadUserData()
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        title = Lingo.profileViewTitle
     }
     
     @objc private func logoutTapped() {
@@ -45,7 +54,7 @@ final class ProfileVIewController: UITableViewController {
 }
 
 extension ProfileVIewController {
-  
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
     }

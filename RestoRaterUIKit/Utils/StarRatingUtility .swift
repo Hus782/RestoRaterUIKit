@@ -8,17 +8,17 @@
 import UIKit
 
 struct StarRatingUtility {
-    static let activeStarColor = UIColor.yellow
-    static let inactiveStarColor = UIColor.gray
+    static let activeStarColor = Constants.activeStarColor
+    static let inactiveStarColor = Constants.inactiveStarColor
 
     static func imageForRating(_ rating: Double, at index: Int) -> UIImage? {
         let doubleIndex = Double(index)
         if doubleIndex + 1 <= rating {
-            return UIImage(systemName: "star.fill")
+            return Constants.starFilledImage
         } else if doubleIndex + 0.5 <= rating {
-            return UIImage(systemName: "star.leadinghalf.filled")
+            return Constants.starHalfImage
         } else {
-            return UIImage(systemName: "star")
+            return Constants.starEmptyImage
         }
     }
 

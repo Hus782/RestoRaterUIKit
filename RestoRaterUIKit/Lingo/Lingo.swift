@@ -74,6 +74,7 @@ struct Lingo {
     //    Reviews list
     static let reviewsListViewError = String(localized: "reviews_list_view_error")
     static let reviewsListViewConfirmDeleteMessage = String(localized: "reviews_list_view_confirm_delete_message")
+    static let reviewListTitle = String(localized: "reivew_list_title")
     
     static let addEditReviewRating = String(localized: "add_edit_review_rating")
     static let addEditReviewComment = String(localized: "add_edit_review_comment")
@@ -110,4 +111,15 @@ struct Lingo {
     static let restaurantTab = String(localized: "restaurants_tab")
     static let usersTab = String(localized: "users_tab")
     static let profileTab = String(localized: "profile_tab")
+    
+    // Field validation messages
+    static let invalidEmailFormat = String(localized: "invalid_email_format")
+    static let fieldCannotBeEmpty = String(localized: "field_cannot_be_empty")
+    static let passwordLengthErrorPrefix = String(localized: "password_length_error_prefix")
+    static let passwordLengthErrorSuffix = String(localized: "password_length_error_suffix")
+    static let textMinimumLengthErrorPrefix = String(localized: "text_minimum_length_error_prefix")
+    static let textMinimumLengthErrorSuffix = String(localized: "text_minimum_length_error_suffix")
+    static let textMaximumLengthErrorPrefix = String(localized: "text_maximum_length_error_prefix")
+    static let textMaximumLengthErrorSuffix = String(localized: "text_maximum_length_error_suffix")
+    
 }

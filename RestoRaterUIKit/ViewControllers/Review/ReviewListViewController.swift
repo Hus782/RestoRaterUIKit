@@ -15,14 +15,16 @@ final class ReviewListVIewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UINib(nibName: ReviewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ReviewCell.defaultReuseIdentifier)
-        
+        setupTableView()
         loadReviews()
-        
-        title = "Reviews"
+        title = Lingo.reviewListTitle
     }
     
+    private func setupTableView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UINib(nibName: ReviewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ReviewCell.defaultReuseIdentifier)
+    }
+
     private func loadReviews() {
         if let restaurant = restaurant, let fetchedReviews = restaurant.reviews?.allObjects as? [Review] {
             self.reviews = fetchedReviews
@@ -71,7 +73,6 @@ final class ReviewListVIewController: UITableViewController {
         Task {
             do {
                 try await viewModel.deleteReview(review)
-//                deleteCompletion?()
                 navigationController?.popViewController(animated: true)
             } catch {
                 ViewControllerHelper.presentErrorAlert(on: self, message: error.localizedDescription)
