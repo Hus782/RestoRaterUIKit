@@ -12,15 +12,24 @@ protocol UserUpdateDelegate: AnyObject {
     func userDidUpdate(_ updatedUser: User)
 }
 
+// Enum to represent different types of cells in the user details view
+enum CellType {
+    case info(DetailInfoCellData)
+    case delete
+}
+
+// MARK: - UserDetailsViewController
+
 final class UserDetailsViewController: UITableViewController {
-    private enum CellType {
-        case info(DetailInfoCellData)
-        case delete
-    }
-    private var viewModel = UsersViewModel()
+    
+    // MARK: - Properties
+    
+    private let viewModel = UsersViewModel()
     private var cells: [CellType] = []
     var user: User?
     var deleteCompletion: (() -> Void)?
+    
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +39,30 @@ final class UserDetailsViewController: UITableViewController {
         loadUserData()
     }
     
+    // MARK: - Setup Methods
+    
+    // Configures the table view
     private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: DetailInfoTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.defaultReuseIdentifier)
         tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
     }
     
+    // Sets up the navigation bar
     private func setupNavBar() {
         title = Lingo.userDetailsTitle
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Lingo.commonEdit, style: .plain, target: self, action: #selector(editButtonTapped))
     }
     
+    // MARK: - Action Methods
+    
+    // Handles the edit button tap
     @objc private func editButtonTapped() {
         performSegue(withIdentifier: Segues.EditUserSegue.val, sender: self)
         
     }
     
+    // Loads user data into the view
     private func loadUserData() {
         guard let user = user else {
             return // Add logic later
@@ -61,7 +78,7 @@ final class UserDetailsViewController: UITableViewController {
         }
         
     }
-    
+    // Prepares for the segue to the edit user view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.EditUserSegue.val {
             if let vc = segue.destination as? AddEditUserViewController
@@ -74,6 +91,7 @@ final class UserDetailsViewController: UITableViewController {
         }
     }
     
+    // Confirms deletion and performs the deletion of the user
     private func confirmAndDeleteUser() {
         let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.userDetailsDeleteConfirmation, preferredStyle: .alert)
         
@@ -85,6 +103,7 @@ final class UserDetailsViewController: UITableViewController {
         present(confirmAlert, animated: true)
     }
     
+    // Performs the deletion process
     private func performDeletion() {
         Task {
             do {
@@ -92,25 +111,22 @@ final class UserDetailsViewController: UITableViewController {
                 deleteCompletion?()
                 navigationController?.popViewController(animated: true)
             } catch {
-                presentErrorAlert(message: error.localizedDescription)
+                AlertHelper.presentErrorAlert(on: self, message: error.localizedDescription)
             }
         }
     }
     
-    private func presentErrorAlert(message: String) {
-        let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
-        self.present(alert, animated: true)
-    }
-    
 }
 
+// MARK: - TableView DataSource
 extension UserDetailsViewController {
     
+    // Returns the number of rows in the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
     }
     
+    // Configures each cell in the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch cells[indexPath.row] {
         case .info(let cellData):
@@ -128,7 +144,10 @@ extension UserDetailsViewController {
     }
 }
 
+// MARK: - UserUpdateDelegate
+
 extension UserDetailsViewController: UserUpdateDelegate {
+    // Updates the user information in the view
     func userDidUpdate(_ updatedUser: User) {
         self.user = updatedUser
         cells = []

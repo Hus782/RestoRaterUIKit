@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Enum representing different types of fields in the user form
 enum UserField {
     case name
     case email
@@ -14,18 +15,25 @@ enum UserField {
     case isAdmin
 }
 
+// MARK: - AddEditUserViewController
+
 final class AddEditUserViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
+    
+    // Properties for managing the form and user data
     private var cells: [DetailInfoCellData] = []
     private let fields: [UserField] = [.name, .email, .password, .isAdmin]
     weak var delegate: UserUpdateDelegate?
     var user: User?
     var scenario: UserViewScenario?
     var completion: (() -> Void)?
+    
     private var activityIndicator: UIActivityIndicatorView?
     private var saveButtonItem: UIBarButtonItem?
     private let viewModel: AddEditUserViewModel = AddEditUserViewModel(dataManager: CoreDataManager<User>())
+    
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +44,9 @@ final class AddEditUserViewController: UIViewController {
         initializeViewModel()
     }
     
+    // MARK: - Setup Methods
+    
+    // Configures the table view
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -44,11 +55,13 @@ final class AddEditUserViewController: UIViewController {
         tableView.register(UINib(nibName: SwitchTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SwitchTableViewCell.defaultReuseIdentifier)
     }
     
+    // Sets up the activity indicator
     private func setupActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator?.hidesWhenStopped = true
     }
     
+    // Initializes the view model with user data and scenario
     private func initializeViewModel() {
         if let scenario = scenario, let user = user {
             viewModel.initializeWithUser(scenario: scenario, user: user)
@@ -75,30 +88,34 @@ final class AddEditUserViewController: UIViewController {
         viewModel.isFormValid.bind { [weak self]  isValid in
             self?.saveButtonItem?.isEnabled = isValid
         }
-        
     }
     
+    // Sets up the navigation bar with save and cancel options
     private func setNavigationBar() {
         let navItem = UINavigationItem(title: viewModel.title)
         
-        // Save item
+        // Save button
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
         navItem.rightBarButtonItem = saveItem
         saveButtonItem = saveItem
-
-        // Cancel item
+        
+        // Cancel button
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navItem.leftBarButtonItem = cancelItem
         
         navBar.setItems([navItem], animated: false)
     }
     
+    // MARK: - Action Methods
+    
+    // Handles the save button tap
     @objc private func saveButtonTapped() {
         Task {
             await handleSave()
         }
     }
     
+    // Shows or hides the loading indicator
     private func showLoading(_ loading: Bool) {
         if loading {
             activityIndicator?.startAnimating()
@@ -110,10 +127,12 @@ final class AddEditUserViewController: UIViewController {
         }
     }
     
+    // Handles the cancel button tap
     @objc private func cancelButtonTapped() {
         dismiss(animated: true)
     }
     
+    // Processes the save action based on the scenario (add or edit)
     private func handleSave() async {
         guard let scenario = scenario else { return }
         switch scenario {
@@ -125,15 +144,18 @@ final class AddEditUserViewController: UIViewController {
             }
         }
     }
-    
 }
+
+// MARK: - TableView DataSource and Delegate
 
 extension AddEditUserViewController: UITableViewDelegate, UITableViewDataSource {
     
+    // Returns the number of rows in the table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fields.count
     }
     
+    // Configures each cell in the table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let fieldType = fields[indexPath.row]
         switch fieldType {
@@ -150,7 +172,7 @@ extension AddEditUserViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    
+    // Configures the text field cell based on the field type
     private func configureCell(_ cell: TextFieldCell, for fieldType: UserField) {
         switch fieldType {
         case .name:
@@ -172,6 +194,4 @@ extension AddEditUserViewController: UITableViewDelegate, UITableViewDataSource 
             break
         }
     }
-    
-    
 }
