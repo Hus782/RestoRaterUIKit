@@ -27,17 +27,18 @@ final class TabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
-        let restaurantsViewController = UIStoryboard(name: "Restaurants", bundle: nil).instantiateViewController(withIdentifier: "RestaurantListVIewController")
+        let restaurantsViewController = RestaurantListVIewController.instantiateFromAppStoryboard(appStoryboard: .Restaurants)
+        
         let restaurantsNavigationController = createNavController(for: restaurantsViewController, title: "Restaurants", image: "fork.knife")
 
-        let profileViewController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVIewController")
+        let profileViewController = ProfileVIewController.instantiateFromAppStoryboard(appStoryboard: .Profile)
         let profileNavigationController = createNavController(for: profileViewController, title: "Profile", image: "person.fill")
 
         availableViewControllers.append(restaurantsNavigationController)
         availableViewControllers.append(profileNavigationController)
 
         if isAdmin {
-            let usersViewController = UIStoryboard(name: "Users", bundle: nil).instantiateViewController(withIdentifier: "UserListVIewController")
+            let usersViewController = UserListVIewController.instantiateFromAppStoryboard(appStoryboard: .Users)
             let usersNavigationController = createNavController(for: usersViewController, title: "Users", image: "person.3.fill")
             availableViewControllers.insert(usersNavigationController, at: 1)
         }

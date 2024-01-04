@@ -28,8 +28,7 @@ final class ProfileVIewController: UITableViewController {
     
     @objc private func logoutTapped() {
         UserManager.shared.logoutUser()
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let loginVC = LoginVIewController.instantiateFromAppStoryboard(appStoryboard: .Main)
         let navController = UINavigationController(rootViewController: loginVC)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.switchRootViewController(to: navController)
     }

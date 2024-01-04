@@ -59,8 +59,7 @@ final class LoginVIewController: UITableViewController {
     }
     
     private func navigateToRegister() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterViewController")
+        let registerVC = RegisterViewController.instantiateFromAppStoryboard(appStoryboard: .Main)
         navigationController?.setViewControllers([registerVC], animated: true)
     }
 }

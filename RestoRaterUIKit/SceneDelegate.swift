@@ -40,8 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func createLoginViewController() -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let loginViewController = LoginVIewController.instantiateFromAppStoryboard(appStoryboard: .Main)
         let navigationController = UINavigationController(rootViewController: loginViewController)
             return navigationController
     }
