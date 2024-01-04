@@ -16,3 +16,4 @@ struct Constants {
     // Images
     static let starFilledImage = UIImage(systemName: "star.fill")
 }
+
