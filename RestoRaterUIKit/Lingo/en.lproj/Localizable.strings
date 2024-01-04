@@ -100,6 +100,9 @@
 //Register screen
 "registrationFailedKey" = "Registration Failed";
 "register_success" = "Registration succesful, you can login now.";
+"email_taken" = "User with this email already exists.";
+
+
 
 // Tabbar labels
 "restaurants_tab" = "Restaurants";

@@ -92,6 +92,8 @@ struct Lingo {
     static let loginViewLoginButton = String(localized: "login_view_login_button")
     static let loginViewRegisterButton = String(localized: "login_view_register_button")
     static let loginViewLoginAlertTitle = String(localized: "login_view_login_alert_title")
+    static let invalidCredentials = String(localized: "invalidCredentialsKey")
+    static let loginFailed = String(localized: "loginFailedKey")
     
     //     Register screen
     static let registerViewEmailPlaceholder = String(localized: "register_view_email_placeholder")
@@ -100,14 +102,9 @@ struct Lingo {
     static let registerViewIsAdminLabel = String(localized: "register_view_is_admin_label")
     static let registerViewRegisterButton = String(localized: "register_view_register_button")
     static let registerViewLoginButton = String(localized: "register_view_login_button")
-    
-    //    Login screen
-    static let invalidCredentials = String(localized: "invalidCredentialsKey")
-    static let loginFailed = String(localized: "loginFailedKey")
-    
-    // Register screen
     static let registrationFailed = String(localized: "registrationFailedKey")
     static let registrationSuccess = String(localized: "register_success")
+    static let emailTakenMessage = String(localized: "email_taken")
     
     // Tabbar labels
     static let restaurantTab = String(localized: "restaurants_tab")

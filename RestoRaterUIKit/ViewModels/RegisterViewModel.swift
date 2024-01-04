@@ -12,8 +12,9 @@ final class RegisterViewModel: ObservableObject {
     var password: String = ""
     var name: String = ""
     var isAdmin: Bool = false
+    var errorMessage = Observable<String>("")
     var alertMessage = Observable<String>("")
-    
+
     var registrationSuccessful = Observable<Bool>(false)
     
     var isEmailValid: Bool = false  {
@@ -44,6 +45,18 @@ final class RegisterViewModel: ObservableObject {
     }
     
     func registerUser() async {
+        let predicate = NSPredicate(format: "email == %@", email)
+        do {
+            let results = try await dataManager.fetchEntities(predicate: predicate)
+            if !results.isEmpty {
+                errorMessage.value = Lingo.emailTakenMessage
+                return
+            }
+        } catch {
+            errorMessage.value = "\(Lingo.registrationFailed): \(error.localizedDescription)"
+            return
+        }
+        
         do {
             try await dataManager.createEntity { [weak self] newUser in
                 self?.configureUser(newUser: newUser)
@@ -53,7 +66,7 @@ final class RegisterViewModel: ObservableObject {
             alertMessage.value = Lingo.registrationSuccess
             
         } catch {
-            alertMessage.value = "\(Lingo.registrationFailed): \(error.localizedDescription)"
+            errorMessage.value = "\(Lingo.registrationFailed): \(error.localizedDescription)"
             
         }
     }

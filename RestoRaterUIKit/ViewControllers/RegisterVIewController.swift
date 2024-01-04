@@ -35,6 +35,13 @@ final class RegisterViewController: UITableViewController {
     }
     
     private func bindViewModel() {
+        viewModel.errorMessage.bind { [weak self] message in
+            guard let self = self else { return }
+            if !message.isEmpty {
+                AlertHelper.presentErrorAlert(on: self, message: message)
+            }
+        }
+        
         viewModel.alertMessage.bind { [weak self] message in
             guard let self = self else { return }
             if !message.isEmpty {
