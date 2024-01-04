@@ -7,22 +7,30 @@
 
 import UIKit
 
+// Enum representing different types of fields in the review form
 enum ReviewField {
     case rating
     case date
     case comment
 }
 
+// MARK: - AddEditReviewViewController
+
 final class AddEditReviewViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
+    
+    // Properties for managing the form and review data
     private let fields: [ReviewField] = [.rating, .date, .comment]
     var restaurant: Restaurant?
     var review: Review?
     var scenario: ReviewViewScenario?
     var completion: (() -> Void)?
+    
     private var activityIndicator: UIActivityIndicatorView?
     private let viewModel: AddEditReviewViewModel = AddEditReviewViewModel(dataManager: CoreDataManager<Review>())
+    
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +41,9 @@ final class AddEditReviewViewController: UIViewController {
         setupActivityIndicator()
     }
     
+    // MARK: - Setup Methods
+    
+    // Configures the table view
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -42,11 +53,13 @@ final class AddEditReviewViewController: UIViewController {
         tableView.register(UINib(nibName: RatingPickerCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RatingPickerCell.defaultReuseIdentifier)
     }
     
+    // Sets up the activity indicator
     private func setupActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator?.hidesWhenStopped = true
     }
     
+    // Initializes the view model with review data and scenario
     private func initializeViewModel() {
         if let scenario = scenario, let restaurant = restaurant {
             viewModel.initialize(scenario: scenario, restaurant: restaurant, review: review)
@@ -65,39 +78,37 @@ final class AddEditReviewViewController: UIViewController {
         
         viewModel.errorMessage.bind { [weak self] message in
             if let message = message {
-                self?.presentErrorAlert(message: message)
+                guard let self = self else { return }
+                AlertHelper.presentErrorAlert(on: self, message: message)
             }
         }
     }
     
+    // Sets up the navigation bar with save and cancel options
     private func setNavigationBar() {
         let navItem = UINavigationItem(title: viewModel.title)
         
-        // Save item
+        // Save button
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
         navItem.rightBarButtonItem = saveItem
         
-        // Cancel item
+        // Cancel button
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navItem.leftBarButtonItem = cancelItem
         
         navBar.setItems([navItem], animated: false)
     }
     
+    // MARK: - User Actions
+    
+    // Handles the save button tap
     @objc private func saveButtonTapped() {
         Task {
             await handleSave()
         }
     }
     
-    private func presentErrorAlert(message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
-            self.present(alert, animated: true)
-        }
-    }
-    
+    // Shows or hides the loading indicator
     private func showLoading(_ loading: Bool) {
         if loading {
             activityIndicator?.startAnimating()
@@ -113,18 +124,21 @@ final class AddEditReviewViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    // Processes the save action based on the scenario (add or edit)
     private func handleSave() async {
         switch scenario {
         case .add:
             await viewModel.addReview()
         case .edit:
-            await viewModel.editReview() 
+            await viewModel.editReview()
         default:
             break
         }
     }
     
 }
+
+// MARK: - TableView DataSource and Delegate
 
 extension AddEditReviewViewController: UITableViewDelegate, UITableViewDataSource {
     
