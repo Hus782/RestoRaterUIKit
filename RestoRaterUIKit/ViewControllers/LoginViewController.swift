@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Enum representing different types of rows in the login form
 enum LoginRow {
     case email
     case password
@@ -14,10 +15,15 @@ enum LoginRow {
     case loginButton
 }
 
+// MARK: - LoginVIewController
 final class LoginVIewController: UITableViewController {
+    
+    // MARK: - Properties
     
     private var viewModel = LoginViewModel()
     private let rows: [LoginRow] = [.email, .password, .loginButton, .registerButton]
+    
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,9 @@ final class LoginVIewController: UITableViewController {
         bindViewModel()
     }
     
+    // MARK: - Setup Methods
+    
+    // Configures the table view with necessary registrations and settings
     private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
@@ -33,6 +42,7 @@ final class LoginVIewController: UITableViewController {
         tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
     }
     
+    // Binds view model properties to update the UI accordingly
     private func bindViewModel() {
         viewModel.alertMessage.bind { [weak self] message in
             guard let self = self else { return }
@@ -42,6 +52,9 @@ final class LoginVIewController: UITableViewController {
         }
     }
     
+    // MARK: - Action Methods
+
+    // Initiates the user login process
     private func login() {
         Task {
             await viewModel.loginUser() { [weak self] in
@@ -50,6 +63,7 @@ final class LoginVIewController: UITableViewController {
         }
     }
     
+    // Navigates to the main tab bar controller after successful login
     private func navigateToTabBar() {
         guard let user = UserManager.shared.currentUser else {
             return
@@ -58,11 +72,14 @@ final class LoginVIewController: UITableViewController {
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.switchRootViewController(to: tabBarController)
     }
     
+    // Navigates to the registration view controller
     private func navigateToRegister() {
         let registerVC = RegisterViewController.instantiateFromAppStoryboard(appStoryboard: .Main)
         navigationController?.setViewControllers([registerVC], animated: true)
     }
 }
+
+// MARK: - TableView DataSource
 
 extension LoginVIewController {
     // Number of rows in each section

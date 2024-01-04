@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Enum representing different types of rows in the registration form
 enum RegisterRow {
     case name
     case email
@@ -15,11 +16,14 @@ enum RegisterRow {
     case loginButton
 }
 
+// MARK: - RegisterViewController
 final class RegisterViewController: UITableViewController {
 
+    // MARK: - Properties
     private var viewModel = RegisterViewModel()
     private let rows: [RegisterRow] = [.name, .email, .password, .registerButton, .loginButton]
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +31,8 @@ final class RegisterViewController: UITableViewController {
         bindViewModel()
     }
     
+    // MARK: - Setup Methods
+    // Configures the table view with necessary registrations and settings
     private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TextFieldCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldCell.defaultReuseIdentifier)
@@ -34,6 +40,7 @@ final class RegisterViewController: UITableViewController {
         tableView.register(UINib(nibName: SecondaryButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: SecondaryButtonCell.defaultReuseIdentifier)
     }
     
+    // Binds view model properties to update the UI accordingly
     private func bindViewModel() {
         viewModel.errorMessage.bind { [weak self] message in
             guard let self = self else { return }
@@ -51,20 +58,22 @@ final class RegisterViewController: UITableViewController {
             }
         }
     }
-        
+    // MARK: - Action Methods
+    
+    // Initiates the user registration process
     private func register() {
         Task {
             await viewModel.registerUser()
         }
     }
-
+    // Navigates to the login view controller
     private func navigateToLogin() {
         let loginVC = LoginVIewController.instantiateFromAppStoryboard(appStoryboard: .Main)
         navigationController?.setViewControllers([loginVC], animated: true)
     }
     
 }
-
+// MARK: - TableView DataSource
 extension RegisterViewController {
     // Number of rows in each section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
