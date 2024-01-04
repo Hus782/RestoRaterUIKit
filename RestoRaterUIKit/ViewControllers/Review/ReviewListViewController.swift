@@ -100,32 +100,37 @@ extension ReviewListVIewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // Swipe-to-Delete Action
-        let deleteAction = UIContextualAction(style: .destructive, title: Lingo.commonDelete) { [weak self] (action, view, completionHandler) in
-            guard let self = self else { return }
+        
+            // Swipe-to-Delete Action
+            let deleteAction = UIContextualAction(style: .destructive, title: Lingo.commonDelete) { [weak self] (action, view, completionHandler) in
+                guard let self = self else { return }
+                
+                let reviewToDelete = self.reviews[indexPath.row]
+                self.confirmAndDeleteReview(review: reviewToDelete, completion: { success in
+                    completionHandler(success)
+                    if success {
+                        // Update your data source and table view
+                        self.reviews.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                })
+            }
             
-            let reviewToDelete = self.reviews[indexPath.row]
-            self.confirmAndDeleteReview(review: reviewToDelete, completion: { success in
-                completionHandler(success)
-                if success {
-                    // Update your data source and table view
-                    self.reviews.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                }
-            })
+            // Swipe-to-Edit Action
+            let editAction = UIContextualAction(style: .normal, title: Lingo.commonEdit) { [weak self] (action, view, completionHandler) in
+                // Perform edit action
+                let reviewToEdit = self?.reviews[indexPath.row]
+                self?.performSegue(withIdentifier: Segues.EditReviewSegue.val, sender: reviewToEdit)
+                completionHandler(true)
+            }
+            editAction.backgroundColor = UIColor.blue
+            
+        if UserManager.shared.currentUser?.isAdmin ?? false {
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+            return configuration
+        } else {
+            return nil
         }
-        
-        // Swipe-to-Edit Action
-        let editAction = UIContextualAction(style: .normal, title: Lingo.commonEdit) { [weak self] (action, view, completionHandler) in
-            // Perform edit action
-            let reviewToEdit = self?.reviews[indexPath.row]
-            self?.performSegue(withIdentifier: Segues.EditReviewSegue.val, sender: reviewToEdit)
-            completionHandler(true)
-        }
-        editAction.backgroundColor = UIColor.blue
-        
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-        return configuration
     }
     
     

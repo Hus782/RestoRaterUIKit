@@ -67,8 +67,10 @@ final class RestaurantDetailsViewController: UITableViewController {
     
     // Sets up the navigation bar with a more options button
     private func setupMoreButton() {
-        let moreButton = UIBarButtonItem(image: Constants.moreMenuImage, style: .plain, target: self, action: #selector(moreButtonTapped))
-        navigationItem.rightBarButtonItem = moreButton
+        if UserManager.shared.currentUser?.isAdmin ?? false {
+            let moreButton = UIBarButtonItem(image: Constants.moreMenuImage, style: .plain, target: self, action: #selector(moreButtonTapped))
+            navigationItem.rightBarButtonItem = moreButton
+        }
     }
     
     // MARK: - User Actions

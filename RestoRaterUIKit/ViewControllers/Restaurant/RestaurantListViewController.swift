@@ -32,8 +32,10 @@ final class RestaurantListVIewController: UITableViewController {
     
     // Sets up the navigation bar with an add button
     private func setupNavBar() {
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRestaurantAction))
-        self.navigationItem.rightBarButtonItem = addButton
+        if UserManager.shared.currentUser?.isAdmin ?? false {
+            let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRestaurantAction))
+            self.navigationItem.rightBarButtonItem = addButton
+        }
         title = Lingo.restaurantsListTitle
     }
     
