@@ -47,12 +47,13 @@ final class TextFieldCell: UITableViewCell, ReusableView {
         
     }
     
-    func configure(title: String, content: String, validationType: ValidationType = .none, textChanged: ((String, Bool) -> Void)?) {
+    func configure(title: String, content: String, validationType: ValidationType = .none, isSecureField: Bool = false, textChanged: ((String, Bool) -> Void)?) {
         self.placeHolder = title
         self.textField.text = content
         self.textField.placeholder = title
         self.textChanged = textChanged
         self.validationType = validationType
+        self.textField.isSecureTextEntry = isSecureField
     }
 
     private func updateUIForValidationResult(_ result: ValidationResult, textField: HoshiTextField) {

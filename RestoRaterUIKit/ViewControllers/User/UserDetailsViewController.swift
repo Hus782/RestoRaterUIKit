@@ -26,6 +26,7 @@ final class UserDetailsViewController: UITableViewController {
         super.viewDidLoad()
         
         setupTableView()
+        setupNavBar()
         loadUserData()
     }
     

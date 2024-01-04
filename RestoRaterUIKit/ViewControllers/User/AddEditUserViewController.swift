@@ -164,7 +164,7 @@ extension AddEditUserViewController: UITableViewDelegate, UITableViewDataSource 
                 self?.viewModel.isEmailValid = validationResult
             }
         case .password:
-            cell.configure(title: Lingo.addEditUserPassword, content: viewModel.password, validationType: .password) { [weak self] text, validationResult in
+            cell.configure(title: Lingo.addEditUserPassword, content: viewModel.password, validationType: .password, isSecureField: true) { [weak self] text, validationResult in
                 self?.viewModel.password = text
                 self?.viewModel.isPasswordValid = validationResult
             }

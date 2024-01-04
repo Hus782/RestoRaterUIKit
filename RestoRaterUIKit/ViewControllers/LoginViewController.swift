@@ -105,7 +105,7 @@ extension LoginVIewController {
                 self?.viewModel.isEmailValid = validationResult
             }
         case .password:
-            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password, validationType: .none) { [weak self] text, validationResult in
+            cell.configure(title: Lingo.loginViewPasswordPlaceholder, content: viewModel.password, validationType: .none, isSecureField: true) { [weak self] text, validationResult in
                 self?.viewModel.password = text
                 self?.viewModel.isPasswordValid = validationResult
                 
