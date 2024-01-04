@@ -42,7 +42,7 @@ final class UserDetailsViewController: UITableViewController {
     }
     
     @objc private func editButtonTapped() {
-        performSegue(withIdentifier: "EditUserSegue", sender: self)
+        performSegue(withIdentifier: Segues.EditUserSegue.val, sender: self)
         
     }
     
@@ -63,7 +63,7 @@ final class UserDetailsViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditUserSegue" {
+        if segue.identifier == Segues.EditUserSegue.val {
             if let vc = segue.destination as? AddEditUserViewController
             {
                 vc.delegate = self

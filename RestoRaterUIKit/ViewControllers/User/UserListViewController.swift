@@ -39,7 +39,7 @@ final class UserListVIewController: UITableViewController {
     }
     
     @objc private func addUserAction() {
-        performSegue(withIdentifier: "AddUserSegue", sender: self)
+        performSegue(withIdentifier: Segues.AddUserSegue.val, sender: self)
     }
     
     private func reloadData() {
@@ -48,7 +48,7 @@ final class UserListVIewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserDetailsSegue" {
+        if segue.identifier == Segues.UserDetailsSegue.val {
             if let userDetailsVC = segue.destination as? UserDetailsViewController,
                let indexPath = tableView.indexPathForSelectedRow {
                 let selectedUser = viewModel.users[indexPath.row]
@@ -58,7 +58,7 @@ final class UserListVIewController: UITableViewController {
                     self?.reloadData()
                 }
             }
-        } else if segue.identifier == "AddUserSegue" {
+        } else if segue.identifier == Segues.AddUserSegue.val {
             if let vc = segue.destination as? AddEditUserViewController
             {
                 vc.scenario = .add
@@ -86,7 +86,7 @@ extension UserListVIewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "UserDetailsSegue", sender: indexPath)
+        performSegue(withIdentifier: Segues.UserDetailsSegue.val, sender: indexPath)
     }
 
 }

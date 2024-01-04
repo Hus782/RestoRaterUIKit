@@ -29,7 +29,7 @@ final class RestaurantListVIewController: UITableViewController {
     }
     
     @objc private func addRestaurantAction() {
-        performSegue(withIdentifier: "AddRestaurantSegue", sender: self)
+        performSegue(withIdentifier: Segues.AddRestaurantSegue.val, sender: self)
     }
     
     private func loadRestaurants() {
@@ -45,7 +45,7 @@ final class RestaurantListVIewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "RestaurantDetailsSegue" {
+        if segue.identifier == Segues.RestaurantDetailsSegue.val {
             if let userDetailsVC = segue.destination as? RestaurantDetailsViewController,
                let indexPath = tableView.indexPathForSelectedRow {
                 let selectedRestaurant = viewModel.restaurants[indexPath.row]
@@ -55,7 +55,7 @@ final class RestaurantListVIewController: UITableViewController {
                     self?.reloadData()
                 }
             }
-        } else if segue.identifier == "AddRestaurantSegue" {
+        } else if segue.identifier == Segues.AddRestaurantSegue.val {
             if let vc = segue.destination as? AddEditRestaurantViewController
             {
                 vc.scenario = .add
@@ -84,6 +84,6 @@ extension RestaurantListVIewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "RestaurantDetailsSegue", sender: indexPath)
+        performSegue(withIdentifier: Segues.RestaurantDetailsSegue.val, sender: indexPath)
     }
 }

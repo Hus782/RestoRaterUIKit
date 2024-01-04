@@ -54,7 +54,7 @@ final class RestaurantDetailsViewController: UITableViewController {
     }
     
     private func setupMoreButton() {
-        let moreButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(moreButtonTapped))
+        let moreButton = UIBarButtonItem(image: Constants.moreMenuImage, style: .plain, target: self, action: #selector(moreButtonTapped))
         navigationItem.rightBarButtonItem = moreButton
     }
     
@@ -81,7 +81,7 @@ final class RestaurantDetailsViewController: UITableViewController {
     
     
     @objc private func editButtonTapped() {
-        performSegue(withIdentifier: "EditRestaurantSegue", sender: self)
+        performSegue(withIdentifier: Segues.EditRestaurantSegue.val, sender: self)
         
     }
     
@@ -113,7 +113,7 @@ final class RestaurantDetailsViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditRestaurantSegue" {
+        if segue.identifier == Segues.EditRestaurantSegue.val {
             if let vc = segue.destination as? AddEditRestaurantViewController
             {
                 vc.scenario = .edit
@@ -121,14 +121,14 @@ final class RestaurantDetailsViewController: UITableViewController {
                 vc.completion = deleteCompletion
                 vc.delegate = self
             }
-        } else   if segue.identifier == "AddReviewSegue" {
+        } else   if segue.identifier == Segues.AddReviewSegue.val {
             if let vc = segue.destination as? AddEditReviewViewController
             {
                 vc.scenario = .add
                 vc.restaurant = restaurant
                 vc.completion = deleteCompletion
             }
-        } else   if segue.identifier == "ShowAllReviewsSegue" {
+        } else   if segue.identifier == Segues.ShowAllReviewsSegue.val {
             if let vc = segue.destination as? ReviewListVIewController
             {
                 vc.restaurant = restaurant
@@ -160,11 +160,11 @@ final class RestaurantDetailsViewController: UITableViewController {
     }
     
     private func showAllReviews() {
-        performSegue(withIdentifier: "ShowAllReviewsSegue", sender: nil)
+        performSegue(withIdentifier: Segues.ShowAllReviewsSegue.val, sender: nil)
     }
     
     private func addReview() {
-        performSegue(withIdentifier: "AddReviewSegue", sender: nil)
+        performSegue(withIdentifier: Segues.AddReviewSegue.val, sender: nil)
     }
 }
 

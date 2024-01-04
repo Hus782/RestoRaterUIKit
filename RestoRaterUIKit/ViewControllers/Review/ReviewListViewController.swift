@@ -23,10 +23,6 @@ final class ReviewListVIewController: UITableViewController {
         title = "Reviews"
     }
     
-    @objc private func addRestaurantAction() {
-        performSegue(withIdentifier: "AddRestaurantSegue", sender: self)
-    }
-    
     private func loadReviews() {
         if let restaurant = restaurant, let fetchedReviews = restaurant.reviews?.allObjects as? [Review] {
             self.reviews = fetchedReviews
@@ -35,7 +31,7 @@ final class ReviewListVIewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditReviewSegue" {
+        if segue.identifier == Segues.EditReviewSegue.val {
             if let vc = segue.destination as? AddEditReviewViewController, let reviewToEdit = sender as? Review
             {
                 vc.scenario = .edit
@@ -118,7 +114,7 @@ extension ReviewListVIewController {
         let editAction = UIContextualAction(style: .normal, title: Lingo.commonEdit) { [weak self] (action, view, completionHandler) in
             // Perform edit action
             let reviewToEdit = self?.reviews[indexPath.row]
-            self?.performSegue(withIdentifier: "EditReviewSegue", sender: reviewToEdit)
+            self?.performSegue(withIdentifier: Segues.EditReviewSegue.val, sender: reviewToEdit)
             completionHandler(true)
         }
         editAction.backgroundColor = UIColor.blue
