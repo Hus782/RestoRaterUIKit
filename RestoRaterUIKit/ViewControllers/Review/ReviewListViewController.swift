@@ -57,7 +57,7 @@ final class ReviewListVIewController: UITableViewController {
                     try await self.viewModel.deleteReview(review)
                     completion(true)
                 } catch {
-                    ViewControllerHelper.presentErrorAlert(on: self, message: error.localizedDescription)
+                    AlertHelper.presentErrorAlert(on: self, message: error.localizedDescription)
                     completion(false)
                 }
             }
@@ -75,7 +75,7 @@ final class ReviewListVIewController: UITableViewController {
                 try await viewModel.deleteReview(review)
                 navigationController?.popViewController(animated: true)
             } catch {
-                ViewControllerHelper.presentErrorAlert(on: self, message: error.localizedDescription)
+                AlertHelper.presentErrorAlert(on: self, message: error.localizedDescription)
             }
         }
     }

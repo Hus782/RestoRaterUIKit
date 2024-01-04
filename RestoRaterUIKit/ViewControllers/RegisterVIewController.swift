@@ -38,7 +38,9 @@ final class RegisterViewController: UITableViewController {
         viewModel.alertMessage.bind { [weak self] message in
             guard let self = self else { return }
             if !message.isEmpty {
-                ViewControllerHelper.presentErrorAlert(on: self, message: message)
+                AlertHelper.presentErrorAlert(on: self, message: message, title: Lingo.commonSuccess, completion: {
+                    self.navigateToLogin()
+                })
             }
         }
     }

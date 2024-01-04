@@ -13,6 +13,7 @@ final class RegisterViewModel: ObservableObject {
     var name: String = ""
     var isAdmin: Bool = false
     var alertMessage = Observable<String>("")
+    
     var registrationSuccessful = Observable<Bool>(false)
     
     var isEmailValid: Bool = false  {
@@ -47,14 +48,13 @@ final class RegisterViewModel: ObservableObject {
             try await dataManager.createEntity { [weak self] newUser in
                 self?.configureUser(newUser: newUser)
             }
-            await MainActor.run { [weak self] in
-                self?.registrationSuccessful.value = true
-                self?.userManager.setIsRegistering(false)
-            }
+            registrationSuccessful.value = true
+            userManager.setIsRegistering(false)
+            alertMessage.value = Lingo.registrationSuccess
+            
         } catch {
-            await MainActor.run { [weak self] in
-                self?.alertMessage.value = "\(Lingo.registrationFailed): \(error.localizedDescription)"
-            }
+            alertMessage.value = "\(Lingo.registrationFailed): \(error.localizedDescription)"
+            
         }
     }
     

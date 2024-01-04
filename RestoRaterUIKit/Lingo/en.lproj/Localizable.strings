@@ -99,6 +99,7 @@
 
 //Register screen
 "registrationFailedKey" = "Registration Failed";
+"register_success" = "Registration succesful, you can login now.";
 
 // Tabbar labels
 "restaurants_tab" = "Restaurants";
@@ -114,4 +115,8 @@
 "text_minimum_length_error_suffix" = " characters";
 "text_maximum_length_error_prefix" = "Text exceeds limit of ";
 "text_maximum_length_error_suffix" = " characters";
+
+
+"common_success" = "Success";
+
 

@@ -154,7 +154,7 @@ final class RestaurantDetailsViewController: UITableViewController {
                 deleteCompletion?()
                 navigationController?.popViewController(animated: true)
             } catch {
-                ViewControllerHelper.presentErrorAlert(on: self, message: error.localizedDescription)
+                AlertHelper.presentErrorAlert(on: self, message: error.localizedDescription)
             }
         }
     }

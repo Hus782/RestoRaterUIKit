@@ -68,7 +68,7 @@ final class AddEditUserViewController: UIViewController {
         viewModel.errorMessage.bind { [weak self] message in
             guard let self = self else { return }
             if let message = message {
-                ViewControllerHelper.presentErrorAlert(on: self, message: message)
+                AlertHelper.presentErrorAlert(on: self, message: message)
             }
         }
         

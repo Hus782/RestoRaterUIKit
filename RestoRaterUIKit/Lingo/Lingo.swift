@@ -20,7 +20,8 @@ struct Lingo {
     static let commonConfirmDelete = String(localized: "common_confirm_delete")
     static let commonConfirmDeleteMessage = String(localized: "common_confirm_delete_message")
     static let commonErrorMessage = String(localized: "common_eror_message")
-    
+    static let commonSuccess = String(localized: "common_success")
+
     // ProfileView labels
     static let profileViewTitle = String(localized: "profile_view_title")
     static let profileViewNoUserLoggedIn = String(localized: "profile_view_no_user_logged_in")
@@ -106,6 +107,7 @@ struct Lingo {
     
     // Register screen
     static let registrationFailed = String(localized: "registrationFailedKey")
+    static let registrationSuccess = String(localized: "register_success")
     
     // Tabbar labels
     static let restaurantTab = String(localized: "restaurants_tab")

@@ -73,7 +73,7 @@
 		3DB116F72B4407A0007F0D6D /* StarRatingUtility .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116F62B4407A0007F0D6D /* StarRatingUtility .swift */; };
 		3DB116F92B4408B2007F0D6D /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116F82B4408B2007F0D6D /* ReviewListViewController.swift */; };
 		3DB116FC2B441D53007F0D6D /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116FB2B441D53007F0D6D /* UserError.swift */; };
-		3DB116FE2B441FD5007F0D6D /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116FD2B441FD5007F0D6D /* ViewControllerHelper.swift */; };
+		3DB116FE2B441FD5007F0D6D /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB116FD2B441FD5007F0D6D /* AlertHelper.swift */; };
 		3DB55AC32B45AC2E0092F942 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55AC22B45AC2E0092F942 /* LoginViewModelTests.swift */; };
 		3DB55ACA2B45AC710092F942 /* MockUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55AC92B45AC710092F942 /* MockUserManager.swift */; };
 		3DB55ACC2B45AEFA0092F942 /* RegisterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB55ACB2B45AEFA0092F942 /* RegisterViewModelTests.swift */; };
@@ -175,7 +175,7 @@
 		3DB116F62B4407A0007F0D6D /* StarRatingUtility .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarRatingUtility .swift"; sourceTree = "<group>"; };
 		3DB116F82B4408B2007F0D6D /* ReviewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
 		3DB116FB2B441D53007F0D6D /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
-		3DB116FD2B441FD5007F0D6D /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		3DB116FD2B441FD5007F0D6D /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		3DB55AC02B45AC2E0092F942 /* RestoRaterUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestoRaterUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB55AC22B45AC2E0092F942 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		3DB55AC92B45AC710092F942 /* MockUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserManager.swift; sourceTree = "<group>"; };
@@ -377,7 +377,7 @@
 			children = (
 				3DB116F62B4407A0007F0D6D /* StarRatingUtility .swift */,
 				3DCF86242B3872780032525E /* Observable.swift */,
-				3DB116FD2B441FD5007F0D6D /* ViewControllerHelper.swift */,
+				3DB116FD2B441FD5007F0D6D /* AlertHelper.swift */,
 				3DE230D42B443F1500C669AB /* FieldValidator .swift */,
 				3DE230D62B4441CE00C669AB /* ValidationService.swift */,
 			);
@@ -657,7 +657,7 @@
 				3D4E8FD12B404B0900EA9C28 /* UserDetailsViewController.swift in Sources */,
 				3D4B86452B42E1E000F63D21 /* Date.swift in Sources */,
 				3D06ABFD2B357BF90057139A /* AppDelegate.swift in Sources */,
-				3DB116FE2B441FD5007F0D6D /* ViewControllerHelper.swift in Sources */,
+				3DB116FE2B441FD5007F0D6D /* AlertHelper.swift in Sources */,
 				3D4B86482B42F26000F63D21 /* AddEditReviewViewController.swift in Sources */,
 				3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */,
 				3D8AB75A2B400F8100640749 /* ProfileViewController.swift in Sources */,
