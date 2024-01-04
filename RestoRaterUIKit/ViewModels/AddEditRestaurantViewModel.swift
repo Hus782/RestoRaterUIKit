@@ -102,6 +102,7 @@ final class AddEditRestaurantViewModel {
     /// Edits an existing restaurant asynchronously.
     func editRestaurant() async -> Restaurant? {
         guard let restaurant = restaurant else { return nil }
+        configure(restaurant: restaurant)
         isLoading.value = true
         do {
             try await dataManager.saveEntity(entity: restaurant)

@@ -104,6 +104,7 @@ final class AddEditUserViewModel {
     /// Edits an existing user asynchronously.
     func editUser() async -> User? {
         guard let user = user else { return nil }
+        configure(user: user)
         isLoading.value = true
         do {
             try await dataManager.saveEntity(entity: user)
