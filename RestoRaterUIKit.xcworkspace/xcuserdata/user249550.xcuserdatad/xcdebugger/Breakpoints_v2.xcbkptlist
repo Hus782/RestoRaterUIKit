@@ -96,7 +96,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "configure(title:content:validationType:textChanged:)"
+            landmarkName = "configure(title:content:validationType:isSecureField:textChanged:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
