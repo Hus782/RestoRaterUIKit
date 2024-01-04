@@ -17,6 +17,7 @@
 		3D06AC142B3589D80057139A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC132B3589D80057139A /* TabBarViewController.swift */; };
 		3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC152B358E8A0057139A /* RegisterVIewController.swift */; };
 		3D06AC182B358EBB0057139A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC172B358EBB0057139A /* LoginViewController.swift */; };
+		3D109BF52B4695D600A00045 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D109BF42B4695D600A00045 /* Constants.swift */; };
 		3D2F83B42B35AF8C002D7FF1 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83B22B35AF8C002D7FF1 /* TextFieldCell.swift */; };
 		3D2F83B52B35AF8C002D7FF1 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F83B32B35AF8C002D7FF1 /* TextFieldCell.xib */; };
 		3D2F83B82B35B86D002D7FF1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F83B62B35B86D002D7FF1 /* ButtonCell.swift */; };
@@ -116,6 +117,7 @@
 		3D06AC132B3589D80057139A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3D06AC152B358E8A0057139A /* RegisterVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVIewController.swift; sourceTree = "<group>"; };
 		3D06AC172B358EBB0057139A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3D109BF42B4695D600A00045 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3D2F83B22B35AF8C002D7FF1 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		3D2F83B32B35AF8C002D7FF1 /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		3D2F83B62B35B86D002D7FF1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		3D06ABFB2B357BF90057139A /* RestoRaterUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3D109BF32B4695C500A00045 /* Constants */,
 				3DB116FA2B441D44007F0D6D /* Errors */,
 				3DB116F52B440792007F0D6D /* Utils */,
 				3D3A20812B40494B00B606E2 /* Storyboards */,
@@ -257,6 +260,14 @@
 				3D06AC052B357BF90057139A /* RestoRaterUIKit.xcdatamodeld */,
 			);
 			path = RestoRaterUIKit;
+			sourceTree = "<group>";
+		};
+		3D109BF32B4695C500A00045 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3D109BF42B4695D600A00045 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		3D2F83BA2B35C4BE002D7FF1 /* Extensions */ = {
@@ -658,6 +669,7 @@
 				3DCF86272B3878660032525E /* RegisterViewModel.swift in Sources */,
 				3D8AB7522B40089600640749 /* UserListViewController.swift in Sources */,
 				3D3A207E2B40422600B606E2 /* TabBarController.swift in Sources */,
+				3D109BF52B4695D600A00045 /* Constants.swift in Sources */,
 				3DB116F72B4407A0007F0D6D /* StarRatingUtility .swift in Sources */,
 				3DB116F32B43FD36007F0D6D /* TextViewCell.swift in Sources */,
 				3D8AB7542B4008DE00640749 /* UsersViewModel.swift in Sources */,

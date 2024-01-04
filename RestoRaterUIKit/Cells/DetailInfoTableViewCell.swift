@@ -17,13 +17,8 @@ final class DetailInfoTableViewCell: UITableViewCell, ReusableView {
         // Initialization code
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func configure(title: String, content: String, isAdmin: Bool = false) {
         self.titleLabel.text = title
         self.contentLabel.text = content
     }
-    
 }

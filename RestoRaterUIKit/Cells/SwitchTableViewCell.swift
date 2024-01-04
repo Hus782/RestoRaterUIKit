@@ -13,7 +13,7 @@ final class SwitchTableViewCell: UITableViewCell, ReusableView {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var switchView: UISwitch!
     
-    var switchValueChanged: ((Bool) -> Void)?
+    private var switchValueChanged: ((Bool) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()

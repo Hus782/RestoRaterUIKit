@@ -8,18 +8,14 @@
 import UIKit
 
 final class TextViewCell: UITableViewCell, ReusableView {
-    var textChanged: ((String) -> Void)?
+    private var textChanged: ((String) -> Void)?
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         textView.delegate = self
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     func configure(title: String, content: String, textChangedCompletion: @escaping (String) -> Void) {

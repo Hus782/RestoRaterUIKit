@@ -10,16 +10,12 @@ import UIKit
 final class RatingPickerCell: UITableViewCell, ReusableView {
     
     @IBOutlet var stars: [UIButton]!
-    var ratingChanged: ((Int) -> Void)?
-    private let onColor = UIColor.yellow
-    private let offColor = UIColor.gray
+    private var ratingChanged: ((Int) -> Void)?
+    private let onColor = Constants.activeStarColor
+    private let offColor = Constants.inactiveStarColor
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     @IBAction func starButtonTapped(_ sender: UIButton) {

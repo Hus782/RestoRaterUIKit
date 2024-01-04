@@ -19,13 +19,6 @@ final class ReviewCell: UITableViewCell, ReusableView {
         setupInitialStarAppearance()
     }
     
-    private func setupInitialStarAppearance() {
-        for imageView in stars {
-            imageView.image = UIImage(systemName: "star.fill")
-            imageView.tintColor = StarRatingUtility.inactiveStarColor
-        }
-    }
-    
     func configure(date: Date, comment: String, rating: Double, reviewType: ReviewType) {
         self.dateLabel.text = date.formattedDate()
         self.commentLabel.text = comment
@@ -44,6 +37,13 @@ final class ReviewCell: UITableViewCell, ReusableView {
         for index in 0..<stars.count {
             stars[index].image = StarRatingUtility.imageForRating(rating, at: index)
             stars[index].tintColor = StarRatingUtility.colorForStar(at: index, rating: rating)
+        }
+    }
+    
+    private func setupInitialStarAppearance() {
+        for imageView in stars {
+            imageView.image = Constants.starFilledImage
+            imageView.tintColor = StarRatingUtility.inactiveStarColor
         }
     }
 }

@@ -17,16 +17,9 @@ final class RestaurantTableViewCell: UITableViewCell, ReusableView {
         // Initialization code
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-    
     func configure(image: UIImage, name: String, address: String) {
         self.ImageView.image = image
         self.nameLabel.text = name
         self.addressLabel.text = address
-        
     }
-    
 }

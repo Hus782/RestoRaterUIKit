@@ -8,20 +8,15 @@
 import UIKit
 
 final class DatePickerCell: UITableViewCell, ReusableView {
-
-  
+    
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleLabel: UILabel!
-    var onDateChanged: ((Date) -> Void)?
-
+    private var onDateChanged: ((Date) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
@@ -29,9 +24,9 @@ final class DatePickerCell: UITableViewCell, ReusableView {
     }
     
     func configure(withTitle title: String, date: Date, dateChanged: @escaping (Date) -> Void) {
-            titleLabel.text = title
-            datePicker.date = date
-            onDateChanged = dateChanged
-        }
+        titleLabel.text = title
+        datePicker.date = date
+        onDateChanged = dateChanged
+    }
     
 }

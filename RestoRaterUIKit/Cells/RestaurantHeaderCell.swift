@@ -16,10 +16,6 @@ final class RestaurantHeaderCell: UITableViewCell, ReusableView {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     func configure(name: String, address: String, imageData: Data) {
         self.nameLabel.text = name

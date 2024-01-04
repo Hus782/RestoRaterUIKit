@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserTableViewCell: UITableViewCell, ReusableView {
+final class UserTableViewCell: UITableViewCell, ReusableView {
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -16,10 +16,6 @@ class UserTableViewCell: UITableViewCell, ReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     func configure(name: String, email: String, isAdmin: Bool) {

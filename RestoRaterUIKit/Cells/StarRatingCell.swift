@@ -11,8 +11,8 @@ final class StarRatingCell: UITableViewCell, ReusableView {
     
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet var stars: [UIImageView]!
-    private let activeStarColor = UIColor.yellow  // Color for active (rated) stars
-    private let inactiveStarColor = UIColor.gray  // Color for inactive stars
+    private let activeStarColor = Constants.activeStarColor
+    private let inactiveStarColor = Constants.inactiveStarColor
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,7 @@ final class StarRatingCell: UITableViewCell, ReusableView {
     
     private func setupInitialStarAppearance() {
         for imageView in stars {
-            imageView.image = UIImage(systemName: "star.fill") // All stars are filled
+            imageView.image = Constants.starFilledImage // All stars are filled
             imageView.tintColor = inactiveStarColor
         }
     }
