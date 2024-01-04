@@ -7,8 +7,12 @@
 
 import UIKit
 
+// MARK: - RestaurantListViewController
+
 final class RestaurantListVIewController: UITableViewController {
     private let viewModel = RestaurantViewModel()
+    
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,21 +22,29 @@ final class RestaurantListVIewController: UITableViewController {
         setupNavBar()
     }
     
+    // MARK: - Setup Methods
+    
+    // Configures the table view
     private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: RestaurantTableViewCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantTableViewCell.defaultReuseIdentifier)
     }
     
+    // Sets up the navigation bar with an add button
     private func setupNavBar() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRestaurantAction))
         self.navigationItem.rightBarButtonItem = addButton
         title = Lingo.restaurantsListTitle
     }
     
+    // MARK: - User Actions
+    
+    // Handles the action to add a new restaurant
     @objc private func addRestaurantAction() {
         performSegue(withIdentifier: Segues.AddRestaurantSegue.val, sender: self)
     }
     
+    // Loads the list of restaurants
     private func loadRestaurants() {
         Task {
             await viewModel.fetchRestaurants()
@@ -40,11 +52,13 @@ final class RestaurantListVIewController: UITableViewController {
         }
     }
     
+    // Reloads the restaurant data
     private func reloadData() {
         self.loadRestaurants()
         self.tableView.reloadData()
     }
     
+    // Prepares for segues to restaurant details or add restaurant view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.RestaurantDetailsSegue.val {
             if let userDetailsVC = segue.destination as? RestaurantDetailsViewController,
@@ -68,6 +82,8 @@ final class RestaurantListVIewController: UITableViewController {
         }
     }
 }
+
+// MARK: - TableView DataSource and Delegate
 
 extension RestaurantListVIewController {
     

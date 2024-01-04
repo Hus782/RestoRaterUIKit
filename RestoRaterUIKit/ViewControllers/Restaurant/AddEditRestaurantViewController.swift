@@ -7,25 +7,33 @@
 
 import UIKit
 
+// Enum representing different types of fields in the restaurant form
 enum RestaurantField {
     case name
     case address
     case image
 }
 
+// MARK: - AddEditRestaurantViewController
+
 final class AddEditRestaurantViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
+
+    // Properties for managing the form and restaurant data
     private var cells: [DetailInfoCellData] = []
     private let fields: [RestaurantField] = [.name, .address, .image]
     var restaurant: Restaurant?
     weak var delegate: RestaurantUpdateDelegate?
     var scenario: RestaurantViewScenario = .add
     var completion: (() -> Void)?
+    
     private var activityIndicator: UIActivityIndicatorView?
     private var saveButtonItem: UIBarButtonItem?
     private let viewModel: AddEditRestaurantViewModel = AddEditRestaurantViewModel(dataManager: CoreDataManager<Restaurant>())
     
+    // MARK: - Lifecycle Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +43,9 @@ final class AddEditRestaurantViewController: UIViewController {
         initializeViewModel()
     }
     
+    // MARK: - Setup Methods
+
+    // Configures the table view
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -43,11 +54,13 @@ final class AddEditRestaurantViewController: UIViewController {
         tableView.register(UINib(nibName: ImagePickerCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ImagePickerCell.defaultReuseIdentifier)
     }
     
+    // Sets up the activity indicator
     private func setupActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator?.hidesWhenStopped = true
     }
     
+    // Initializes the view model with restaurant data and scenario
     private func initializeViewModel() {
         if let restaurant = restaurant {
             viewModel.initializeWithRestaurant(scenario: scenario, restaurant: restaurant)
@@ -65,8 +78,9 @@ final class AddEditRestaurantViewController: UIViewController {
         }
         
         viewModel.errorMessage.bind { [weak self] message in
+            guard let self = self else { return }
             if let message = message {
-                self?.presentErrorAlert(message: message)
+                AlertHelper.presentErrorAlert(on: self, message: message)
             }
         }
         
@@ -75,49 +89,48 @@ final class AddEditRestaurantViewController: UIViewController {
         }
     }
     
+    // Sets up the navigation bar with save and cancel options
     private func setNavigationBar() {
         let navItem = UINavigationItem(title: viewModel.title)
         
-        // Save item
+        // Save button
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
         navItem.rightBarButtonItem = saveItem
         saveButtonItem = saveItem
-        // Cancel item
+        
+        // Cancel button
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navItem.leftBarButtonItem = cancelItem
         
         navBar.setItems([navItem], animated: false)
     }
     
+    // MARK: - User Actions
+
+    // Handles the save button tap
     @objc private func saveButtonTapped() {
         Task {
             await handleSave()
         }
     }
     
-    private func presentErrorAlert(message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: Lingo.commonError, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: Lingo.commonOk, style: .default))
-            self.present(alert, animated: true)
-        }
-    }
-    
+    // Shows or hides the loading indicator
     private func showLoading(_ loading: Bool) {
         if loading {
             activityIndicator?.startAnimating()
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator ?? UIView())
         } else {
             activityIndicator?.stopAnimating()
-            let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
-            navigationItem.rightBarButtonItem = saveItem
+            navigationItem.rightBarButtonItem = saveButtonItem
         }
     }
     
+    // Handles the cancel button tap
     @objc private func cancelButtonTapped() {
         dismiss(animated: true)
     }
     
+    // Processes the save action based on the scenario (add or edit)
     private func handleSave() async {
         switch scenario {
         case .add:
@@ -128,15 +141,17 @@ final class AddEditRestaurantViewController: UIViewController {
             }
         }
     }
-        
+    
+    // Presents the image picker to choose a restaurant image
     func presentImagePicker() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true)
     }
-
 }
+
+// MARK: - UIImagePickerControllerDelegate and UINavigationControllerDelegate
 
 extension AddEditRestaurantViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -147,6 +162,8 @@ extension AddEditRestaurantViewController: UIImagePickerControllerDelegate, UINa
          }
      }
 }
+
+// MARK: - TableView DataSource and Delegate
 
 extension AddEditRestaurantViewController: UITableViewDelegate, UITableViewDataSource {
     

@@ -7,12 +7,14 @@
 
 import UIKit
 
+// Structure to hold data for the restaurant header cell
 struct RestaurantHeaderData {
     let name: String
     let address: String
     let imageData: Data
 }
 
+// Enum representing different types of reviews
 enum ReviewType {
     case latest
     case highestRated
@@ -20,7 +22,11 @@ enum ReviewType {
     case normal
 }
 
+// MARK: - RestaurantDetailsViewController
+
 final class RestaurantDetailsViewController: UITableViewController {
+    
+    // Enum to represent different types of cells in the restaurant detail view
     private enum CellType {
         case header(RestaurantHeaderData)
         case rating(Double)
@@ -29,12 +35,15 @@ final class RestaurantDetailsViewController: UITableViewController {
         case addReview
     }
     
+    // Properties
     private var viewModel = RestaurantViewModel()
     private var cells: [CellType] = []
     var restaurant: Restaurant?
     var deleteCompletion: (() -> Void)?
     var editCompletion: (() -> Void)?
     
+    // MARK: - Lifecycle Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +53,9 @@ final class RestaurantDetailsViewController: UITableViewController {
         setupMoreButton()
     }
     
+    // MARK: - Setup Methods
+
+    // Configures the table view
     private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: RestaurantHeaderCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantHeaderCell.defaultReuseIdentifier)
@@ -53,11 +65,15 @@ final class RestaurantDetailsViewController: UITableViewController {
         tableView.register(UINib(nibName: ButtonCell.defaultReuseIdentifier, bundle: nil), forCellReuseIdentifier: ButtonCell.defaultReuseIdentifier)
     }
     
+    // Sets up the navigation bar with a more options button
     private func setupMoreButton() {
         let moreButton = UIBarButtonItem(image: Constants.moreMenuImage, style: .plain, target: self, action: #selector(moreButtonTapped))
         navigationItem.rightBarButtonItem = moreButton
     }
     
+    // MARK: - User Actions
+
+    // Handles the more options button tap
     @objc private func moreButtonTapped() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -78,14 +94,12 @@ final class RestaurantDetailsViewController: UITableViewController {
         present(actionSheet, animated: true)
     }
     
-    
-    
+    // Handles the edit button tap
     @objc private func editButtonTapped() {
         performSegue(withIdentifier: Segues.EditRestaurantSegue.val, sender: self)
-        
     }
     
-    
+    // Loads restaurant data into the view
     private func loadRestaurant() {
         guard let restaurant = restaurant else {
             return // Add logic later
@@ -95,6 +109,8 @@ final class RestaurantDetailsViewController: UITableViewController {
             .header(RestaurantHeaderData(name: restaurant.name, address: restaurant.address, imageData: restaurant.image)),
             .rating(restaurant.averageRating)
         ]
+        
+        // Populate cells with reviews if available
         if restaurant.hasReviews {
             if let latest = restaurant.latestReview {
                 cells.append(.review(.latest, latest))
@@ -108,10 +124,9 @@ final class RestaurantDetailsViewController: UITableViewController {
             cells.append(.showAllReviews)
         }
         cells.append(.addReview)
-        
-        
     }
     
+    // Prepares for segues to edit restaurant, add review, or show all reviews view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.EditRestaurantSegue.val {
             if let vc = segue.destination as? AddEditRestaurantViewController
@@ -136,6 +151,7 @@ final class RestaurantDetailsViewController: UITableViewController {
         }
     }
     
+    // Confirms and initiates the deletion of the restaurant
     private func confirmAndDeleteRestaurant() {
         let confirmAlert = UIAlertController(title: Lingo.commonConfirmDelete, message: Lingo.restaurantDetailConfirmDeleteMessage, preferredStyle: .alert)
         
@@ -147,6 +163,7 @@ final class RestaurantDetailsViewController: UITableViewController {
         present(confirmAlert, animated: true)
     }
     
+    // Performs the deletion of the restaurant
     private func performDeletion() {
         Task {
             do {
@@ -167,6 +184,8 @@ final class RestaurantDetailsViewController: UITableViewController {
         performSegue(withIdentifier: Segues.AddReviewSegue.val, sender: nil)
     }
 }
+
+// MARK: - TableView DataSource
 
 extension RestaurantDetailsViewController {
     
