@@ -7,6 +7,7 @@
 
 import Foundation
 
+//  A generic class that enables the creation of observable objects. This allows for the implementation of a simple data binding mechanism.
 class Observable<T> {
     typealias Listener = (T) -> Void
     var listener: Listener?

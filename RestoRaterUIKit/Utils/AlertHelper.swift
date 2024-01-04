@@ -7,6 +7,7 @@
 
 import UIKit
 
+// A simple struct used to present a simple Ok alert
 struct AlertHelper {
     
     static func presentErrorAlert(on viewController: UIViewController,
