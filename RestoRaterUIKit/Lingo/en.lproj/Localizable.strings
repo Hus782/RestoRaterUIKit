@@ -98,3 +98,8 @@
 
 //Register screen
 "registrationFailedKey" = "Registration Failed";
+
+// Tabbar labels
+"restaurants_tab" = "Restaurants";
+"users_tab" = "Users";
+"profile_tab" = "Profile";

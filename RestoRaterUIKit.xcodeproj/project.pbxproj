@@ -14,7 +14,6 @@
 		3D06AC072B357BF90057139A /* RestoRaterUIKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC052B357BF90057139A /* RestoRaterUIKit.xcdatamodeld */; };
 		3D06AC092B357BFB0057139A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D06AC082B357BFB0057139A /* Assets.xcassets */; };
 		3D06AC0C2B357BFB0057139A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D06AC0A2B357BFB0057139A /* LaunchScreen.storyboard */; };
-		3D06AC142B3589D80057139A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC132B3589D80057139A /* TabBarViewController.swift */; };
 		3D06AC162B358E8A0057139A /* RegisterVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC152B358E8A0057139A /* RegisterVIewController.swift */; };
 		3D06AC182B358EBB0057139A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06AC172B358EBB0057139A /* LoginViewController.swift */; };
 		3D109BF52B4695D600A00045 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D109BF42B4695D600A00045 /* Constants.swift */; };
@@ -117,7 +116,6 @@
 		3D06AC082B357BFB0057139A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D06AC0B2B357BFB0057139A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D06AC0D2B357BFB0057139A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D06AC132B3589D80057139A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3D06AC152B358E8A0057139A /* RegisterVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVIewController.swift; sourceTree = "<group>"; };
 		3D06AC172B358EBB0057139A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3D109BF42B4695D600A00045 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -417,7 +415,6 @@
 				3DAA82352B40710D0051AC8D /* User */,
 				3D06AC152B358E8A0057139A /* RegisterVIewController.swift */,
 				3D06AC172B358EBB0057139A /* LoginViewController.swift */,
-				3D06AC132B3589D80057139A /* TabBarViewController.swift */,
 				3D8AB7592B400F8100640749 /* ProfileViewController.swift */,
 				3D3A207D2B40422600B606E2 /* TabBarController.swift */,
 			);
@@ -665,7 +662,6 @@
 				3D6F80632B382E8F006C8684 /* LoginViewModel.swift in Sources */,
 				3D8AB75A2B400F8100640749 /* ProfileViewController.swift in Sources */,
 				3D6F80682B382EE9006C8684 /* PersistenceController.swift in Sources */,
-				3D06AC142B3589D80057139A /* TabBarViewController.swift in Sources */,
 				3D4B86422B42DF5800F63D21 /* ReviewCell.swift in Sources */,
 				3D6F80802B38306D006C8684 /* User+CoreDataClass.swift in Sources */,
 				3D6F807C2B38306D006C8684 /* Review+CoreDataClass.swift in Sources */,

@@ -106,4 +106,8 @@ struct Lingo {
     // Register screen
     static let registrationFailed = String(localized: "registrationFailedKey")
     
+    // Tabbar labels
+    static let restaurantTab = String(localized: "restaurants_tab")
+    static let usersTab = String(localized: "users_tab")
+    static let profileTab = String(localized: "profile_tab")
 }

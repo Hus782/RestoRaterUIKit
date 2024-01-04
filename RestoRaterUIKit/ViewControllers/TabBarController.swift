@@ -29,27 +29,27 @@ final class TabBarController: UITabBarController {
     private func setupTabBar() {
         let restaurantsViewController = RestaurantListVIewController.instantiateFromAppStoryboard(appStoryboard: .Restaurants)
         
-        let restaurantsNavigationController = createNavController(for: restaurantsViewController, title: "Restaurants", image: "fork.knife")
+        let restaurantsNavigationController = createNavController(for: restaurantsViewController, title: Lingo.restaurantTab, image: Constants.restaurantsTabImage)
 
         let profileViewController = ProfileVIewController.instantiateFromAppStoryboard(appStoryboard: .Profile)
-        let profileNavigationController = createNavController(for: profileViewController, title: "Profile", image: "person.fill")
+        let profileNavigationController = createNavController(for: profileViewController, title: Lingo.profileTab, image: Constants.profileTabImage)
 
         availableViewControllers.append(restaurantsNavigationController)
         availableViewControllers.append(profileNavigationController)
 
         if isAdmin {
             let usersViewController = UserListVIewController.instantiateFromAppStoryboard(appStoryboard: .Users)
-            let usersNavigationController = createNavController(for: usersViewController, title: "Users", image: "person.3.fill")
+            let usersNavigationController = createNavController(for: usersViewController, title: Lingo.usersTab, image: Constants.usersTabImage)
             availableViewControllers.insert(usersNavigationController, at: 1)
         }
 
         self.viewControllers = availableViewControllers
     }
     
-    private func createNavController(for rootViewController: UIViewController, title: String, image: String) -> UINavigationController {
+    private func createNavController(for rootViewController: UIViewController, title: String, image: UIImage?) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.tabBarItem.title = title
-        navigationController.tabBarItem.image = UIImage(systemName: image)
+        navigationController.tabBarItem.image = image
         return navigationController
     }
 }

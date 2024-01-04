@@ -16,7 +16,11 @@ struct Constants {
     // Images
     static let starFilledImage = UIImage(systemName: "star.fill")
     static let moreMenuImage =  UIImage(systemName: "ellipsis.circle")
+    static let usersTabImage =  UIImage(systemName: "person.3.fill")
+    static let restaurantsTabImage =  UIImage(systemName: "fork.knife")
+    static let profileTabImage =  UIImage(systemName: "person.fill")
 
+   
    
 }
 
